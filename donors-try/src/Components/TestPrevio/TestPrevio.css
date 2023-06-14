@@ -1,0 +1,35 @@
+.container {
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+ 
+}
+
+.each-one {
+    margin-bottom: 20px;
+}
+.radio-si{
+    align-self: start;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.heading {
+    flex: 1;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+.MuiFormControlLabel-root {
+    margin-right: 0;
+}
