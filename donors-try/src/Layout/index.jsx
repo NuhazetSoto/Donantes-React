@@ -6,9 +6,7 @@ function Root() {
   return (
     <>
     <Header />
-    <section>
       <Outlet />
-    </section>
     <div>ESTO ES EL FOOTER</div>
     </>
   )

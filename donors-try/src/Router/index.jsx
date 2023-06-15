@@ -9,6 +9,7 @@ import AccesoSanitario from "../Pages/AccesoSanitario/AccesoSanitario";
 import AccesoAdmin from "../Pages/AccesoAdmin/AccesoAdmin";
 import NotFound from "../Pages/NotFound/NotFound";
 import Root from "../Layout";
+import Pruebas from "../Pages/Pruebas/Pruebas";
 
 export const router= createBrowserRouter([
     {
@@ -45,5 +46,9 @@ export const router= createBrowserRouter([
     {
         path:'/login/admin',
         element: <AccesoAdmin/>
+    },
+    {
+        path:'/pruebas',
+        element:<Pruebas/>
     }
 ])
