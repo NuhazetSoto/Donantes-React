@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
 import Header from "../../Components/Header/Header";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [isPassVisible, setIsPassVisible] = useState(false);
@@ -36,21 +37,21 @@ function Login() {
 
   return (
     <>
-    <Header/>
+      <Header />
       <div
         className="container"
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "75vh",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '75vh',
         }}
       >
         <Card
           className="login"
-          sx={{ maxWidth: "900px" }}
+          sx={{ maxWidth: '900px' }}
           raised={true}
-          style={{ background: "##ff5232 " }}
+          style={{ background: '##ff5232 ' }}
         >
           <CardHeader title="Acceso Usuarios">Acceso Usuarios</CardHeader>
           <CardContent>
@@ -65,7 +66,7 @@ function Login() {
               }}
             ></TextField>
             <TextField
-              type={isPassVisible ? "text" : "password"}
+              type={isPassVisible ? 'text' : 'password'}
               fullWidth
               margin="dense"
               label="Contraseña"
@@ -84,7 +85,7 @@ function Login() {
           <CardActions>
             <Button
               onClick={(e) => {
-                checkEmail(email);
+                checkEmail(email)
               }}
               size="small"
               color="secondary"
@@ -94,9 +95,21 @@ function Login() {
             </Button>
           </CardActions>
         </Card>
+        <div>
+          <Link to={'/login/donante'}>
+            <Button>Donantes</Button>
+          </Link>
+          <Link to={'/login/sanitario'}>
+            <Button>Sanitarios</Button>
+          </Link>
+
+          <Link to={'/login/admin'}>
+            <Button>Administradores</Button>
+          </Link>
+        </div>
       </div>
     </>
-  );
+  )
 }
 
 export default Login;
