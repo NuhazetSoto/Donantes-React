@@ -10,6 +10,8 @@ import AccesoAdmin from "../Pages/AccesoAdmin/AccesoAdmin";
 import NotFound from "../Pages/NotFound/NotFound";
 import Root from "../Layout";
 import Pruebas from "../Pages/Pruebas/Pruebas";
+import VistaUsuarios from "../Pages/AccesoAdmin/VistaUsuarios/VistaUsuarios";
+import VistaPuntos from "../Pages/AccesoAdmin/VistaPuntos/VistaPuntos";
 
 export const router= createBrowserRouter([
     {
@@ -50,5 +52,13 @@ export const router= createBrowserRouter([
     {
         path:'/pruebas',
         element:<Pruebas/>
+    },
+    {
+        path:'/login/admin/usuarios',
+        element:<VistaUsuarios/>
+    },
+    {
+        path:'/login/admin/puntos',
+        element:<VistaPuntos/>
     }
 ])

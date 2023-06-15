@@ -4,8 +4,6 @@ import {
   CardContent,
   Typography,
 } from '@mui/material'
-import DataTableUsuarios from '../../Components/DataTable/DataTableUsuario'
-import DataTablePuntos from '../../Components/DataTable/DataTablePuntos'
 import SpringModal from '../../Components/Modal/Modal'
 
 

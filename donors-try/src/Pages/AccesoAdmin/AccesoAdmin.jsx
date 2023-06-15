@@ -5,6 +5,7 @@ import './AccesoAdmin.css'
 import DataTablePuntos from '../../Components/DataTable/DataTablePuntos'
 import DataTableUsuarios from '../../Components/DataTable/DataTableUsuario'
 import Footer from '../../Components/Footer/Footer'
+import { Link } from 'react-router-dom'
 
 function AccesoAdmin() {
   return (
@@ -19,6 +20,37 @@ function AccesoAdmin() {
           flexDirection: 'column',
         }}
       >
+        <div className="botones">
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
+          >
+            <Link
+              style={{ color: 'inherit', textDecoration: 'none' }}
+              to={'/login/admin/usuarios'}
+            >
+              Usuarios
+            </Link>
+          </Button>
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
+          >
+            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/admin/puntos'}>
+              Puntos de Extraccion
+            </Link>
+          </Button>
+        </div>
         <Card
           className="card"
           sx={{ minWidth: '900px' }}
@@ -62,7 +94,7 @@ function AccesoAdmin() {
           </CardContent>
         </Card>
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }
