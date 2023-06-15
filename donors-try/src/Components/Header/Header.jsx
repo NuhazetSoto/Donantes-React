@@ -33,11 +33,15 @@ function Header(props) {
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ width: '100vw', display: 'flex' }}>
         <CssBaseline />
         <AppBar
           component="nav"
-          style={{ background: '#BF0021', position: 'relative', maxHeight: '80px' }}
+          style={{
+            background: '#B31410',
+            position: 'relative',
+            maxHeight: '80px',
+          }}
         >
           <Toolbar>
             <IconButton
@@ -58,7 +62,7 @@ function Header(props) {
                 margin: 0,
               }}
             >
-              DonApp
+              #DonApp
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Link to={'/home'}>
@@ -100,15 +104,12 @@ function Header(props) {
             </Box>
           </Toolbar>
         </AppBar>
-        <Box component="main" sx={{ p: 3 }}>
-          <Toolbar />
-        </Box>
         <CssBaseline />
       </Box>
       <Toolbar
-        style={{ background: '#BF0021', position: 'relative', top: '-40px' }}
+        style={{ background: '#B31410', position: 'relative', top: '0px' }}
       >
-        <Typography style={{ color: 'whitesmoke'}}>
+        <Typography style={{ color: 'whitesmoke' }}>
           Teléfono gratuito de atención al donante: 900 234 061 | De lunes a
           viernes de 8:00 a 22:00 horas
         </Typography>
