@@ -20,19 +20,19 @@ function Footer() {
 
   function generateFooterElements() {
 
-    const footerElements = elements.map((column) => {
+    const footerElements = elements.map((column,idx) => {
 
       return (
 
-        <Grid item xs= {12} md= {4}>
+        <Grid key = {idx} item xs= {12} md= {4}>
           <Box borderBottom={1}>
             <Button sx= {{ color: 'white', fontWeight: 'bold' }}>
               {column.header}
             </Button>
           </Box>
-          {column.links.map((link) => {
+          {column.links.map((link,idx) => {
             return (
-              <Box>
+              <Box key = {idx}>
                 <Button sx= {{ color: 'white' }}>{link}</Button>
               </Box>
             )

@@ -3,6 +3,7 @@ import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
 import { Outlet } from 'react-router-dom'
 import './index.css'
+import Footer from '../Components/Footer/Footer'
 
 function Root() {
 
@@ -13,7 +14,7 @@ function Root() {
 
     <Outlet />
 
-    < Footer />
+    <Footer />
     
     </div>
   )

@@ -1,45 +1,44 @@
 import React from 'react'
 import Header from '../../Components/Header/Header'
-import { Button, Card, Typography } from '@mui/material'
+import { Button, Card, CardContent, CardHeader, List, ListItem, Typography } from '@mui/material'
 import './AccesoAdmin.css'
+import DataTablePuntos from '../../Components/DataTable/DataTablePuntos'
+import DataTableUsuarios from '../../Components/DataTable/DataTableUsuario'
+import Footer from '../../Components/Footer/Footer'
 
 function AccesoAdmin() {
   return (
     <>
       <Header />
-      <div>
-        <Typography
-          variant="h1"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            display: { xs: 'none', sm: 'block' },
-            margin: 0,
-          }}
-        >
-          HOLA ADMIN
-        </Typography>
-      </div>
-      <div className="box-buttons">
-        <Button>Usuario</Button>
-        <Button>Puntos de extraccion</Button>
-      </div>
-      <div className="cards">
+      <div
+        className="cards"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
+      >
         <Card
           className="card"
           sx={{ minWidth: '900px' }}
           raised={true}
           style={{ background: '##ff5232 ' }}
         >
-          <Typography>Usuarios</Typography>
-          <Typography>Id</Typography>
-          <Typography>DNI</Typography>
-          <Typography>Nombre</Typography>
-          <Typography>Apellidos</Typography>
-          <Typography>Telefono</Typography>
-          <Typography>Fecha de Nacimiento</Typography>
-          <Typography>Email</Typography>
-          <Typography>Role</Typography>
+          <CardContent>
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{
+                flexGrow: 1,
+                display: { xs: 'none', sm: 'block' },
+                margin: 0,
+              }}
+            >
+              Usuarios
+              <DataTableUsuarios />
+            </Typography>
+          </CardContent>
         </Card>
         <Card
           className="card"
@@ -47,16 +46,23 @@ function AccesoAdmin() {
           raised={true}
           style={{ background: '##ff5232 ' }}
         >
-          <Typography>Puntos de Extraccion</Typography>
-          <Typography>Id</Typography>
-          <Typography>Loc. gps</Typography>
-          <Typography>Usuarios</Typography>
-          <Typography>Usuarios</Typography>
-          <Typography>Usuarios</Typography>
-          <Typography>Usuarios</Typography>
-          <Typography>Usuarios</Typography>
+          <CardContent>
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{
+                flexGrow: 1,
+                display: { xs: 'none', sm: 'block' },
+                margin: 0,
+              }}
+            >
+              Puntos de Extraccion
+            </Typography>
+            <DataTablePuntos />
+          </CardContent>
         </Card>
       </div>
+      <Footer/>
     </>
   )
 }
