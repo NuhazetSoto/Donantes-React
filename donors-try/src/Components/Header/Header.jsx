@@ -24,7 +24,7 @@ const drawerWidth = 240;
 
 function Header(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [ mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -32,7 +32,7 @@ function Header(props) {
   
 
   return (
-    <>
+    <div>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
@@ -113,7 +113,7 @@ function Header(props) {
           viernes de 8:00 a 22:00 horas
         </Typography>
       </Toolbar>
-    </>
+    </div>
   )
 }
 
