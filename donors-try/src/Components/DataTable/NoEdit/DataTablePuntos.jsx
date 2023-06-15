@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material'
-import SpringModal from '../Modal/Modal'
+import SpringModal from '../../Modal/Modal'
+
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -128,7 +129,7 @@ const rows = [
   },
 ]
 
-export default function DataTablePuntos() {
+export default function DataTablePuntosN() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -148,7 +149,6 @@ export default function DataTablePuntos() {
               <TableCell align="right">{row.isla}</TableCell>
               <TableCell align="right">{row.direccion}</TableCell>
               <TableCell>
-                <SpringModal/>
               </TableCell>
             </TableRow>
           ))}
