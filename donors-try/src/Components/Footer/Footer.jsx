@@ -5,15 +5,15 @@ import { Box, Grid, Container, Typography, Button } from '@mui/material'
 function Footer() {
   const elements = [
     {
-      header: 'Help',
+      header: 'Contacto',
       links: ['Contact', 'Support', 'Privacy'],
     },
     {
-      header: 'Account',
+      header: 'Aviso Legal',
       links: ['Login', 'Register', 'New'],
     },
     {
-      header: 'Messages',
+      header: 'Politica de Privacidad',
       links: ['Backup', 'History', 'Roll'],
     },
   ]
@@ -27,13 +27,6 @@ function Footer() {
               {column.header}
             </Button>
           </Box>
-          {column.links.map((link) => {
-            return (
-              <Box>
-                <Button sx={{ color: 'white' }}>{link}</Button>
-              </Box>
-            )
-          })}
         </Grid>
       )
     })
@@ -50,7 +43,7 @@ function Footer() {
         </Container>
       </Box>
       <Box textAlign={'center'} py={2} m={0} bgcolor="#BF0021" color={'white'}>
-        <Typography>Â© DonApp - All Rights Reserved</Typography>
+        <Typography>© DonApp - All Rights Reserved</Typography>
       </Box>
     </footer>
   )

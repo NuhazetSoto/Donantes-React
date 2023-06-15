@@ -100,13 +100,10 @@ function Header(props) {
             </Box>
           </Toolbar>
         </AppBar>
-        <Box component="main" sx={{ p: 3 }}>
-          <Toolbar />
-        </Box>
         <CssBaseline />
       </Box>
       <Toolbar
-        style={{ background: '#BF0021', position: 'relative', top: '-40px' }}
+        style={{ background: '#BF0021', position: 'relative', top: '0px' }}
       >
         <Typography style={{ color: 'whitesmoke'}}>
           Teléfono gratuito de atención al donante: 900 234 061 | De lunes a
