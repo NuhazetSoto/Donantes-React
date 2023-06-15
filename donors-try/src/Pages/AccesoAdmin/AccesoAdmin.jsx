@@ -4,6 +4,7 @@ import { Button, Card, CardContent, CardHeader, List, ListItem, Typography } fro
 import './AccesoAdmin.css'
 import DataTablePuntos from '../../Components/DataTable/DataTablePuntos'
 import DataTableUsuarios from '../../Components/DataTable/DataTableUsuario'
+import Footer from '../../Components/Footer/Footer'
 
 function AccesoAdmin() {
   return (
@@ -61,6 +62,7 @@ function AccesoAdmin() {
           </CardContent>
         </Card>
       </div>
+      <Footer/>
     </>
   )
 }

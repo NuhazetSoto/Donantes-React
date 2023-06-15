@@ -32,8 +32,8 @@ const columns = [
 const rows = [
   {
     id: 1,
-    nombre: 'Snow',
-    tipo: 'Movil',
+    nombre: 'Hospital Dr. Negrín',
+    tipo: 'Fijo',
     horario: '08-22',
     telefono: '928 452 489',
     loc: 'un@email.es',
