@@ -61,7 +61,7 @@ function Header(props) {
               DonApp
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <Link to={'/home'}>
+              <Link to={'/'}>
                 <Button
                   sx={{ backgroundColor: '#BF0021', marginLeft: '10px' }}
                   variant="contained"

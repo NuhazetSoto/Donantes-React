@@ -11,7 +11,6 @@ import {
   TextField,
 } from "@mui/material";
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
-import Header from "../../Components/Header/Header";
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -37,7 +36,6 @@ function Login() {
 
   return (
     <>
-      <Header />
       <div
         className="container"
         style={{

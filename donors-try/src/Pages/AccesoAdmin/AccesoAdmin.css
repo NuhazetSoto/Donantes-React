@@ -1,0 +1,10 @@
+.box-buttons{
+    border: 1px solid black;
+}
+.cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+
+}
