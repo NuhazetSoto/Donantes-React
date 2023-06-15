@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import SpringModal from '../Modal/Modal';
+import SpringModal from '../../Modal/Modal';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -42,7 +42,7 @@ const rows = [
   { id: 9, nombre: 'Roxie', apellidos: 'Harvey', telefono: 65, fecha: '30/02/1997', email:'un@email.es', role: 'Donante'},
 ]
 
-export default function DataTableUsuarios() {
+export default function DataTableUsuariosN() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -62,7 +62,7 @@ export default function DataTableUsuarios() {
               <TableCell align="right">{row.email}</TableCell>
               <TableCell align="right">{row.role}</TableCell>
               <TableCell>
-                <SpringModal/>
+              
               </TableCell>
             </TableRow>
           ))}

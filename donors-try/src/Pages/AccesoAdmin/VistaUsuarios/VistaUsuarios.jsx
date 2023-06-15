@@ -1,5 +1,4 @@
-import React from 'react'
-import DataTableUsuarios from '../../../Components/DataTable/DataTableUsuario'
+import DataTableUsuarios from '../../../Components/DataTable/Edit/DataTableUsuario'
 import { Card, CardContent, Typography } from '@mui/material'
 
 function VistaUsuarios() {

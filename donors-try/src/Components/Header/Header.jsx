@@ -3,13 +3,7 @@ import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -32,7 +26,6 @@ function Header(props) {
   
 
   return (
-
     <>
       <Box sx={{ width: '100vw', display: 'flex' }}>
 
@@ -69,7 +62,7 @@ function Header(props) {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Link to={'/'}>
                 <Button
-                  sx={{ backgroundColor: '#BF0021', marginLeft: '10px' }}
+                  sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"
                   color="error"
                 >
@@ -78,7 +71,7 @@ function Header(props) {
               </Link>
               <Link to={'/puntos'}>
                 <Button
-                  sx={{ backgroundColor: '#BF0021', marginLeft: '10px' }}
+                  sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"
                   color="error"
                 >
@@ -87,7 +80,7 @@ function Header(props) {
               </Link>
               <Link to={'/cita'}>
                 <Button
-                  sx={{ backgroundColor: '#BF0021', marginLeft: '10px' }}
+                  sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"
                   color="error"
                 >
@@ -96,7 +89,7 @@ function Header(props) {
               </Link>
               <Link to={'/login'}>
                 <Button
-                  sx={{ backgroundColor: '#BF0021', marginLeft: '10px' }}
+                  sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"
                   color="error"
                 >
@@ -109,11 +102,7 @@ function Header(props) {
         <CssBaseline />
       </Box>
       <Toolbar
-
- 
-
         style={{ background: '#BF0021', position: 'relative', top: '0px' }}
-
       >
         <Typography style={{ color: 'whitesmoke' }}>
           Teléfono gratuito de atención al donante: 900 234 061 | De lunes a
