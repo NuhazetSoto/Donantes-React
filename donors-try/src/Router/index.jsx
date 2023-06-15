@@ -7,6 +7,7 @@ import CitaPrevia from "../Pages/CitaPrevia/CitaPrevia";
 import AccesoDonante from "../Pages/AccesoDonante/AccesoDonante";
 import AccesoSanitario from "../Pages/AccesoSanitario/AccesoSanitario";
 import AccesoAdmin from "../Pages/AccesoAdmin/AccesoAdmin";
+import CitaDonante from "../Pages/AccesoDonante/CitaDonante/CitaDonante";
 import NotFound from "../Pages/NotFound/NotFound";
 import Root from "../Layout";
 import Pruebas from "../Pages/Pruebas/Pruebas";
@@ -60,5 +61,9 @@ export const router= createBrowserRouter([
     {
         path:'/login/admin/puntos',
         element:<VistaPuntos/>
+    }, 
+   {
+    path: '/login/prueba2',
+    element: <CitaDonante />,
     }
 ])

@@ -1,0 +1,15 @@
+.card {
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 160px 20px;
+}
+
+.fechora{
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+    align-items: top;
+    padding: 20px 160px 20px
+}
