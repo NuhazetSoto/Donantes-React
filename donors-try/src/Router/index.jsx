@@ -7,23 +7,32 @@ import CitaPrevia from "../Pages/CitaPrevia/CitaPrevia";
 import AccesoDonante from "../Pages/AccesoDonante/AccesoDonante";
 import AccesoSanitario from "../Pages/AccesoSanitario/AccesoSanitario";
 import AccesoAdmin from "../Pages/AccesoAdmin/AccesoAdmin";
+import NotFound from "../Pages/NotFound/NotFound";
+import Root from "../Layout";
 
 export const router= createBrowserRouter([
     {
-        path:'/home',
-        element: <Home />
-    },
-    {
-        path:'/puntos',
-        element: <PuntosDonacion />
-    },
-    {
-        path: '/login',
-        element: <Login />
-    },
-    {
-        path:'/cita',
-        element: <CitaPrevia />
+        path:'/',
+        element: <Root />,
+        errorElement: <NotFound />,
+        children: [
+            {
+                path:'/',
+                element: <Home />
+            },
+            {
+                path:'/puntos',
+            element: <PuntosDonacion />
+            },
+            {
+                path:'/cita',
+                element: <CitaPrevia/>
+            },
+            {
+                path:'/login',
+                element:<Login />
+            }
+        ]
     },
     {
         path:'/login/donante',
