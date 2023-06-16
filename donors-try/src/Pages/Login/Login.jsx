@@ -1,30 +1,51 @@
 import { useState } from "react";
-
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  Divider,
-  IconButton,
-  TextField,
-} from "@mui/material";
+import { useNavigate } from 'react-router-dom'
+import { Button, Card, CardActions, CardContent, CardHeader, Divider, IconButton, TextField} from "@mui/material";
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { login } from "../../services/auth.service";
+
+
 
 function Login() {
   const [isPassVisible, setIsPassVisible] = useState(false);
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+  const navigate= useNavigate()  
+  
+  
+  function handleEmail(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePassword(e) {
+    setPassword(e.target.value)
+  }
+
+  const logIn = async () => {   
+    const data = await login(email, password)    
+   if(!localStorage.getItem('token'))
+      alert('Error: Usuario o contraseña invalidos')
+   else {
+    switch (localStorage.role) {
+      case 'Admin':
+        navigate('/login/admin')
+        break
+      case 'Donante':
+        navigate('/login/donante')
+      break
+      case 'Sanitario':
+        navigate('/login/sanitario')
+        break
+    }
+    }
+  }
 
   function handleClick() {
     setIsPassVisible(!isPassVisible);
   }
 
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
-
+/* 
   function checkEmail(email) {
     console.log(email);
     if (email === "nuha@mail") {
@@ -33,7 +54,7 @@ function Login() {
       alert("Email incorect");
     }
   }
-
+ */
   return (
     <>
       <div
@@ -58,6 +79,7 @@ function Login() {
               fullWidth
               margin="dense"
               label="Email"
+              type="email"
               variant="standard"
               InputProps={{
                 endAdornment: <Email />,
@@ -65,6 +87,7 @@ function Login() {
             ></TextField>
             <TextField
               type={isPassVisible ? 'text' : 'password'}
+              onChange={handlePassword}
               fullWidth
               margin="dense"
               label="Contraseña"
@@ -72,7 +95,7 @@ function Login() {
               InputProps={{
                 startAdornment: <Lock />,
                 endAdornment: (
-                  <IconButton onClick={(e) => handleClick()}>
+                  <IconButton onClick={handleClick}>
                     {isPassVisible ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 ),
@@ -82,9 +105,7 @@ function Login() {
           <Divider></Divider>
           <CardActions>
             <Button
-              onClick={(e) => {
-                checkEmail(email)
-              }}
+              onClick={logIn}
               size="small"
               color="secondary"
               variant="contained"
