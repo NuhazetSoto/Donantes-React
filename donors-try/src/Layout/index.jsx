@@ -8,11 +8,8 @@ function Root() {
 
   return (
     <div className='layout'>
-    
     <Header />
-
     <Outlet />
-
     <Footer />
     
     </div>

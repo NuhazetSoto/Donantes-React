@@ -28,7 +28,6 @@ function Header(props) {
   return (
     <>
       <Box sx={{ width: '100vw', display: 'flex' }}>
-
         <CssBaseline />
         <AppBar
           component="nav"
@@ -60,7 +59,10 @@ function Header(props) {
               #DonApp
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <Link to={'/'}>
+              <Link
+                to={'/'}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
                 <Button
                   sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"
@@ -69,7 +71,10 @@ function Header(props) {
                   Home
                 </Button>
               </Link>
-              <Link to={'/puntos'}>
+              <Link
+                to={'/puntos'}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
                 <Button
                   sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"
@@ -78,7 +83,10 @@ function Header(props) {
                   Puntos de Donacion
                 </Button>
               </Link>
-              <Link to={'/cita'}>
+              <Link
+                to={'/cita'}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
                 <Button
                   sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"
@@ -87,7 +95,10 @@ function Header(props) {
                   Cita Previa
                 </Button>
               </Link>
-              <Link to={'/login'}>
+              <Link
+                to={'/login'}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
                 <Button
                   sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
                   variant="contained"

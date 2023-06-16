@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material";
 
-function TestPrevio() {
+export default function TestPrevio() {
   const questions = [
     "¿Has donado en los últimos 3 meses?",
     "¿Se encuentra bien de salud?",
@@ -85,4 +85,4 @@ function TestPrevio() {
   );
 }
 
-export default TestPrevio;
+

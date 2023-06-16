@@ -20,8 +20,15 @@ function AccesoSanitario() {
 
 
   return (
+<<<<<<< HEAD
     <>
       <div className="cont">
+=======
+
+    <>
+    
+    <div className='cont'>
+>>>>>>> f0742787060ed27a26dd167f4f6ce5d5967b8b2f
         <div className="botones">
           <Button
             sx={{
@@ -52,6 +59,7 @@ function AccesoSanitario() {
               Ubicación
             </Link>
           </Button>
+<<<<<<< HEAD
           <Button
             sx={{
               alignContent: 'end',
@@ -95,6 +103,50 @@ function AccesoSanitario() {
         </Box>
       </div>
     </>
+=======
+          </div>
+
+
+          <Box>
+            <Typography
+            variant="h6"
+            component="div"
+            sx={{
+
+                flexGrow: 1,
+                display: { xs: 'none', sm: 'block' },
+                margin: 0,
+              }}
+
+            >
+            Fecha 14/07/2023
+            </Typography>
+
+
+            <Typography
+
+            variant="h6"
+            component="div"
+            sx={{             
+                flexGrow: 1,
+                display: { xs: 'none', sm: 'block' },
+                margin: 0,
+              }}
+            >
+            Hospital Negrin 
+            </Typography>
+          </Box>
+    </div>
+          </>
+
+
+
+
+      
+        
+
+     
+>>>>>>> f0742787060ed27a26dd167f4f6ce5d5967b8b2f
   )
 }
 

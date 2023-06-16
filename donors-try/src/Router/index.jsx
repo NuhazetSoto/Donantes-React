@@ -13,6 +13,7 @@ import Root from "../Layout";
 import Pruebas from "../Pages/Pruebas/Pruebas";
 import VistaUsuarios from "../Pages/AccesoAdmin/VistaUsuarios/VistaUsuarios";
 import VistaPuntos from "../Pages/AccesoAdmin/VistaPuntos/VistaPuntos";
+import VistaFormulario from "../Pages/FormularioDonante/VistaFormulario";
 import HistoricoDonante from "../Pages/AccesoDonante/HistoricoDonante/HistoricoDonante";
 
 export const router = createBrowserRouter([
@@ -37,7 +38,67 @@ export const router = createBrowserRouter([
         path: '/login',
         element: <Login />,
       },
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/puntos',
+        element: <PuntosDonacion />,
+      },
+      {
+        path: '/cita',
+        element: <CitaPrevia />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
 
+      {
+        path: '/login/sanitario',
+        element: <AccesoSanitario />,
+      },
+    ],
+  },
+  {
+    path: '/login/donante',
+    element: <AccesoDonante />,
+  },
+  {
+    path: '/login/sanitario',
+    element: <AccesoSanitario />,
+  },
+  {
+    path: '/login/admin',
+    element: <AccesoAdmin />,
+  },
+  {
+    path: '/pruebas',
+    element: <Pruebas />,
+  },
+  {
+    path: '/login/admin/usuarios',
+    element: <VistaUsuarios />,
+  },
+  {
+    path: '/login/admin/puntos',
+    element: <VistaPuntos />,
+  },
+  {
+    path: '/login/prueba2',
+    element: <CitaDonante />,
+  },
+  {
+    path: '/cita/formulario',
+    element: <VistaFormulario />,
+  },
       {
         path: '/login/sanitario',
         element: <AccesoSanitario />,
