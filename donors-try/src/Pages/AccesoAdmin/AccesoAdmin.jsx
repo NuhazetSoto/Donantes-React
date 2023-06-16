@@ -1,11 +1,11 @@
 import React from 'react'
 import Header from '../../Components/Header/Header'
-import { Button, Card, CardContent,Typography } from '@mui/material'
+import { Button} from '@mui/material'
 import './AccesoAdmin.css'
 import Footer from '../../Components/Footer/Footer'
 import { Link } from 'react-router-dom'
-import DataTablePuntosN from '../../Components/DataTable/NoEdit/DataTablePuntos'
-import DataTableUsuariosN from '../../Components/DataTable/NoEdit/DataTableUsuario'
+import ShowDataTableUsuarios from '../../Components/DataTable/DataTableShow/ShowDataTableUsuarios'
+import ShowDataTablePuntos from '../../Components/DataTable/DataTableShow/ShowDataTablePuntos'
 
 function AccesoAdmin() {
   return (
@@ -51,48 +51,8 @@ function AccesoAdmin() {
             </Link>
           </Button>
         </div>
-        <Card
-          className="card"
-          sx={{ minWidth: '900px' }}
-          raised={true}
-          style={{ background: '##ff5232 ' }}
-        >
-          <CardContent>
-            <Typography
-              variant="h4"
-              component="div"
-              sx={{
-                flexGrow: 1,
-                display: { xs: 'none', sm: 'block' },
-                margin: 0,
-              }}
-            >
-              Usuarios
-              <DataTableUsuariosN />
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card
-          className="card"
-          sx={{ minWidth: '900px' }}
-          raised={true}
-          style={{ background: '##ff5232 ' }}
-        >
-          <CardContent>
-            <Typography
-              variant="h4"
-              component="div"
-              sx={{
-                flexGrow: 1,
-                display: { xs: 'none', sm: 'block' },
-                margin: 0,
-              }}
-            >
-              Puntos de Extraccion
-            </Typography>
-            <DataTablePuntosN />
-          </CardContent>
-        </Card>
+      <ShowDataTableUsuarios/>
+      <ShowDataTablePuntos/>
       </div>
       <Footer />
     </>

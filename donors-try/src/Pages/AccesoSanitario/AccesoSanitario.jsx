@@ -16,6 +16,7 @@ function AccesoSanitario() {
   }))
 
   return (
+
     <div className="cont">
       <div className="botones">
         <Button
@@ -96,6 +97,8 @@ function AccesoSanitario() {
         </Typography>
       </Box>
     </div>
+
+
   )
 }
 

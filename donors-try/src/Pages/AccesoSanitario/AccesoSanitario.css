@@ -1,28 +1,24 @@
 
 
-/*.cont {
 
-    
-    display:flex;
+/*.cont {
+    display:flex-start;
     flex-direction: row;
     justify-content: center;
     flex-direction: row;
-    margin-top: -600px;
-
+    margin-top: -540px;
 
 }
 
 .botones {
-
-
     height: 200px;
     display: flex;
     flex: auto;
     justify-content: center;
     align-items: center;
     padding-top: 5px;
-    margin-top:-200px;
+
     
-    
+ 
 
 }*/

@@ -1,0 +1,15 @@
+.card {
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 160px 20px;
+}
+
+.botones {
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+}
