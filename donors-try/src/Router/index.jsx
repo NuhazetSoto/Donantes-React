@@ -13,77 +13,78 @@ import Root from "../Layout";
 import Pruebas from "../Pages/Pruebas/Pruebas";
 import VistaUsuarios from "../Pages/AccesoAdmin/VistaUsuarios/VistaUsuarios";
 import VistaPuntos from "../Pages/AccesoAdmin/VistaPuntos/VistaPuntos";
+import AccesoSanitarioUbi from "../Pages/AccesoSanitarioUbi/AccesoSanitarioUbi";
+import AccesoSanitarioDat from "../Pages/AccesoSanitarioDat/AccesoSanitarioDat";
+import AccesoSanitarioDatAct from "../Pages/AccesoSanitarioDatAct/AccesoSanitarioDatAct";
 
-export const router= createBrowserRouter([
-    {
-        path:'/',
-        element: <Root />,
-        errorElement: <NotFound />,
-        children: [
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/puntos',
+        element: <PuntosDonacion />,
+      },
+      {
+        path: '/cita',
+        element: <CitaPrevia />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
 
-            {
-                path:'/',
-                element: <Home />
-            },
-            {
-                path:'/puntos',
-                element: <PuntosDonacion />
-            },
-            {
-                path:'/cita',
-                element: <CitaPrevia/>
-            },
-            {
-                path:'/login',
-                element:<Login />
-            },
+      {
+        path: '/login/sanitario',
+        element: <AccesoSanitario />,
+      },
 
-            {
-                path:'/login/sanitario',
-                element:<AccesoSanitario/>
-            },
+      {
+        path: '/login/sanitario/ubicacion',
+        element: <AccesoSanitarioUbi />,
+      },
 
+      {
+        path: '/login/sanitario/misdatos',
+        element: <AccesoSanitarioDat />,
+      },
 
-            {
-                path:'/login/sanitario/ubicacion',
-                element:<AccesoSanitario/>
-            },
+      {
+        path: '/login/sanitario/misdatos/actualizar',
+        element: <AccesoSanitarioDatAct />,
+      },
+    ],
+  },
+  {
+    path: '/login/donante',
+    element: <AccesoDonante />,
+  },
 
-
-
-            {
-                path:'/login/sanitario/misdatos',
-                element:<AccesoSanitario/>
-            },
-        ]
-    },
-    {
-        path:'/login/donante',
-        element: <AccesoDonante />
-    },
-
-    /*{
-        path:'/login/sanitario',
-        element:<AccesoSanitario/>
-    },*/
-    {
-        path:'/login/admin',
-        element: <AccesoAdmin/>
-    },
-    {
-        path:'/pruebas',
-        element:<Pruebas/>
-    },
-    {
-        path:'/login/admin/usuarios',
-        element:<VistaUsuarios/>
-    },
-    {
-        path:'/login/admin/puntos',
-        element:<VistaPuntos/>
-    }, 
-   {
+  
+  {
+    path: '/login/admin',
+    element: <AccesoAdmin />,
+  },
+  {
+    path: '/pruebas',
+    element: <Pruebas />,
+  },
+  {
+    path: '/login/admin/usuarios',
+    element: <VistaUsuarios />,
+  },
+  {
+    path: '/login/admin/puntos',
+    element: <VistaPuntos />,
+  },
+  {
     path: '/login/prueba2',
     element: <CitaDonante />,
-    }
+  },
 ])
