@@ -1,8 +1,6 @@
 import React from 'react'
-import Header from '../../Components/Header/Header'
 import { Box, Button, Typography, Grid, Paper, TextField } from '@mui/material'
 import './AccesoSanitario.css'
-import Footer from '../../Components/Footer/Footer'
 import { styled } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
 
