@@ -88,6 +88,7 @@ function AccesoSanitarioDat() {
             }}
           >
             Información Personal
+            
           </Typography>
           <CardContent
             sx={{
@@ -97,7 +98,7 @@ function AccesoSanitarioDat() {
               flexDirection: 'column',
               alignItems:'center',
               height:'350vh',
-              
+
               
 
             }}
