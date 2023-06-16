@@ -1,12 +1,12 @@
-.card {
+.card{
     display: flex;
-    flex: auto;
+    flex: auto;  
     justify-content: space-between;
     align-items: center;
     padding: 20px 160px 20px;
 }
 
-.botones {
+.botones{
     display: flex;
     flex: auto;
     justify-content: center;

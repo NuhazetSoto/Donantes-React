@@ -5,17 +5,18 @@ import { Box, Grid, Container, Typography, Button } from '@mui/material'
 function Footer() {
   const elements = [
     {
-      header: 'Help',
-      links: ['Contact', 'Support', 'Privacy']
+
+      header: 'Contacto',
+      links: ['Contact', 'Support', 'Privacy'],
     },
     {
-      header: 'Account',
-      links: ['Login', 'Register', 'New']
+      header: 'Aviso Legal',
+      links: ['Login', 'Register', 'New'],
     },
     {
-      header: 'Messages',
-      links: ['Backup', 'History', 'Roll']
-    }
+      header: 'Politica de Privacidad',
+      links: ['Backup', 'History', 'Roll'],
+    },
   ]
 
   function generateFooterElements() {
@@ -30,13 +31,6 @@ function Footer() {
               {column.header}
             </Button>
           </Box>
-          {column.links.map((link,idx) => {
-            return (
-              <Box key = {idx}>
-                <Button sx= {{ color: 'white' }}>{link}</Button>
-              </Box>
-            )
-          })}
         </Grid>
       )
     })
@@ -52,7 +46,9 @@ function Footer() {
           </Grid>
         </Container>
       </Box>
-      <Box textAlign= {'center'} py={2} m={0} bgcolor= '#BF0021' color={'white'}>
+
+      <Box textAlign={'center'} py={2} m={0} bgcolor="#BF0021" color={'white'}>
+        
         <Typography>© DonApp - All Rights Reserved</Typography>
       </Box>
     </footer>

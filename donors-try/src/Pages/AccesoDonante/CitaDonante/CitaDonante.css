@@ -6,10 +6,10 @@
     padding: 20px 160px 20px;
 }
 
-.botones {
+.fechora{
     display: flex;
     flex: auto;
-    justify-content: center;
-    align-items: center;
-    padding-top: 5px;
+    justify-content: space-between;
+    align-items: top;
+    padding: 20px 160px 20px
 }

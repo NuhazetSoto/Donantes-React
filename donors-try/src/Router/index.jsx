@@ -7,9 +7,12 @@ import CitaPrevia from "../Pages/CitaPrevia/CitaPrevia";
 import AccesoDonante from "../Pages/AccesoDonante/AccesoDonante";
 import AccesoSanitario from "../Pages/AccesoSanitario/AccesoSanitario";
 import AccesoAdmin from "../Pages/AccesoAdmin/AccesoAdmin";
+import CitaDonante from "../Pages/AccesoDonante/CitaDonante/CitaDonante";
 import NotFound from "../Pages/NotFound/NotFound";
 import Root from "../Layout";
 import Pruebas from "../Pages/Pruebas/Pruebas";
+import VistaUsuarios from "../Pages/AccesoAdmin/VistaUsuarios/VistaUsuarios";
+import VistaPuntos from "../Pages/AccesoAdmin/VistaPuntos/VistaPuntos";
 
 export const router= createBrowserRouter([
     {
@@ -70,5 +73,17 @@ export const router= createBrowserRouter([
     {
         path:'/pruebas',
         element:<Pruebas/>
+    },
+    {
+        path:'/login/admin/usuarios',
+        element:<VistaUsuarios/>
+    },
+    {
+        path:'/login/admin/puntos',
+        element:<VistaPuntos/>
+    }, 
+   {
+    path: '/login/prueba2',
+    element: <CitaDonante />,
     }
 ])
