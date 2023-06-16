@@ -17,13 +17,14 @@ export const router= createBrowserRouter([
         element: <Root />,
         errorElement: <NotFound />,
         children: [
+
             {
                 path:'/',
                 element: <Home />
             },
             {
                 path:'/puntos',
-            element: <PuntosDonacion />
+                element: <PuntosDonacion />
             },
             {
                 path:'/cita',
@@ -38,16 +39,30 @@ export const router= createBrowserRouter([
                 path:'/login/sanitario',
                 element:<AccesoSanitario/>
             },
+
+
+            {
+                path:'/login/sanitario/ubicacion',
+                element:<AccesoSanitario/>
+            },
+
+
+
+            {
+                path:'/login/sanitario/misdatos',
+                element:<AccesoSanitario/>
+            },
         ]
     },
     {
         path:'/login/donante',
         element: <AccesoDonante />
     },
-    {
+
+    /*{
         path:'/login/sanitario',
         element:<AccesoSanitario/>
-    },
+    },*/
     {
         path:'/login/admin',
         element: <AccesoAdmin/>
