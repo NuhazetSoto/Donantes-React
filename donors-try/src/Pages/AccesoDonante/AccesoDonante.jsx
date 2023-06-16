@@ -16,7 +16,6 @@ function AccesoDonante() {
 
   return (
     <>
-      <Header />
       <div className="botones">
         <Button
           sx={{
@@ -27,7 +26,10 @@ function AccesoDonante() {
           variant="contained"
           color="error"
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/donante'}>
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/donante'}
+          >
             Mis Datos
           </Link>
         </Button>
@@ -40,7 +42,10 @@ function AccesoDonante() {
           variant="contained"
           color="error"
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/citadonante'}
+          >
             Pedir Cita
           </Link>
         </Button>
@@ -53,7 +58,7 @@ function AccesoDonante() {
           variant="contained"
           color="error"
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/historico'}>
             Historico
           </Link>
         </Button>
