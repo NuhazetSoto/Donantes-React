@@ -12,16 +12,12 @@ import Root from "../Layout";
 import Pruebas from "../Pages/Pruebas/Pruebas";
 import VistaUsuarios from "../Pages/AccesoAdmin/VistaUsuarios/VistaUsuarios";
 import VistaPuntos from "../Pages/AccesoAdmin/VistaPuntos/VistaPuntos";
-
 import AccesoSanitarioUbi from "../Pages/AccesoSanitarioUbi/AccesoSanitarioUbi";
 import AccesoSanitarioDat from "../Pages/AccesoSanitarioDat/AccesoSanitarioDat";
 import AccesoSanitarioDatAct from "../Pages/AccesoSanitarioDatAct/AccesoSanitarioDatAct";
-
 import VistaFormulario from "../Pages/FormularioDonante/VistaFormulario";
 import HistoricoDonante from "../Pages/AccesoDonante/HistoricoDonante/HistoricoDonante";
-
-
-
+111
 export const router = createBrowserRouter([
 
   {
@@ -45,19 +41,14 @@ export const router = createBrowserRouter([
         path: '/login',
         element: <Login />,
       },
-
-
       {
         path: '/login/sanitario',
         element: <AccesoSanitario />,
       },
-
-
       {
         path: '/login/sanitario/ubicacion',
         element: <AccesoSanitarioUbi />,
       },
-
       {
         path: '/login/sanitario/misdatos',
         element: <AccesoSanitarioDat />,
@@ -67,8 +58,6 @@ export const router = createBrowserRouter([
         path: '/login/sanitario/misdatos/actualizar',
         element: <AccesoSanitarioDatAct />,
       },
-
-
     ],
   },
   {
@@ -91,6 +80,7 @@ export const router = createBrowserRouter([
     path: '/cita/formulario',
     element: <VistaFormulario />,
   },
+
   {
     path: '/login/citadonante',
     element: <CitaDonante />,
@@ -100,6 +90,4 @@ export const router = createBrowserRouter([
     path: '/login/historico',
     element: <HistoricoDonante />,
   }
-
-
 ])
