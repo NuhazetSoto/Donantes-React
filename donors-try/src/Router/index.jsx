@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import PuntosDonacion from "../Pages/PuntosDonacion/PuntosDonacion";
@@ -18,12 +17,9 @@ import AccesoSanitarioDat from "../Pages/AccesoSanitarioDat/AccesoSanitarioDat";
 import AccesoSanitarioDatAct from "../Pages/AccesoSanitarioDatAct/AccesoSanitarioDatAct";
 import VistaFormulario from "../Pages/FormularioDonante/VistaFormulario";
 import HistoricoDonante from "../Pages/AccesoDonante/HistoricoDonante/HistoricoDonante";
-
-
-
-
-
+111
 export const router = createBrowserRouter([
+
   {
     path: '/',
     element: <Root />,
@@ -45,19 +41,14 @@ export const router = createBrowserRouter([
         path: '/login',
         element: <Login />,
       },
-
-
       {
         path: '/login/sanitario',
         element: <AccesoSanitario />,
       },
-
-
       {
         path: '/login/sanitario/ubicacion',
         element: <AccesoSanitarioUbi />,
       },
-
       {
         path: '/login/sanitario/misdatos',
         element: <AccesoSanitarioDat />,
@@ -67,28 +58,15 @@ export const router = createBrowserRouter([
         path: '/login/sanitario/misdatos/actualizar',
         element: <AccesoSanitarioDatAct />,
       },
-
-
     ],
   },
   {
     path: '/login/donante',
     element: <AccesoDonante />,
   },
-
-
-  {
-    path: '/login/sanitario',
-    element: <AccesoSanitario />,
-  },
-
   {
     path: '/login/admin',
     element: <AccesoAdmin />,
-  },
-  {
-    path: '/pruebas',
-    element: <Pruebas />,
   },
   {
     path: '/login/admin/usuarios',
@@ -102,20 +80,14 @@ export const router = createBrowserRouter([
     path: '/cita/formulario',
     element: <VistaFormulario />,
   },
-      {
-        path: '/login/sanitario',
-        element: <AccesoSanitario />,
-      },
-      {
-        path: '/login/citadonante',
-        element: <CitaDonante />,
-      },
-      {
-        path: '/login/donante',
-        element: <AccesoDonante />,
-      },
-      {
-        path: '/login/historico',
-        element: <HistoricoDonante />,
-      },
+
+  {
+    path: '/login/citadonante',
+    element: <CitaDonante />,
+  },
+
+   {
+    path: '/login/historico',
+    element: <HistoricoDonante />,
+  }
 ])

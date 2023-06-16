@@ -15,20 +15,22 @@ function AccesoSanitario() {
 
   return (
 
-    <div className="cont">
-      <div className="botones">
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+    <>
+      <div className="cont">
+        <div className="botones">
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
         >
           <Link
             style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/donante'}
+            to={'/login/sanitario'}
+
           >
             Listado de pacientes
             
@@ -47,6 +49,10 @@ function AccesoSanitario() {
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'/login/sanitario/ubicacion'}
           >
+
+            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+             
+
             Ubicación
           </Link>
         </Button>
@@ -95,8 +101,6 @@ function AccesoSanitario() {
         </Typography>
       </Box>
     </div>
-
-
   )
 }
 
