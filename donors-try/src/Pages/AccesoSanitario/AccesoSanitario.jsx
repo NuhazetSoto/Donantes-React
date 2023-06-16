@@ -21,13 +21,11 @@ function AccesoSanitario() {
 
   return (
 
+    <>
+    
     <div className='cont'>
-
-
         <div className="botones">
-
           <Button
-
             sx={{
 
               alignContent: 'end',
@@ -71,17 +69,12 @@ function AccesoSanitario() {
             <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
              Mis datos
             </Link>
-
           </Button>
-
           </div>
 
 
           <Box>
-
-
             <Typography
-
             variant="h6"
             component="div"
             sx={{
@@ -92,18 +85,7 @@ function AccesoSanitario() {
               }}
 
             >
-
             Fecha 14/07/2023
-
-              <TextField>
-
-
-
-
-                
-              </TextField>
-
-
             </Typography>
 
 
@@ -111,23 +93,17 @@ function AccesoSanitario() {
 
             variant="h6"
             component="div"
-            sx={{
-              
+            sx={{             
                 flexGrow: 1,
                 display: { xs: 'none', sm: 'block' },
                 margin: 0,
               }}
-
             >
-
             Hospital Negrin 
-
             </Typography>
-
-
-
-
           </Box>
+    </div>
+          </>
 
 
 
@@ -136,7 +112,6 @@ function AccesoSanitario() {
         
 
      
-    </div>
   )
 }
 
