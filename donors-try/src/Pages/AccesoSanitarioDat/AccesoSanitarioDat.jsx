@@ -81,17 +81,27 @@ function AccesoSanitarioDat() {
             variant="h5"
             component="div"
             sx={{
-
               flexGrow: 1,
               display: { xs: 'none', sm: 'block' },
               margin: 2,
-              height:'100px'
-
+              height: '100px',
             }}
           >
             Información Personal
           </Typography>
-          <CardContent >
+          <CardContent
+            sx={{
+
+              display: 'flex',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              alignItems:'center',
+              height:'350vh',
+              
+              
+
+            }}
+          >
             <List>
               <ListItem>DNI: </ListItem>
               <ListItem>Email: </ListItem>
@@ -105,13 +115,10 @@ function AccesoSanitarioDat() {
         </Card>
         <Box
           sx={{
-
-                height: '100vh',
-                display: 'flex',
-                flexDirection: 'column-reverse',
-                justifyContent: 'space-between'
-
-           
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column-reverse',
+            justifyContent: 'space-between',
           }}
         >
           <Button
