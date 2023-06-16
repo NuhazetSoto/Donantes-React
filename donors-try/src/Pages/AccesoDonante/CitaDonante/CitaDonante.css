@@ -7,9 +7,6 @@
 }
 
 .fechora{
-    display: flex;
-    flex: auto;
-    justify-content: space-between;
-    align-items: top;
-    padding: 20px 160px 20px
+    display: grid;
+    justify-content: center;
 }

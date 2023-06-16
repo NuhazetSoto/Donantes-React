@@ -1,6 +1,7 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import React from 'react'
-import DataTablePuntos from '../../../Components/DataTable/DataTablePuntos'
+import DataTablePuntos from '../../../Components/DataTable/Edit/DataTablePuntos/'
+
 
 function VistaPuntos() {
   return (

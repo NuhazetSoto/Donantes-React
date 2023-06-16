@@ -1,13 +1,12 @@
-.cont {
-    display:flex-start;
-    flex-direction: row;
+.card {
+    display: flex;
+    flex: auto;
     justify-content: center;
-    flex-direction: row;
-    margin-top: -540px;
+    align-items: center;
+    padding: 20px 160px 20px;
 }
 
 .botones {
-    height: 200px;
     display: flex;
     flex: auto;
     justify-content: center;

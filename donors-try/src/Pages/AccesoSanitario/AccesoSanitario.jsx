@@ -20,16 +20,11 @@ function AccesoSanitario() {
 
 
   return (
-
-    <div className='cont'>
-
-
+    <>
+      <div className="cont">
         <div className="botones">
-
           <Button
-
             sx={{
-
               alignContent: 'end',
               backgroundColor: '#BF0021',
               marginLeft: '8px',
@@ -39,24 +34,9 @@ function AccesoSanitario() {
           >
             <Link
               style={{ color: 'inherit', textDecoration: 'none' }}
-              to={'/login/donante'}
+              to={''}
             >
               Listado de pacientes
-
-            </Link>
-          </Button>
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-            }}
-
-            variant="contained"
-            color="error"
-          >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
-           Ubicación
             </Link>
           </Button>
           <Button
@@ -69,74 +49,52 @@ function AccesoSanitario() {
             color="error"
           >
             <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
-             Mis datos
+              Ubicación
             </Link>
-
           </Button>
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
+          >
+            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+              Mis datos
+            </Link>
+          </Button>
+        </div>
 
-          </div>
-
-
-          <Box>
-
-
-            <Typography
-
+        <Box>
+          <Typography
             variant="h6"
             component="div"
             sx={{
-
-                flexGrow: 1,
-                display: { xs: 'none', sm: 'block' },
-                margin: 0,
-              }}
-
-            >
-
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'block' },
+              margin: 0,
+            }}
+          >
             Fecha 14/07/2023
+            <TextField></TextField>
+          </Typography>
 
-              <TextField>
-
-
-
-
-                
-              </TextField>
-
-
-            </Typography>
-
-
-            <Typography
-
+          <Typography
             variant="h6"
             component="div"
             sx={{
-              
-                flexGrow: 1,
-                display: { xs: 'none', sm: 'block' },
-                margin: 0,
-              }}
-
-            >
-
-            Hospital Negrin 
-
-            </Typography>
-
-
-
-
-          </Box>
-
-
-
-
-      
-        
-
-     
-    </div>
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'block' },
+              margin: 0,
+            }}
+          >
+            Hospital Negrin
+          </Typography>
+        </Box>
+      </div>
+    </>
   )
 }
 
