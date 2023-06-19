@@ -14,26 +14,22 @@ function AccesoSanitario() {
   }))
 
   return (
-
-    <>
-      <div className="cont">
-        <div className="botones">
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-            }}
-            variant="contained"
-            color="error"
+    <div className="cont">
+      <div className="botones">
+        <Button
+          sx={{
+            alignContent: 'end',
+            backgroundColor: '#BF0021',
+            marginLeft: '8px',
+          }}
+          variant="contained"
+          color="error"
         >
           <Link
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'/login/sanitario'}
-
           >
             Listado de pacientes
-            
           </Link>
         </Button>
         <Button
@@ -49,10 +45,10 @@ function AccesoSanitario() {
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'/login/sanitario/ubicacion'}
           >
-
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
-             
-
+            <Link
+              style={{ color: 'inherit', textDecoration: 'none' }}
+              to={''}
+            />
             Ubicación
           </Link>
         </Button>
@@ -65,12 +61,12 @@ function AccesoSanitario() {
           variant="contained"
           color="error"
         >
-          <Link 
+          <Link
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'login/sanitario/misdatos'}
           >
             Mis datos
-          </Link >
+          </Link>
         </Button>
       </div>
 

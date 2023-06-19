@@ -24,6 +24,7 @@ function Login() {
 
   const logIn = async () => {   
     const data = await login(email, password)    
+   
    if(!localStorage.getItem('token'))
       alert('Error: Usuario o contraseña invalidos')
    else {
