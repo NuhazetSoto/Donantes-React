@@ -46,7 +46,6 @@ function AccesoSanitario() {
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'/login/sanitario/ubicacion'}
           >
-            
 
             Ubicación
           </Link>
@@ -68,34 +67,9 @@ function AccesoSanitario() {
           </Link>
         </Button>
       </div>
+      
       <ShowDataTableUsuarios />
 
-      <Box>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            display: { xs: 'none', sm: 'block' },
-            margin: 0,
-          }}
-        >
-          Fecha 14/07/2023
-          <TextField></TextField>
-        </Typography>
-
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            display: { xs: 'none', sm: 'block' },
-            margin: 0,
-          }}
-        >
-          Hospital Negrin
-        </Typography>
-      </Box>
     </Box>
   )
 }

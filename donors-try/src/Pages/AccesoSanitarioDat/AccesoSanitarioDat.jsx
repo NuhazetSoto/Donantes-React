@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../Components/Header/Header'
 import {
   Box,
   Button,
@@ -75,6 +74,7 @@ function AccesoSanitarioDat() {
             flexDirection: 'column',
             alignItems: 'center',
             backgroundColor: blue[100],
+            marginRight: '50px',
           }}
         >
           <Typography
@@ -88,19 +88,15 @@ function AccesoSanitarioDat() {
             }}
           >
             Información Personal
-            
           </Typography>
           <CardContent
             sx={{
-
               display: 'flex',
               justifyContent: 'center',
               flexDirection: 'column',
-              alignItems:'center',
-              height:'350vh',
-
-              
-
+              alignItems: 'center',
+              height: '350vh',
+              marginRight: '300px',
             }}
           >
             <List>
@@ -120,6 +116,7 @@ function AccesoSanitarioDat() {
             display: 'flex',
             flexDirection: 'column-reverse',
             justifyContent: 'space-between',
+            marginLeft: '100px',
           }}
         >
           <Button
@@ -142,6 +139,7 @@ function AccesoSanitarioDat() {
 
           <Button
             sx={{
+              
               alignContent: 'end',
               backgroundColor: '#BF0021',
               marginLeft: '8px',

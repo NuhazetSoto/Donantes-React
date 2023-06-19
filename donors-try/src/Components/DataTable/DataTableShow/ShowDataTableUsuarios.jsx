@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Button, Card } from '@mui/material';
+import { Box, Button, Card, Typography } from '@mui/material';
 import Search from '../../Search/Search';
 import { getAllUsers } from '../../../services/user.service';
 import { useEffect, useState } from 'react';
+import '../DataTableShow/ShowDataTableUsuarios.css';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -61,9 +62,36 @@ export default function ShowDataTableUsuarios() {
   }, [])
   
   return (
-    <Card sx= {{marginTop:'20px'}}>
-      
-      <Search/>
+    <Card sx={{ marginTop: '20px' }}>
+      <Box className="title">
+        <Search />
+        <Typography
+          variant="h7"
+          component="div"
+          sx={{
+            flexGrow: 1,
+            fontWeight: 'bold',
+            display: { xs: 'none', sm: 'block' },
+            margin: 0,
+            marginLeft: '25px',
+          }}
+        >
+          Fecha: 14/07/2023
+        </Typography>
+
+        <Typography
+          variant="h7"
+          component="div"
+          sx={{
+            flexGrow: 1,
+            fontWeight: 'bold',
+            display: { xs: 'none', sm: 'block' },
+            margin: 0,
+          }}
+        >
+          Punto: Hospital Negrin
+        </Typography>
+      </Box>
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={users}

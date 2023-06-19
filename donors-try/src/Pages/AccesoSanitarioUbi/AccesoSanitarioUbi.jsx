@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box, Button, Typography, Grid, Paper, TextField } from '@mui/material'
-import Footer from '../../Components/Footer/Footer'
 import { styled } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
 import Card from '@mui/material/Card'
@@ -16,22 +15,25 @@ function AccesoSanitarioUbi() {
   return (
     <Box
       sx={{
+
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        paddingTop: '100px',
-        paddingBottom: '10px',
+        paddingBottom: '10px'
+        
+
       }}
     >
       <Box
         sx={{
+
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'row',
           alignItems: 'flex-start',
           flex:'auto',
           height: '10%',
-          paddingTop: '1px',
+          paddingTop: '10px',
           paddingBottom: '10px',
         }}
       >
