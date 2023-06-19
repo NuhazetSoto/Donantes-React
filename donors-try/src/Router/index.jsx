@@ -17,9 +17,6 @@ import AccesoSanitarioDatAct from "../Pages/AccesoSanitarioDatAct/AccesoSanitari
 import VistaFormulario from "../Pages/FormularioDonante/VistaFormulario";
 import HistoricoDonante from "../Pages/AccesoDonante/HistoricoDonante/HistoricoDonante";
 
-export const router = createBrowserRouter([
-
-
 
 const checkAuth = () => {
   if(!localStorage.getItem('token')) return redirect('/login')
@@ -51,29 +48,62 @@ const checkSanitario =() => {
   return null
   } else {
   return  redirect('/')
-  }  
+  }
 }
-
-
-
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     errorElement: <NotFound />,
     children: [
-      {path: '/', element: <Home /> },
-      {path: '/login', element: <Login /> },
-      {path: '/login/admin', element: <AccesoAdmin />, loader: checkAdmin },
-      {path: '/login/donante', element: <AccesoDonante />, loader: checkDonante},
-      {path: '/login/sanitario', element: <AccesoSanitario />, loader: checkSanitario},
-      {path: '/puntos', element: <PuntosDonacion />, loader: checkAdmin },
-      {path: '/cita', element: <CitaPrevia />, loader: checkAdmin },
-      {path: '/login/admin/usuarios', element: <VistaUsuarios />, loader: checkAdmin},
-      {path: '/login/admin/puntos', element: <VistaPuntos />, loader: checkAdmin},
-      {path: '/cita/formulario', element: <VistaFormulario />, loader: checkDonante},
-      {path: '/login/citadonante', element: <CitaDonante />, loader: checkDonante},
-      {path: '/login/historico', element: <HistoricoDonante />, loader: checkDonante},
+      { path: '/', element: <Home /> },
+      { path: '/login', element: <Login /> },
+      { path: '/login/admin', element: <AccesoAdmin />, loader: checkAdmin },
+      {
+        path: '/login/donante',
+        element: <AccesoDonante />,
+        loader: checkDonante,
+      },
+      {
+        path: '/login/sanitario',
+        element: <AccesoSanitario />,
+        loader: checkSanitario,
+      },
+      { path: '/puntos', element: <PuntosDonacion />, loader: checkAdmin },
+      { path: '/cita', element: <CitaPrevia />, loader: checkAdmin },
+      {
+        path: '/login/admin/usuarios',
+        element: <VistaUsuarios />,
+        loader: checkAdmin,
+      },
+      {
+        path: '/login/admin/puntos',
+        element: <VistaPuntos />,
+        loader: checkAdmin,
+      },
+      {
+        path: '/cita/formulario',
+        element: <VistaFormulario />,
+        loader: checkDonante,
+      },
+      {
+        path: '/login/citadonante',
+        element: <CitaDonante />,
+        loader: checkDonante,
+      },
+      {
+        path: '/login/historico',
+        element: <HistoricoDonante />,
+        loader: checkDonante,
+      },
+      {
+        path: '/login/sanitario/ubicacion',
+        element: <AccesoSanitarioUbi />,
+        loader: checkSanitario,
+      },
+      {path: '/login/sanitario/misdatos',element: <AccesoSanitarioDat />,loader: checkSanitario},
+
+      {path: '/login/sanitario/misdatos/actualizar', element: <AccesoSanitarioDatAct />,loader: checkSanitario},
     ],
   },
 ])
