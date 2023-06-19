@@ -3,6 +3,7 @@ import { Box, Button, Typography, Grid, Paper, TextField } from '@mui/material'
 import './AccesoSanitario.css'
 import { styled } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
+import ShowDataTableUsuarios from '../../Components/DataTable/DataTableShow/ShowDataTableUsuarios'
 
 function AccesoSanitario() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -14,16 +15,16 @@ function AccesoSanitario() {
   }))
 
   return (
-    <div className="cont">
-      <div className="botones">
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+      <Box className="cont">
+        <div className="botones">
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
         >
           <Link
             style={{ color: 'inherit', textDecoration: 'none' }}
@@ -45,10 +46,8 @@ function AccesoSanitario() {
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'/login/sanitario/ubicacion'}
           >
-            <Link
-              style={{ color: 'inherit', textDecoration: 'none' }}
-              to={''}
-            />
+            
+
             Ubicación
           </Link>
         </Button>
@@ -69,6 +68,7 @@ function AccesoSanitario() {
           </Link>
         </Button>
       </div>
+      <ShowDataTableUsuarios />
 
       <Box>
         <Typography
@@ -96,7 +96,7 @@ function AccesoSanitario() {
           Hospital Negrin
         </Typography>
       </Box>
-    </div>
+    </Box>
   )
 }
 

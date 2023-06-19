@@ -17,6 +17,10 @@ import AccesoSanitarioDatAct from "../Pages/AccesoSanitarioDatAct/AccesoSanitari
 import VistaFormulario from "../Pages/FormularioDonante/VistaFormulario";
 import HistoricoDonante from "../Pages/AccesoDonante/HistoricoDonante/HistoricoDonante";
 
+export const router = createBrowserRouter([
+
+
+
 const checkAuth = () => {
   if(!localStorage.getItem('token')) return redirect('/login')
   else return null
