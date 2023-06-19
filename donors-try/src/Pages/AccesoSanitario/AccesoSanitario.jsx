@@ -14,9 +14,7 @@ function AccesoSanitario() {
   }))
 
   return (
-
-    <>
-      <div className="cont">
+      <Box className="cont">
         <div className="botones">
           <Button
             sx={{
@@ -49,9 +47,7 @@ function AccesoSanitario() {
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'/login/sanitario/ubicacion'}
           >
-
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
-             
+            
 
             Ubicación
           </Link>
@@ -100,7 +96,7 @@ function AccesoSanitario() {
           Hospital Negrin
         </Typography>
       </Box>
-    </div>
+    </Box>
   )
 }
 
