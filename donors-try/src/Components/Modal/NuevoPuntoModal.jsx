@@ -61,7 +61,7 @@ const style = {
   p: 4,
 }
 
-export default function ModalCrearUsuario() {
+export default function ModalCrearPunto() {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -78,7 +78,7 @@ export default function ModalCrearUsuario() {
         color="error"
         onClick={handleOpen}
       >
-        Crear Nuevo Usuario
+        Crear Nuevo Punto
       </Button>
       <Modal
         aria-labelledby="spring-modal-title"
@@ -96,38 +96,30 @@ export default function ModalCrearUsuario() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="spring-modal-title" variant="h5" component="h5">
-              Nuevo Usuario:
+              Nuevo Punto:
             </Typography>
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              DNI
-            </Typography>
-            <TextField />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Nombre
+              Loc
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Apellidos
+              Tipo
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Telefono
+              Nombtr
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Fecha de nacimiento
+              Isla
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Email
+              Direccion
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Password
-            </Typography>
-            <TextField />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Role
+              Horario
             </Typography>
             <TextField />
             <Button>Crear</Button>

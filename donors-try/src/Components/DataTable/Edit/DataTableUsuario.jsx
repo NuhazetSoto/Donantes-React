@@ -108,10 +108,7 @@ export default function DataTableUsuarios() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Link
-        to={'/login/admin'}
-        style={{ color: 'inherit', textDecoration: 'none' }}
-      >
+      <Link to={'/login/admin'} style={{ color: 'inherit', textDecoration: 'none' }}>
         <Button
           sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
           variant="contained"
@@ -120,8 +117,8 @@ export default function DataTableUsuarios() {
           Volver
         </Button>
       </Link>
-      
-      <ModalCrearUsuario/>
+
+      <ModalCrearUsuario />
     </>
   )
 }
