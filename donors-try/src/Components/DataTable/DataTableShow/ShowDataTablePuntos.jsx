@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import { Card } from '@mui/material'
-import Search from '../../Search/Search'
 import { useState, useEffect } from 'react'
 import { getAllPuntos } from '../../../services/puntos.service'
+import TableSearch from '../../Search/TableSearch'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -49,7 +49,7 @@ export default function ShowDataTablePuntos() {
 
   return (
     <Card sx={{marginTop:'20px', marginBottom:'20px'}}>
-        <Search/>
+        <TableSearch/>
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={puntos}

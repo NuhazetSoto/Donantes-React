@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button, Card } from '@mui/material';
-import Search from '../../Search/Search';
+
 import { getAllUsers } from '../../../services/user.service';
 import { useEffect, useState } from 'react';
+import TableSearch from '../../Search/TableSearch';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -63,7 +64,7 @@ export default function ShowDataTableUsuarios() {
   return (
     <Card sx= {{marginTop:'20px'}}>
       
-      <Search/>
+      <TableSearch/>
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={users}

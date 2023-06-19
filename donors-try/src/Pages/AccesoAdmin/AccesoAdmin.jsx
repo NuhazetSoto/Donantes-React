@@ -51,8 +51,6 @@ function AccesoAdmin() {
             </Link>
           </Button>
         </div>
-      <ShowDataTableUsuarios/>
-      <ShowDataTablePuntos/>
       </div>
       
     </>
