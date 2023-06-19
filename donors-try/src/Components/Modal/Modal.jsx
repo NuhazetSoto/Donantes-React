@@ -84,13 +84,42 @@ export default function SpringModal() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <TextField label=""/>
-            <Typography id="spring-modal-title" variant="h6" component="h2">
-              Text in a modal
+            <Typography id="spring-modal-title" variant="h5" component="h5">
+              Nuevo Usuario:
             </Typography>
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              DNI
             </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Nombre
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Apellidos
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Telefono
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Fecha de nacimiento
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Email
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Password
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Role
+            </Typography>
+            <TextField />
+            <Button>Modificar</Button>
           </Box>
         </Fade>
       </Modal>

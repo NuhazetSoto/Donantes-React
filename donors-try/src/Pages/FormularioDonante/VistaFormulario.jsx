@@ -6,7 +6,6 @@ import Header from '../../Components/Header/Header'
 function VistaFormulario() {
   return (
     <>
-    <Header/>
       <Card>
        <TestPrevio/>
       </Card>
