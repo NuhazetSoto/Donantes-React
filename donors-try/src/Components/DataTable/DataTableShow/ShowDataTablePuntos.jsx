@@ -50,7 +50,6 @@ export default function ShowDataTablePuntos() {
   return (
     <Card sx={{marginTop:'20px', marginBottom:'20px'}}>
         <Search/>
-
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={puntos}

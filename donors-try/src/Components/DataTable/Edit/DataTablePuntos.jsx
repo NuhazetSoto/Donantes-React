@@ -5,6 +5,7 @@ import SpringModal from '../../Modal/Modal'
 import { getAllPuntos } from '../../../services/puntos.service'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import ModalCrearPunto from '../../Modal/NuevoPuntoModal'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -84,8 +85,9 @@ export default function DataTablePuntos() {
         sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
         variant="contained"
         color="error"
-      >Volver</Button>
+        >Volver</Button>
       </Link>
+        <ModalCrearPunto/>
     </>
   )
 }

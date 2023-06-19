@@ -24,7 +24,8 @@ function Login() {
 
   const logIn = async () => {   
     const data = await login(email, password)    
-   
+    console.log(email)
+
    if(!localStorage.getItem('token'))
       alert('Error: Usuario o contraseña invalidos')
    else {
@@ -115,18 +116,7 @@ function Login() {
             </Button>
           </CardActions>
         </Card>
-        <div>
-          <Link to={'/login/donante'}>
-            <Button>Donantes</Button>
-          </Link>
-          <Link to={'/login/sanitario'}>
-            <Button>Sanitarios</Button>
-          </Link>
-
-          <Link to={'/login/admin'}>
-            <Button>Administradores</Button>
-          </Link>
-        </div>
+        
       </div>
     </>
   )
