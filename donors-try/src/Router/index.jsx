@@ -9,7 +9,6 @@ import AccesoAdmin from "../Pages/AccesoAdmin/AccesoAdmin";
 import CitaDonante from "../Pages/AccesoDonante/CitaDonante/CitaDonante";
 import NotFound from "../Pages/NotFound/NotFound";
 import Root from "../Layout";
-import Pruebas from "../Pages/Pruebas/Pruebas";
 import VistaUsuarios from "../Pages/AccesoAdmin/VistaUsuarios/VistaUsuarios";
 import VistaPuntos from "../Pages/AccesoAdmin/VistaPuntos/VistaPuntos";
 import AccesoSanitarioUbi from "../Pages/AccesoSanitarioUbi/AccesoSanitarioUbi";
@@ -17,7 +16,6 @@ import AccesoSanitarioDat from "../Pages/AccesoSanitarioDat/AccesoSanitarioDat";
 import AccesoSanitarioDatAct from "../Pages/AccesoSanitarioDatAct/AccesoSanitarioDatAct";
 import VistaFormulario from "../Pages/FormularioDonante/VistaFormulario";
 import HistoricoDonante from "../Pages/AccesoDonante/HistoricoDonante/HistoricoDonante";
-111
 export const router = createBrowserRouter([
 
   {

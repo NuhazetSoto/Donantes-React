@@ -3,6 +3,7 @@ import { Box, Button, Typography, Grid, Paper, TextField } from '@mui/material'
 import './AccesoSanitario.css'
 import { styled } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
+import ShowDataTableUsuarios from '../../Components/DataTable/DataTableShow/ShowDataTableUsuarios'
 
 function AccesoSanitario() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -28,10 +29,8 @@ function AccesoSanitario() {
           <Link
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'/login/sanitario'}
-
           >
             Listado de pacientes
-            
           </Link>
         </Button>
         <Button
@@ -61,14 +60,15 @@ function AccesoSanitario() {
           variant="contained"
           color="error"
         >
-          <Link 
+          <Link
             style={{ color: 'inherit', textDecoration: 'none' }}
             to={'login/sanitario/misdatos'}
           >
             Mis datos
-          </Link >
+          </Link>
         </Button>
       </div>
+      <ShowDataTableUsuarios />
 
       <Box>
         <Typography
