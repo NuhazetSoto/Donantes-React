@@ -1,19 +1,22 @@
-<<<<<<< HEAD
+
 .cont {
-    display:flex-start;
-    flex-direction: row;
-    justify-content: center;
-    flex-direction: row;
-    margin-top: -540px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+   
+ 
+
 }
 
 .botones {
-    height: 200px;
+
+ 
     display: flex;
-    flex: auto;
     justify-content: center;
     align-items: center;
-    padding-top: 5px;
+    flex-direction: row;
+    max-height: 50px;
+
 }
-=======
->>>>>>> f0742787060ed27a26dd167f4f6ce5d5967b8b2f
