@@ -9,8 +9,7 @@ import ShowDataTablePuntos from '../../Components/DataTable/DataTableShow/ShowDa
 
 function AccesoAdmin() {
   return (
-    <>
-      <Header />
+    <>     
       <div
         className="cards"
         style={{
@@ -54,7 +53,7 @@ function AccesoAdmin() {
       <ShowDataTableUsuarios/>
       <ShowDataTablePuntos/>
       </div>
-      <Footer />
+    
     </>
   )
 }
