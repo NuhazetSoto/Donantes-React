@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Box, Button, Card, Typography } from '@mui/material';
-import Search from '../../Search/Search'
+
 import { getAllUsers } from '../../../services/user.service';
 import { useEffect, useState } from 'react';
 import TableSearch from '../../Search/TableSearch';
@@ -65,7 +65,7 @@ export default function ShowDataTableUsuarios() {
   return (
     <Card sx={{ marginTop: '20px' }}>
       <Box className="title">
-        <Search />
+        <TableSearch />
         <Typography
           variant="h7"
           component="div"
@@ -93,23 +93,21 @@ export default function ShowDataTableUsuarios() {
           Punto: Hospital Negrin
         </Typography>
       </Box>
-    <Card sx= {{marginTop:'20px'}}>
-      
-      <TableSearch/>
-      <div style={{ height: 400, width: '100%' }}>
-        <DataGrid
-          rows={users}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-        />
-      </div>
-    </Card>
+      <Card sx={{ marginTop: '20px' }}>
+        <div style={{ height: 400, width: '100%' }}>
+          <DataGrid
+            rows={users}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 5 },
+              },
+            }}
+            pageSizeOptions={[5, 10]}
+            checkboxSelection
+          />
+        </div>
+      </Card>
     </Card>
   )
 }
