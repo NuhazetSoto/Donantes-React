@@ -1,12 +1,20 @@
 import {Button,Card,CardActions,CardContent,Typography,} from '@mui/material'
 import { Link } from 'react-router-dom'
 import './CitaDonante.css'
-import PuntoDonacion from '../../../Components/PuntoDonacion/PuntoDonacion'
-import SpringModal from '../../../Components/Modal/ModalConfirmarCita'
-import CommonlyUsedComponents from '../../../Components/FechaCita/FechaHoraCita'
 import ModalSolicitaCita from '../../../Components/Modal/ModalSolicitaCita'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 function CitaDonante() {
+  const[data, setData] = useState([])
+
+  const handleData = async () => {
+    const algo = await getAllUsers()
+    setData(algo)
+  }
+  useEffect(() => {
+    handleData()
+  }, [])
   return (
     <>
       <div className="botones">
@@ -60,9 +68,8 @@ function CitaDonante() {
         </Button>
       </div>
       <div>
-        <Card><ModalSolicitaCita /></Card>
+        <ModalSolicitaCita cita={data}/>
       </div>
-     
     </>
   )
 }

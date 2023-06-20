@@ -10,10 +10,8 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material'
-import SpringModal from '../../Modal/Modal'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import ModalCrearUsuario from '../../Modal/NuevoUsuarioModal'
 import TableSearch from '../../Search/TableSearch'
 import { getAllPuntos } from '../../../services/puntos.service'
 import SpringModalPuntos from '../../Modal/ModalPuntos'
@@ -63,11 +61,11 @@ export default function DataTableUsuarios({ data }) {
             <TableCell align="right">{ele.pextraccion}</TableCell>
             <TableCell align="right">{ele.pextraccion_horario}</TableCell>
             <TableCell align="right">{ele.pextraccion_tlf}</TableCell>
-            {/* <TableCell align="right">{ele.loc_gps}</TableCell> */}
+            <TableCell align="right">{ele.loc_gps}</TableCell>
             <TableCell align="right">{ele.pextraccion_isla}</TableCell>
             <TableCell align="right">{ele.pextraccion_direccion}</TableCell>
             <TableCell>
-             {/*  <SpringModalPuntos user={ele} hadleUpdate={handleUpdate} /> */}
+              <SpringModalPuntos puntos={ele} hadleUpdate={handleUpdate} />
             </TableCell>
           </TableRow>
         )
@@ -86,7 +84,7 @@ export default function DataTableUsuarios({ data }) {
             <TableCell align="right">{ele.pextraccion}</TableCell>
             <TableCell align="right">{ele.pextraccion_horario}</TableCell>
             <TableCell align="right">{ele.pextraccion_tlf}</TableCell>
-            {/* <TableCell align="right">{ele.loc_gps}</TableCell> */}
+            <TableCell align="right">{ele.loc_gps}</TableCell>
             <TableCell align="right">{ele.pextraccion_isla}</TableCell>
             <TableCell align="right">{ele.pextraccion_direccion}</TableCell>
             <TableCell>

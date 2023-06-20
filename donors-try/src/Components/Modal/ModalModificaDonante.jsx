@@ -7,8 +7,9 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { api } from '../../services/api'
+import { useEffect } from 'react'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -57,17 +58,15 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  height: '100vh',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 }
 
-export default function SpringModalPuntos({ puntos, hadleUpdate }) {
+export default function ModalModificaDonante({user, handleUpdate}) {
   const [open, setOpen] = React.useState(false)
   const [editedData, setEditedData] = useState({})
-
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
@@ -76,15 +75,19 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
     console.log(localStorage.getItem('token'))
     try {
       const respuesta = await api.put(
-        `/puntoextraccion/${editedData.id}`,
+        `/user/${editedData.id}`,
         {
-          loc_gps: editedData.loc_gps,
-          pextraccion: editedData.pextraccion,
-          pextraccion_name: editedData.pextraccion_name,
-          pextraccion_isla: editedData.pextraccion_isla,
-          pextraccion_direccion: editedData.pextraccion_direccion,
-          pextraccion_tlf: editedData.pextraccion_tlf,
-          pextraccion_horario: editedData.pextraccion_horario,
+          dni: editedData.dni,
+          name: editedData.name,
+          lastname: editedData.lastname,
+          phone: editedData.phone,
+          fecha_nacimiento: editedData.fecha_nacimiento,
+          email: editedData.email,
+          password: editedData.password,
+          hemorhId: editedData.hemorhId,
+          hemogrupoId: editedData.hemogrupoId,
+          localidad: editedData.localidad,
+          direccion: editedData.direccion,
         },
         {
           headers: { token: localStorage.getItem('token') },
@@ -92,7 +95,7 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
       )
       if (respuesta) {
         console.log('Datos actualizados')
-        hadleUpdate()
+        handleUpdate()
         handleClose()
       } else {
         console.error('Fallo al actualizar datos')
@@ -109,12 +112,23 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
     }))
   }
   useEffect(() => {
-    setEditedData(puntos)
+    setEditedData(user)
   }, [])
 
   return (
     <div>
-      <Button onClick={handleOpen}>Editar</Button>
+      <Button
+        onClick={handleOpen}
+        sx={{
+          alignContent: 'end',
+          backgroundColor: '#BF0021',
+          marginLeft: '8px',
+        }}
+        variant="contained"
+        color="error"
+      >
+        Editar
+      </Button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
@@ -130,66 +144,77 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Typography id="spring-modal-title" variant="h5" component="h5">
-              Nuevo Punto:
+            <Typography id="spring-modal-title" variant="h4" component="h5">
+              <Typography> Modifica Datos del Donante :</Typography>
             </Typography>
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Loc
-            </Typography>
-            <TextField
-              name="loc_gps"
-              value={editedData.loc_gps || ''}
-              onChange={handleInputChange}
-            />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Tipo
-            </Typography>
-            <TextField
-              name="pextraccion"
-              value={editedData.pextraccion || ''}
-              onChange={handleInputChange}
-            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Nombre
             </Typography>
             <TextField
-              name="pextraccion_name"
-              value={editedData.pextraccion_name || ''}
+              name="name"
+              value={editedData.name || ''}
               onChange={handleInputChange}
             />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Isla
+              Apellidos
             </Typography>
             <TextField
-              name="pextraccion_isla"
-              value={editedData.pextraccion_isla || ''}
-              onChange={handleInputChange}
-            />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Direccion
-            </Typography>
-            <TextField
-              name="pextraccion_direccion"
-              value={editedData.pextraccion_direccion || ''}
+              name="lastname"
+              value={editedData.lastname || ''}
               onChange={handleInputChange}
             />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Telefono
             </Typography>
             <TextField
-              name="pextraccion_tlf"
-              value={editedData.pextraccion_tlf || ''}
+              name="phone"
+              value={editedData.phone || ''}
               onChange={handleInputChange}
             />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Horario
+              Fecha de nacimiento
             </Typography>
             <TextField
-              name="pextraccion_horario"
-              value={editedData.pextraccion_horario || ''}
+              name="fecha_nacimiento"
+              value={editedData.fecha_nacimiento || ''}
               onChange={handleInputChange}
             />
-            <Button onClick={handleModify}>Modificar</Button>
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Email
+            </Typography>
+            <TextField
+              name="email"
+              value={editedData.email || ''}
+              onChange={handleInputChange}
+            />
+                        <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Localidad
+            </Typography>
+            <TextField
+              name="localidad"
+              value={editedData.localidad || ''}
+              onChange={handleInputChange}
+            />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Direccion
+            </Typography>
+            <TextField
+              name="direccion"
+              value={editedData.direccion || ''}
+              onChange={handleInputChange}
+            />
+            <Button
+              onClick={handleModify}
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+              }}
+              variant="contained"
+              color="error"
+            >
+              Confirmar
+            </Button>
           </Box>
         </Fade>
       </Modal>
