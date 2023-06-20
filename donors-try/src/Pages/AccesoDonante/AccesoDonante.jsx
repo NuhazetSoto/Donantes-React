@@ -4,6 +4,7 @@ import {Button, Card, CardContent, List, ListItem, Typography,} from '@mui/mater
 import './AccesoDonante.css'
 import { Link } from 'react-router-dom'
 import DataTableDonante from '../../Components/DataTable/DataTableDonante/ShowDataTableDonante'
+import SpringModal from '../../Components/Modal/Modal'
 
 function AccesoDonante() {
   let currentDate = new Date().toLocaleString('es-ES')
@@ -51,14 +52,17 @@ function AccesoDonante() {
           }}
           variant="contained"
           color="error"
-        >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/historico'}>
+        >e          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/historico'}
+          >
             Historico
           </Link>
         </Button>
       </div>
       <div className="card">
-            <DataTableDonante/>
+        <DataTableDonante />
+      
       </div>
     </>
   )

@@ -11,6 +11,8 @@ import { useState, useEffect } from 'react'
 import { getOneDonante } from '../../../services/donante.service'
 import { Link } from 'react-router-dom'
 import Search from '../../Search/Search'
+import SpringModal from '../../Modal/Modal'
+import ModalModificaDonante from '../../Modal/ModelModificaDonante'
 
 const columns = [
   { field: 'dni', headerName: 'DNI', width: 70 },
@@ -74,6 +76,7 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>Direccion: {user.direccion}</Typography>
         </ListItem>
+        <ModalModificaDonante />
       </Card>
       <Card>
         <Typography
