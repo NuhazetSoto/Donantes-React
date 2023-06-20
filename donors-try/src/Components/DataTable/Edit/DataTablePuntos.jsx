@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material'
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import SpringModal from '../../Modal/Modal'
 import { getAllPuntos } from '../../../services/puntos.service'
 import { useState, useEffect } from 'react'
@@ -43,9 +43,9 @@ export default function DataTablePuntos({data}) {
   const [puntos, setPuntos] = useState([])
 
   const showPuntos = async () => {
-    const data = await getAllPuntos()
-    setPuntos(data)
-    console.log(data)
+    const res = await getAllPuntos()
+    setPuntos(res)
+    console.log(puntos)
   }
   useEffect(() => {
     showPuntos()
@@ -71,6 +71,17 @@ export default function DataTablePuntos({data}) {
         />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Nombre</TableCell>
+                <TableCell align="right">Tipo</TableCell>
+                <TableCell align="right">Horario</TableCell>
+                <TableCell align="right">Telefono</TableCell>
+                <TableCell align="right">Loc</TableCell>
+                <TableCell align="right">Isla</TableCell>
+                <TableCell align="right">Direccion</TableCell>
+              </TableRow>
+            </TableHead>
             <TableBody>
               {filteredData.map((row) => (
                 <TableRow

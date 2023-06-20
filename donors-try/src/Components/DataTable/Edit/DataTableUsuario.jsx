@@ -59,16 +59,25 @@ const columns = [
 export default function DataTableUsuarios({ data }) { 
   const [searchQuery, setSearchQuery] = useState('')
   const [users, setUsers] = useState([])  
+  const [actualizar, setActualizar] = useState(false)
+
 
   const showUsers = async () => {
     const data = await getAllUsers()
     console.log(data)
     setUsers(data)
   }
-  useEffect(() => {
-    showUsers()
-  }, [])
 
+  useEffect(() => {
+    console.log('update')
+    showUsers()
+  }, [actualizar])
+
+   const handleUpdate = () => {
+    setActualizar(!actualizar)
+  }
+
+ 
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value)
@@ -78,7 +87,8 @@ export default function DataTableUsuarios({ data }) {
     const query = searchQuery.toLowerCase();
     return Object.values(ele).some((value) => String(value).toLowerCase().includes(query));
   })
-  
+
+
 
   return (
     <>
@@ -120,7 +130,7 @@ export default function DataTableUsuarios({ data }) {
                   <TableCell align="right">{row.hemorhId}</TableCell>
                   <TableCell align="right">{row.password}</TableCell>
                   <TableCell>
-                    <SpringModal />
+                    <SpringModal user={row} hadleUpdate={handleUpdate}/>
                   </TableCell>
                 </TableRow>
               ))}
