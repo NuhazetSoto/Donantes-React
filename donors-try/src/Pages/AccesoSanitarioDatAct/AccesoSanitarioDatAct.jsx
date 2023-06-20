@@ -115,7 +115,7 @@ function AccesoSanitarioDatAct() {
             >
               <ListItem>DNI: </ListItem>
               <ListItem>Email: </ListItem>
-              <ListItem>Fecha Nacimiento: </ListItem>
+              <ListItem>Fecha de nacimiento: </ListItem>
               <ListItem
                 fullWidth
                 sx={{
@@ -185,6 +185,7 @@ function AccesoSanitarioDatAct() {
             </Link>
           </Button>
 
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login'}>
           <Button
             sx={{
               alignContent: 'end',
@@ -198,10 +199,9 @@ function AccesoSanitarioDatAct() {
             variant="contained"
             color="error"
           >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
               Cerrar sesión
-            </Link>
           </Button>
+            </Link>
         </Box>
       </div>
     </>

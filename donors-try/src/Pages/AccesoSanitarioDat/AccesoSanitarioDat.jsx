@@ -18,51 +18,54 @@ function AccesoSanitarioDat() {
   return (
     <>
       <div className="botones">
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to='/login/sanitario'
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
             Listado de pacientes
-          </Link>
-        </Button>
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+          </Button>
+        </Link>
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to='/login/sanitario/ubicacion'
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario/ubicacion'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
             Ubicación
-          </Link>
-        </Button>
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+          </Button>
+        </Link>
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to='/login/sanitario/misdatos'
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/sanitario/misdatos'}>
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
+          >
             Mis datos
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
 
       <div className="card">
@@ -87,7 +90,7 @@ function AccesoSanitarioDat() {
               flexGrow: 1,
               display: { xs: 'none', sm: 'block' },
               margin: 2,
-              height: '100px'
+              height: '100px',
             }}
           >
             Información Personal
@@ -122,23 +125,26 @@ function AccesoSanitarioDat() {
             marginLeft: '100px',
           }}
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/sanitario/misdatos/actualizar'}>
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            variant="contained"
-            color="error"
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/sanitario/misdatos/actualizar'}
           >
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              variant="contained"
+              color="error"
+            >
               Actualizar datos
-          </Button>
-            </Link>
+            </Button>
+          </Link>
 
           <Button
             sx={{

@@ -15,78 +15,74 @@ function AccesoSanitarioUbi() {
   return (
     <Box
       sx={{
-
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        paddingBottom: '10px'
-        
-
+        paddingBottom: '10px',
       }}
     >
       <Box
         sx={{
-
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'row',
           alignItems: 'flex-start',
-          flex:'auto',
+          flex: 'auto',
           height: '10%',
           paddingTop: '10px',
           paddingBottom: '10px',
         }}
       >
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to="/login/sanitario"
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
             Listado de pacientes
-          </Link>
-        </Button>
+          </Button>
+        </Link>
 
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to="/login/sanitario/ubicacion"
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario/ubicacion'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
             Ubicación
-          </Link>
-        </Button>
+          </Button>
+        </Link>
 
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to="/login/sanitario/misdatos"
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario/misdatos'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
             Mis datos
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </Box>
       <Box
         sx={{

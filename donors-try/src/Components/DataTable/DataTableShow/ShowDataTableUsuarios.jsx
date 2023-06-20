@@ -74,7 +74,8 @@ export default function ShowDataTableUsuarios() {
             fontWeight: 'bold',
             display: { xs: 'none', sm: 'block' },
             margin: 0,
-            marginLeft: '25px',
+            marginLeft: '50px',
+            marginTop: '30px',
           }}
         >
           Fecha: 14/07/2023
@@ -88,6 +89,7 @@ export default function ShowDataTableUsuarios() {
             fontWeight: 'bold',
             display: { xs: 'none', sm: 'block' },
             margin: 0,
+            marginTop: '30px',
           }}
         >
           Punto: Hospital Negrin
