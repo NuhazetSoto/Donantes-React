@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Box, Button, Card, Typography } from '@mui/material';
-import Search from '../../Search/Search';
+import Search from '../../Search/Search'
 import { getAllUsers } from '../../../services/user.service';
 import { useEffect, useState } from 'react';
+import TableSearch from '../../Search/TableSearch';
 import '../DataTableShow/ShowDataTableUsuarios.css';
 
 const columns = [
@@ -92,6 +93,9 @@ export default function ShowDataTableUsuarios() {
           Punto: Hospital Negrin
         </Typography>
       </Box>
+    <Card sx= {{marginTop:'20px'}}>
+      
+      <TableSearch/>
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={users}
@@ -105,6 +109,7 @@ export default function ShowDataTableUsuarios() {
           checkboxSelection
         />
       </div>
+    </Card>
     </Card>
   )
 }

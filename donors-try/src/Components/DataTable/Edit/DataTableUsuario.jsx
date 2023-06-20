@@ -6,6 +6,7 @@ import { useState,useEffect } from 'react'
 import { getAllUsers } from '../../../services/user.service';
 import { Link } from 'react-router-dom';
 import ModalCrearUsuario from '../../Modal/NuevoUsuarioModal';
+import TableSearch from '../../Search/TableSearch';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -55,70 +56,135 @@ const columns = [
   },
 ]
 
-// const rows = [
-//   { id: 1, nombre: 'Snow', apellidos: 'Jon', telefono: 35, fecha: '30/02/1997', email:'un@email.es', role: 'Donante'},
-//   { id: 2, nombre: 'Lannister', apellidos: 'Cersei', telefono: 42, fecha: '30/02/1997', email:'un@email.es', role: 'Donante'},
-//   { id: 3, nombre: 'Lannister', apellidos: 'Jaime', telefono: 45, fecha: '30/02/1997', email:'un@email.es', role: 'Sanitario'},
-//   { id: 4, nombre: 'Stark', apellidos: 'Arya', telefono: 16, fecha: '30/02/1997', email:'un@email.es', role: 'Donante'},
-//   { id: 5, nombre: 'Targaryen', apellidos: 'Daenerys', telefono: null, fecha: '30/02/1997', email:'un@email.es', role: 'Admin'},
-//   { id: 6, nombre: 'Melisandre', apellidos: 'Armiche', telefono: 150, fecha: '30/02/1997', email:'un@email.es', role: 'Donante'},
-//   { id: 7, nombre: 'Clifford', apellidos: 'Ferrara', telefono: 44, fecha: '30/02/1997', email:'un@email.es', role: 'Sanitario'},
-//   { id: 8, nombre: 'Frances', apellidos: 'Rossini', telefono: 36, fecha: '30/02/1997', email:'un@email.es', role: 'Donante'},
-//   { id: 9, nombre: 'Roxie', apellidos: 'Harvey', telefono: 65, fecha: '30/02/1997', email:'un@email.es', role: 'Donante'},
-// ]
+export default function DataTableUsuarios({ data }) { 
+  const [searchQuery, setSearchQuery] = useState('')
+  const [users, setUsers] = useState([])  
+  const [actualizar, setActualizar] = useState(false)
+  const [editedList, setEditedlist] = useState([])
 
-export default function DataTableUsuarios() { 
+  const handleList = () => {
+    console.log(editedList.length)
+    if(editedList.length !== 0){
+      return editedList.map((ele) => {
+        return (
+                <TableRow
+                  key={ele.id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="ele">
+                    {ele.name}
+                  </TableCell>
+                  <TableCell align="right">{ele.lastname}</TableCell>
+                  <TableCell align="right">{ele.phone}</TableCell>
+                  <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
+                  <TableCell align="right">{ele.email}</TableCell>
+                  <TableCell align="right">{ele.role}</TableCell>
+                  <TableCell align="right">{ele.hemogrupoId}</TableCell>
+                  <TableCell align="right">{ele.hemorhId}</TableCell>
+                  <TableCell align="right">{ele.password}</TableCell>
+                  <TableCell>
+                    <SpringModal user={ele} hadleUpdate={handleUpdate}/>
+                  </TableCell>
+                </TableRow>
 
-  const [users, setUsers] = useState([])
+        )
+      })
+    } else {
+      return users.map((ele) => {
+        return (
+                <TableRow
+                  key={ele.id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="ele">
+                    {ele.name}
+                  </TableCell>
+                  <TableCell align="right">{ele.lastname}</TableCell>
+                  <TableCell align="right">{ele.phone}</TableCell>
+                  <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
+                  <TableCell align="right">{ele.email}</TableCell>
+                  <TableCell align="right">{ele.role}</TableCell>
+                  <TableCell align="right">{ele.hemogrupoId}</TableCell>
+                  <TableCell align="right">{ele.hemorhId}</TableCell>
+                  <TableCell align="right">{ele.password}</TableCell>
+                  <TableCell>
+                    <SpringModal user={ele} hadleUpdate={handleUpdate}/>
+                  </TableCell>
+                </TableRow>
+
+        )
+      })
+    }}
+
   const showUsers = async () => {
     const data = await getAllUsers()
-    console.log(data)
+   
     setUsers(data)
   }
+
   useEffect(() => {
+    console.log(users)
     showUsers()
-  }, [])
+  }, [actualizar])
+
+   const handleUpdate = () => {
+    setActualizar(!actualizar)
+  }
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value)
+  }
+
+  const filteredData = data.filter((ele) => {
+    const query = searchQuery.toLowerCase();
+    return Object.values(ele).some((value) => String(value).toLowerCase().includes(query));
+  })
+
+
 
   return (
     <>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableBody>
-            {users.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.lastname}</TableCell>
-                <TableCell align="right">{row.phone}</TableCell>
-                <TableCell align="right">{row.fecha_nacimiento}</TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">{row.role}</TableCell>
-                <TableCell align="right">{row.hemogrupoId}</TableCell>
-                <TableCell align="right">{row.hemorhId}</TableCell>
-                <TableCell align="right">{row.password}</TableCell>
-                <TableCell>
-                  <SpringModal />
-                </TableCell>
+      <div>
+        <TableSearch 
+         searchQuery={searchQuery}
+         handleSearchChange={handleSearchChange}
+         />
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Nombre</TableCell>
+                <TableCell align="right">Apellidos</TableCell>
+                <TableCell align="right">Telefono</TableCell>
+                <TableCell align="right">Fecha de nacimiento</TableCell>
+                <TableCell align="right">Email</TableCell>
+                <TableCell align="right">Role</TableCell>
+                <TableCell align="right">Hemo Grupo</TableCell>
+                <TableCell align="right">Hemo Rh</TableCell>
+                <TableCell align="right">Contraseña</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Link to={'/login/admin'} style={{ color: 'inherit', textDecoration: 'none' }}>
-        <Button
-          sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
-          variant="contained"
-          color="error"
+            </TableHead>
+            <TableBody>
+              {handleList()}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <Link
+          to={'/login/admin'}
+          style={{ color: 'inherit', textDecoration: 'none' }}
         >
-          Volver
-        </Button>
-      </Link>
+          <Button
+            sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
+            variant="contained"
+            color="error"
+          >
+            Volver
+          </Button>
+        </Link>
 
-      <ModalCrearUsuario />
+        <ModalCrearUsuario />
+      </div>
     </>
   )
+
 }

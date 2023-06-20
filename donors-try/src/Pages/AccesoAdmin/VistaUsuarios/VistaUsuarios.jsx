@@ -1,7 +1,18 @@
 import DataTableUsuarios from '../../../Components/DataTable/Edit/DataTableUsuario'
 import { Card, CardContent, Typography } from '@mui/material'
-
+import { useState,useEffect } from 'react'
+import { getAllUsers } from '../../../services/user.service'
 function VistaUsuarios() {
+  const [data,setData] = useState([])
+  
+  const handleData = async () => {
+    const algo = await getAllUsers()
+    setData(algo)
+  }
+  useEffect(() => {
+    handleData()
+  },[] )
+
   return (
     <div>
       <Card
@@ -21,7 +32,7 @@ function VistaUsuarios() {
             }}
           >
             Usuarios
-            <DataTableUsuarios />
+            <DataTableUsuarios data={data} />
           </Typography>
         </CardContent>
       </Card>
