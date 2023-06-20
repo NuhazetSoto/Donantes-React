@@ -10,7 +10,7 @@ import {
 import { useState, useEffect } from 'react'
 import { getOneDonante } from '../../../services/donante.service'
 import { Link } from 'react-router-dom'
-import TableSearch from '../../Search/TableSearch'
+
 
 const columns = [
   { field: 'dni', headerName: 'DNI', width: 70 },

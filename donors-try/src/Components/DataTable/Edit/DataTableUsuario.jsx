@@ -1,12 +1,21 @@
 import * as React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import SpringModal from '../../Modal/Modal';
-import { useState,useEffect } from 'react'
-import { getAllUsers } from '../../../services/user.service';
-import { Link } from 'react-router-dom';
-import ModalCrearUsuario from '../../Modal/NuevoUsuarioModal';
-import TableSearch from '../../Search/TableSearch';
+import {
+  Button,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material'
+import SpringModal from '../../Modal/Modal'
+import { useState, useEffect } from 'react'
+import { getAllUsers } from '../../../services/user.service'
+import { Link } from 'react-router-dom'
+import ModalCrearUsuario from '../../Modal/NuevoUsuarioModal'
+import TableSearch from '../../Search/TableSearch'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -56,78 +65,49 @@ const columns = [
   },
 ]
 
-export default function DataTableUsuarios({ data }) { 
+export default function DataTableUsuarios({ data }) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [users, setUsers] = useState([])  
+  const [users, setUsers] = useState([])
   const [actualizar, setActualizar] = useState(false)
-  const [editedList, setEditedlist] = useState([])
 
-  const handleList = () => {
-    console.log(editedList.length)
-    if(editedList.length !== 0){
-      return editedList.map((ele) => {
-        return (
-                <TableRow
-                  key={ele.id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="ele">
-                    {ele.name}
-                  </TableCell>
-                  <TableCell align="right">{ele.lastname}</TableCell>
-                  <TableCell align="right">{ele.phone}</TableCell>
-                  <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
-                  <TableCell align="right">{ele.email}</TableCell>
-                  <TableCell align="right">{ele.role}</TableCell>
-                  <TableCell align="right">{ele.hemogrupoId}</TableCell>
-                  <TableCell align="right">{ele.hemorhId}</TableCell>
-                  <TableCell align="right">{ele.password}</TableCell>
-                  <TableCell>
-                    <SpringModal user={ele} hadleUpdate={handleUpdate}/>
-                  </TableCell>
-                </TableRow>
+  // const handleList = () => {
+  //     return users.map((ele) => {
+  //       return (
+  //               <TableRow
+  //                 key={ele.id}
+  //                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+  //               >
+  //                 <TableCell component="th" scope="ele">
+  //                   {ele.name}
+  //                 </TableCell>
+  //                 <TableCell align="right">{ele.lastname}</TableCell>
+  //                 <TableCell align="right">{ele.phone}</TableCell>
+  //                 <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
+  //                 <TableCell align="right">{ele.email}</TableCell>
+  //                 <TableCell align="right">{ele.role}</TableCell>
+  //                 <TableCell align="right">{ele.hemogrupoId}</TableCell>
+  //                 <TableCell align="right">{ele.hemorhId}</TableCell>
+  //                 <TableCell align="right">{ele.password}</TableCell>
+  //                 <TableCell>
+  //                   <SpringModal user={ele} hadleUpdate={handleUpdate}/>
+  //                 </TableCell>
+  //               </TableRow>
 
-        )
-      })
-    } else {
-      return users.map((ele) => {
-        return (
-                <TableRow
-                  key={ele.id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="ele">
-                    {ele.name}
-                  </TableCell>
-                  <TableCell align="right">{ele.lastname}</TableCell>
-                  <TableCell align="right">{ele.phone}</TableCell>
-                  <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
-                  <TableCell align="right">{ele.email}</TableCell>
-                  <TableCell align="right">{ele.role}</TableCell>
-                  <TableCell align="right">{ele.hemogrupoId}</TableCell>
-                  <TableCell align="right">{ele.hemorhId}</TableCell>
-                  <TableCell align="right">{ele.password}</TableCell>
-                  <TableCell>
-                    <SpringModal user={ele} hadleUpdate={handleUpdate}/>
-                  </TableCell>
-                </TableRow>
-
-        )
-      })
-    }}
+  //       )
+  //     })
+  //   }
 
   const showUsers = async () => {
     const data = await getAllUsers()
-   
+
     setUsers(data)
   }
 
   useEffect(() => {
-    console.log(users)
     showUsers()
   }, [actualizar])
 
-   const handleUpdate = () => {
+  const handleUpdate = () => {
     setActualizar(!actualizar)
   }
 
@@ -135,20 +115,71 @@ export default function DataTableUsuarios({ data }) {
     setSearchQuery(event.target.value)
   }
 
-  const filteredData = data.filter((ele) => {
-    const query = searchQuery.toLowerCase();
-    return Object.values(ele).some((value) => String(value).toLowerCase().includes(query));
-  })
-
-
+  const filteredData = () => {
+    const query = searchQuery.toLowerCase()
+    if (query.length > 0) {
+      const filteredUsers = users.filter((ele) => {
+        return Object.values(ele).some((value) =>
+          String(value).toLowerCase().includes(query)
+        )
+      })
+      return filteredUsers.map((ele) => {
+        return (
+          <TableRow
+            key={ele.id}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="ele">
+              {ele.name}
+            </TableCell>
+            <TableCell align="right">{ele.lastname}</TableCell>
+            <TableCell align="right">{ele.phone}</TableCell>
+            <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
+            <TableCell align="right">{ele.email}</TableCell>
+            <TableCell align="right">{ele.role}</TableCell>
+            <TableCell align="right">{ele.hemogrupoId}</TableCell>
+            <TableCell align="right">{ele.hemorhId}</TableCell>
+            <TableCell align="right">{ele.password}</TableCell>
+            <TableCell>
+              <SpringModal user={ele} hadleUpdate={handleUpdate} />
+            </TableCell>
+          </TableRow>
+        )
+      })
+    } else {
+      return users.map((ele) => {
+        return (
+          <TableRow
+            key={ele.id}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="ele">
+              {ele.name}
+            </TableCell>
+            <TableCell align="right">{ele.lastname}</TableCell>
+            <TableCell align="right">{ele.phone}</TableCell>
+            <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
+            <TableCell align="right">{ele.email}</TableCell>
+            <TableCell align="right">{ele.role}</TableCell>
+            <TableCell align="right">{ele.hemogrupoId}</TableCell>
+            <TableCell align="right">{ele.hemorhId}</TableCell>
+            <TableCell align="right">{ele.password}</TableCell>
+            <TableCell>
+              <SpringModal user={ele} hadleUpdate={handleUpdate} />
+            </TableCell>
+          </TableRow>
+        )
+      })
+    }
+  }
 
   return (
     <>
       <div>
-        <TableSearch 
-         searchQuery={searchQuery}
-         handleSearchChange={handleSearchChange}
-         />
+        <TableSearch
+          searchQuery={searchQuery}
+          handleSearchChange={handleSearchChange}
+        />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -164,9 +195,7 @@ export default function DataTableUsuarios({ data }) {
                 <TableCell align="right">Contraseña</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
-              {handleList()}
-            </TableBody>
+            <TableBody>{filteredData()}</TableBody>
           </Table>
         </TableContainer>
         <Link
@@ -186,5 +215,4 @@ export default function DataTableUsuarios({ data }) {
       </div>
     </>
   )
-
 }
