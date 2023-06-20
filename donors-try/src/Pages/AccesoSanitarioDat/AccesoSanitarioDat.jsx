@@ -43,7 +43,10 @@ function AccesoSanitarioDat() {
           variant="contained"
           color="error"
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/sanitario/ubicacion'}
+          >
             Ubicación
           </Link>
         </Button>
@@ -56,7 +59,7 @@ function AccesoSanitarioDat() {
           variant="contained"
           color="error"
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/sanitario/misdatos'}>
             Mis datos
           </Link>
         </Button>
@@ -84,7 +87,7 @@ function AccesoSanitarioDat() {
               flexGrow: 1,
               display: { xs: 'none', sm: 'block' },
               margin: 2,
-              height: '100px',
+              height: '100px'
             }}
           >
             Información Personal
@@ -119,6 +122,7 @@ function AccesoSanitarioDat() {
             marginLeft: '100px',
           }}
         >
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login/sanitario/misdatos/actualizar'}>
           <Button
             sx={{
               alignContent: 'end',
@@ -132,14 +136,12 @@ function AccesoSanitarioDat() {
             variant="contained"
             color="error"
           >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
-              Actualizar Datos
-            </Link>
+              Actualizar datos
           </Button>
+            </Link>
 
           <Button
             sx={{
-              
               alignContent: 'end',
               backgroundColor: '#BF0021',
               marginLeft: '8px',

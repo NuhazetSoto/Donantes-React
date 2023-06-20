@@ -14,6 +14,7 @@ import VistaPuntos from "../Pages/AccesoAdmin/VistaPuntos/VistaPuntos";
 import AccesoSanitarioUbi from "../Pages/AccesoSanitarioUbi/AccesoSanitarioUbi";
 import AccesoSanitarioDat from "../Pages/AccesoSanitarioDat/AccesoSanitarioDat";
 import AccesoSanitarioDatAct from "../Pages/AccesoSanitarioDatAct/AccesoSanitarioDatAct";
+import SanitarioDatGuardado from '../Pages/SanitarioDatGuardado/SanitarioDatGuardado'
 import VistaFormulario from "../Pages/FormularioDonante/VistaFormulario";
 import HistoricoDonante from "../Pages/AccesoDonante/HistoricoDonante/HistoricoDonante";
 
@@ -101,9 +102,23 @@ export const router = createBrowserRouter([
         element: <AccesoSanitarioUbi />,
         loader: checkSanitario,
       },
-      {path: '/login/sanitario/misdatos',element: <AccesoSanitarioDat />,loader: checkSanitario},
+      {
+        path: '/login/sanitario/misdatos',
+        element: <AccesoSanitarioDat />,
+        loader: checkSanitario,
+      },
 
-      {path: '/login/sanitario/misdatos/actualizar', element: <AccesoSanitarioDatAct />,loader: checkSanitario},
+      {
+        path: '/login/sanitario/misdatos/actualizar',
+        element: <AccesoSanitarioDatAct />,
+        loader: checkSanitario,
+      },
+
+      {
+        path: '/login/sanitario/misdatos/actualizar/guardado',
+        element: <SanitarioDatGuardado />,
+        loader: checkSanitario,
+      },
     ],
   },
 ])
