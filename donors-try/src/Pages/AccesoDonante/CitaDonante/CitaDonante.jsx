@@ -4,6 +4,7 @@ import './CitaDonante.css'
 import PuntoDonacion from '../../../Components/PuntoDonacion/PuntoDonacion'
 import SpringModal from '../../../Components/Modal/ModalConfirmarCita'
 import CommonlyUsedComponents from '../../../Components/FechaCita/FechaHoraCita'
+import ModalSolicitaCita from '../../../Components/Modal/ModalSolicitaCita'
 
 function CitaDonante() {
   return (
@@ -58,49 +59,10 @@ function CitaDonante() {
           </Link>
         </Button>
       </div>
-
       <div>
-        <Card
-          className="card"
-          sx={{
-            display: 'grid',
-            grid: 'auto',
-            alignContent: 'center',
-            alignItems: 'center',
-            justifyContent: 'center',
-            justifyItems: 'center',
-          }}
-        >
-          <CardContent className="fechora">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219.88508388541416!2d-15.43072381204971!3d28.141576168761077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc40953f84403415%3A0x31e7d72de259fa8d!2sC.%20Luis%20Morote%2C%206%2C%203%C2%BA%20-%205%2C%2035007%20Las%20Palmas%20de%20Gran%20Canaria%2C%20Las%20Palmas!5e0!3m2!1ses!2ses!4v1686829753757!5m2!1ses!2ses"
-              width="600"
-              height="300"
-              allowfullscreen=""
-              loading="lazy"
-            ></iframe>
-            <CardContent>
-              <Typography>
-                Seleccione Isla y Punto de donacion:
-                <PuntoDonacion />
-              </Typography>
-              <Typography>
-                Seleccione Fecha y Hora: <CommonlyUsedComponents />
-              </Typography>
-            </CardContent>
-          </CardContent>
-          <CardActions>
-            <SpringModal>
-              <Link
-                style={{ color: 'inherit', textDecoration: 'none' }}
-                to={'/login/donante'}
-              >
-                Confirmar Cita
-              </Link>
-            </SpringModal>
-          </CardActions>
-        </Card>
+        <Card><ModalSolicitaCita /></Card>
       </div>
+     
     </>
   )
 }
