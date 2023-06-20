@@ -1,9 +1,17 @@
 import Header from '../../Components/Header/Header'
-
+import Box from '@mui/material/Box'
 function Home() {
+  
   return (
     <>
-    <div>Home</div>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          minHeight: '100vh'
+        }}
+      ></Box>
     </>
   )
 }

@@ -58,7 +58,7 @@ export default function CustomizedSelects() {
     <div>
       <FormControl className={classes.margin}>
         <InputLabel htmlFor="demo-customized-select-native">
-          ¿En que Isla estras?
+          ¿En qué Isla estas?
         </InputLabel>
         <NativeSelect
           id="demo-customized-select-native"

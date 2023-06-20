@@ -4,7 +4,6 @@ import {
   CardActions,
   CardContent,
 } from '@mui/material'
-import Header from '../../../Components/Header/Header'
 import { Link } from 'react-router-dom'
 import './CitaDonante.css'
 import FechaCita from '../../../Components/FechaCita/FechaCita'
