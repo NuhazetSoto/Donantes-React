@@ -17,85 +17,11 @@ import { Link } from 'react-router-dom'
 import ModalCrearUsuario from '../../Modal/NuevoUsuarioModal'
 import TableSearch from '../../Search/TableSearch'
 
-const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'dni', headerName: 'DNI', width: 70 },
-  { field: 'name', headerName: 'Name', width: 130 },
-  { field: 'lastname', headerName: 'Last name', width: 130 },
-  {
-    field: 'phone',
-    headerName: 'phone',
-    type: 'number',
-    width: 90,
-  },
-  {
-    field: 'fecha_nacimiento',
-    headerName: 'Fecha de nacimiento',
-    type: 'number',
-    width: 90,
-  },
-  {
-    field: 'email',
-    headerName: 'Email',
-    width: 160,
-  },
-  {
-    field: 'role',
-    headerName: 'role',
-    type: 'string',
-    width: 90,
-  },
-  {
-    field: 'hemorhId',
-    headerName: 'hemorhId',
-    type: 'string',
-    width: 90,
-  },
-  {
-    field: 'hemogrupoId',
-    headerName: 'hemogrupoId',
-    type: 'string',
-    width: 90,
-  },
-  {
-    field: 'password',
-    headerName: 'password',
-    type: 'string',
-    width: 40,
-  },
-]
-
 export default function DataTableUsuarios({ data }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [users, setUsers] = useState([])
   const [actualizar, setActualizar] = useState(false)
 
-  // const handleList = () => {
-  //     return users.map((ele) => {
-  //       return (
-  //               <TableRow
-  //                 key={ele.id}
-  //                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-  //               >
-  //                 <TableCell component="th" scope="ele">
-  //                   {ele.name}
-  //                 </TableCell>
-  //                 <TableCell align="right">{ele.lastname}</TableCell>
-  //                 <TableCell align="right">{ele.phone}</TableCell>
-  //                 <TableCell align="right">{ele.fecha_nacimiento}</TableCell>
-  //                 <TableCell align="right">{ele.email}</TableCell>
-  //                 <TableCell align="right">{ele.role}</TableCell>
-  //                 <TableCell align="right">{ele.hemogrupoId}</TableCell>
-  //                 <TableCell align="right">{ele.hemorhId}</TableCell>
-  //                 <TableCell align="right">{ele.password}</TableCell>
-  //                 <TableCell>
-  //                   <SpringModal user={ele} hadleUpdate={handleUpdate}/>
-  //                 </TableCell>
-  //               </TableRow>
-
-  //       )
-  //     })
-  //   }
 
   const showUsers = async () => {
     const data = await getAllUsers()

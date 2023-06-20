@@ -10,8 +10,6 @@ import {
 import { useState, useEffect } from 'react'
 import { getOneDonante } from '../../../services/donante.service'
 import { Link } from 'react-router-dom'
-import Search from '../../Search/Search'
-import SpringModal from '../../Modal/Modal'
 import ModalModificaDonante from '../../Modal/ModelModificaDonante'
 
 const columns = [

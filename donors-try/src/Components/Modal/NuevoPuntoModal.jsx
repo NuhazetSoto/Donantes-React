@@ -107,7 +107,7 @@ export default function ModalCrearPunto() {
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Nombtr
+              Nombre
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
