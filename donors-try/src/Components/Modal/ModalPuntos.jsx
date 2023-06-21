@@ -9,6 +9,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
+import DeleteModalPunto from './DeleteModalPunto'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -64,7 +65,7 @@ const style = {
   p: 4,
 }
 
-export default function SpringModal({ user, hadleUpdate }) {
+export default function SpringModalPuntos({ puntos, hadleUpdate }) {
   const [open, setOpen] = React.useState(false)
   const [editedData, setEditedData] = useState({})
 
@@ -76,17 +77,15 @@ export default function SpringModal({ user, hadleUpdate }) {
     console.log(localStorage.getItem('token'))
     try {
       const respuesta = await api.put(
-        `/user/${editedData.id}`,
+        `/puntoextraccion/${editedData.id}`,
         {
-          dni: editedData.dni,
-          name: editedData.name,
-          lastname: editedData.lastname,
-          phone: editedData.phone,
-          fecha_nacimiento: editedData.fecha_nacimiento,
-          email: editedData.email,
-          password: editedData.password,
-          hemorhId: editedData.hemorhId,
-          hemogrupoId: editedData.hemogrupoId,
+          loc_gps: editedData.loc_gps,
+          pextraccion: editedData.pextraccion,
+          pextraccion_name: editedData.pextraccion_name,
+          pextraccion_isla: editedData.pextraccion_isla,
+          pextraccion_direccion: editedData.pextraccion_direccion,
+          pextraccion_tlf: editedData.pextraccion_tlf,
+          pextraccion_horario: editedData.pextraccion_horario,
         },
         {
           headers: { token: localStorage.getItem('token') },
@@ -111,8 +110,25 @@ export default function SpringModal({ user, hadleUpdate }) {
     }))
   }
   useEffect(() => {
-    setEditedData(user)
+    setEditedData(puntos)
   }, [])
+
+  const handleDelete = async () => {
+    try {
+      const respuesta = await api.delete(`/puntoextraccion/${editedData.id}`, {
+        headers: { token: localStorage.getItem('token') },
+      })
+      if (respuesta) {
+        console.log('Punto eliminado')
+        hadleUpdate()
+        handleClose()
+      } else {
+        console.error(' No se pudo elimnar al punto')
+      }
+    } catch (error) {
+      console.error('Error al eliminar el Punto', error)
+    }
+  }
 
   return (
     <div>
@@ -133,73 +149,66 @@ export default function SpringModal({ user, hadleUpdate }) {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="spring-modal-title" variant="h5" component="h5">
-              Nuevo Usuario:
+              Nuevo Punto:
             </Typography>
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              DNI
+              Loc
             </Typography>
             <TextField
-              name="dni"
-              value={editedData.dni || ''}
+              name="loc_gps"
+              value={editedData.loc_gps || ''}
+              onChange={handleInputChange}
+            />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Tipo
+            </Typography>
+            <TextField
+              name="pextraccion"
+              value={editedData.pextraccion || ''}
               onChange={handleInputChange}
             />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Nombre
             </Typography>
             <TextField
-              name="name"
-              value={editedData.name || ''}
+              name="pextraccion_name"
+              value={editedData.pextraccion_name || ''}
               onChange={handleInputChange}
             />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Apellidos
+              Isla
             </Typography>
             <TextField
-              name="lastname"
-              value={editedData.lastname || ''}
+              name="pextraccion_isla"
+              value={editedData.pextraccion_isla || ''}
+              onChange={handleInputChange}
+            />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Direccion
+            </Typography>
+            <TextField
+              name="pextraccion_direccion"
+              value={editedData.pextraccion_direccion || ''}
               onChange={handleInputChange}
             />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Telefono
             </Typography>
             <TextField
-              name="phone"
-              value={editedData.phone || ''}
+              name="pextraccion_tlf"
+              value={editedData.pextraccion_tlf || ''}
               onChange={handleInputChange}
             />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Fecha de nacimiento
+              Horario
             </Typography>
             <TextField
-              name="fecha_nacimiento"
-              value={editedData.fecha_nacimiento || ''}
-              onChange={handleInputChange}
-            />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Email
-            </Typography>
-            <TextField
-              name="email"
-              value={editedData.email || ''}
-              onChange={handleInputChange}
-            />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Password
-            </Typography>
-            <TextField
-              name="password"
-              value={editedData.password || ''}
-              onChange={handleInputChange}
-            />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Role
-            </Typography>
-            <TextField
-              name="role"
-              value={editedData.role || ''}
+              name="pextraccion_horario"
+              value={editedData.pextraccion_horario || ''}
               onChange={handleInputChange}
             />
             <Button onClick={handleModify}>Modificar</Button>
+            <DeleteModalPunto handleDelete={handleDelete} />
           </Box>
         </Fade>
       </Modal>

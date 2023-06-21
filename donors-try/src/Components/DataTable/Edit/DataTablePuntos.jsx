@@ -1,66 +1,105 @@
 import * as React from 'react'
-import { DataGrid } from '@mui/x-data-grid'
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
-import SpringModal from '../../Modal/Modal'
-import { getAllPuntos } from '../../../services/puntos.service'
+import {
+  Button,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import ModalCrearPunto from '../../Modal/NuevoPuntoModal'
 import TableSearch from '../../Search/TableSearch'
+import { getAllPuntos } from '../../../services/puntos.service'
+import SpringModalPuntos from '../../Modal/ModalPuntos'
+import ModalCrearPunto from '../../Modal/NuevoPuntoModal'
+import DeleteModal from '../../Modal/DeleteModalUser'
 
-const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'loc_gps', headerName: 'Loc.', width: 130 },
-  { field: 'pextraccion', headerName: 'Tipo', width: 90 },
-  {
-    field: 'pextraccion_name',
-    headerName: 'Nombre',
-    type: 'string',
-    width: 90,
-  },
-  {
-    field: 'pextraccion_isla',
-    headerName: 'Isla',
-    type: 'string',
-    width: 90,
-  },
-  {
-    field: 'pextraccion_direccion',
-    headerName: 'Direccion',
-    type: 'string',
-    width: 90,
-  },
-  {
-    field: 'pextraccion_horario',
-    headerName: 'Horario',
-    type: 'string',
-    width: 90,
-  },
-]
-
-export default function DataTablePuntos({data}) {
+export default function DataTableUsuarios({ data }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [puntos, setPuntos] = useState([])
+  const [actualizar, setActualizar] = useState(false)
 
   const showPuntos = async () => {
-    const res = await getAllPuntos()
-    setPuntos(res)
-    console.log(puntos)
+    const data = await getAllPuntos()
+
+    setPuntos(data)
   }
+
   useEffect(() => {
     showPuntos()
-  }, [])
+  }, [actualizar])
+  const handleUpdate = () => {
+    setActualizar(!actualizar)
+  }
+
+  const handleCreate = () => {
+    setActualizar(!actualizar)
+  }
 
   const handleSearchChange = (event) => {
-      setSearchQuery(event.target.value)
-    }
+    setSearchQuery(event.target.value)
+  }
 
-  const filteredData = data.filter((ele) => {
-      const query = searchQuery.toLowerCase()
-      return Object.values(ele).some((value) =>
-        String(value).toLowerCase().includes(query)
-      )
-    })
+  const filteredData = () => {
+    const query = searchQuery.toLowerCase()
+    if (query.length > 0) {
+      const filteredPuntos = puntos.filter((ele) => {
+        return Object.values(ele).some((value) =>
+          String(value).toLowerCase().includes(query)
+        )
+      })
+     if(filteredPuntos.length >0 ) {
+      return filteredPuntos.map((ele) => {
+         console.log(ele)
+        return (
+          <TableRow
+            key={ele.id}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="ele">
+              {ele.pextraccion_name}
+            </TableCell>
+            <TableCell align="right">{ele.pextraccion}</TableCell>
+            <TableCell align="right">{ele.pextraccion_horario}</TableCell>
+            <TableCell align="right">{ele.pextraccion_tlf}</TableCell>
+            <TableCell align="right">{ele.loc_gps}</TableCell>
+            <TableCell align="right">{ele.pextraccion_isla}</TableCell>
+            <TableCell align="right">{ele.pextraccion_direccion}</TableCell>
+            <TableCell>
+              <SpringModalPuntos puntos={ele} hadleUpdate={handleUpdate} />
+              <DeleteModal />
+            </TableCell>
+          </TableRow>
+        )
+      })}
+    } else {
+      if (puntos.length>0){
+      return puntos.map((ele) => {
+        return (
+          <TableRow
+            key={ele.id}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="ele">
+              {ele.pextraccion_name}
+            </TableCell>
+            <TableCell align="right">{ele.pextraccion}</TableCell>
+            <TableCell align="right">{ele.pextraccion_horario}</TableCell>
+            <TableCell align="right">{ele.pextraccion_tlf}</TableCell>
+            <TableCell align="right">{ele.loc_gps}</TableCell>
+            <TableCell align="right">{ele.pextraccion_isla}</TableCell>
+            <TableCell align="right">{ele.pextraccion_direccion}</TableCell>
+            <TableCell>
+              <SpringModalPuntos puntos={ele} hadleUpdate={handleUpdate} />
+            </TableCell>
+          </TableRow>
+        )
+      })
+    }}
+  }
 
   return (
     <>
@@ -77,34 +116,12 @@ export default function DataTablePuntos({data}) {
                 <TableCell align="right">Tipo</TableCell>
                 <TableCell align="right">Horario</TableCell>
                 <TableCell align="right">Telefono</TableCell>
-                <TableCell align="right">Loc</TableCell>
+                <TableCell align="right">Loc GPS</TableCell>
                 <TableCell align="right">Isla</TableCell>
                 <TableCell align="right">Direccion</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
-              {filteredData.map((row) => (
-                <TableRow
-                  key={row.id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.pextraccion_name}
-                  </TableCell>
-                  <TableCell align="right">{row.pextraccion}</TableCell>
-                  <TableCell align="right">{row.pextraccion_horario}</TableCell>
-                  <TableCell align="right">{row.pextraccion_tlf}</TableCell>
-                  <TableCell align="right">{row.loc_gps}</TableCell>
-                  <TableCell align="right">{row.pextraccion_isla}</TableCell>
-                  <TableCell align="right">
-                    {row.pextraccion_direccion}
-                  </TableCell>
-                  <TableCell>
-                    <SpringModal />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
+            <TableBody>{filteredData()}</TableBody>
           </Table>
         </TableContainer>
         <Link
@@ -119,7 +136,8 @@ export default function DataTablePuntos({data}) {
             Volver
           </Button>
         </Link>
-        <ModalCrearPunto />
+
+        <ModalCrearPunto handleCreate={handleCreate} />
       </div>
     </>
   )
