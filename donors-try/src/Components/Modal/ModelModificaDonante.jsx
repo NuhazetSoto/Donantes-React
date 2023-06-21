@@ -61,15 +61,15 @@ const style = {
   p: 4,
 }
 
-export default function ModalCrearPunto() {
+export default function ModalModificaDonante() {
   const [open, setOpen] = React.useState(false)
-  
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
   return (
     <div>
       <Button
+        onClick={handleOpen}
         sx={{
           alignContent: 'end',
           backgroundColor: '#BF0021',
@@ -77,9 +77,8 @@ export default function ModalCrearPunto() {
         }}
         variant="contained"
         color="error"
-        onClick={handleOpen}
       >
-        Crear Nuevo Punto
+        Editar
       </Button>
       <Modal
         aria-labelledby="spring-modal-title"
@@ -97,33 +96,51 @@ export default function ModalCrearPunto() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="spring-modal-title" variant="h5" component="h5">
-              Nuevo Punto:
+              Modifica Datos Usuario:
             </Typography>
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Loc
-            </Typography>
-            <TextField />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Tipo
-            </Typography>
-            <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Nombre
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Isla
+              Apellidos
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Telefono
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Fecha de nacimiento
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Email
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Password
+            </Typography>
+            <TextField />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Localidad
             </Typography>
             <TextField />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Direccion
             </Typography>
             <TextField />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Horario
-            </Typography>
-            <TextField />
-            <Button>Crear</Button>
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+              }}
+              variant="contained"
+              color="error"
+            >
+              Modificar
+            </Button>
           </Box>
         </Fade>
       </Modal>

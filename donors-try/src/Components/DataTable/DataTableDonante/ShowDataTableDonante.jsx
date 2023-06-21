@@ -10,7 +10,11 @@ import {
 import { useState, useEffect } from 'react'
 import { getOneDonante } from '../../../services/donante.service'
 import { Link } from 'react-router-dom'
-import TableSearch from '../../Search/TableSearch'
+<<<<<<< HEAD
+import ModalModificaDonante from '../../Modal/ModelModificaDonante'
+=======
+import ModalModificaDonante from '../../Modal/ModalModificaDonante'
+>>>>>>> 432ac2eb023e177c5f6c1735917392482f3b8607
 
 const columns = [
   { field: 'dni', headerName: 'DNI', width: 70 },
@@ -25,14 +29,18 @@ const columns = [
 
 export default function DataTableDonante() {
   const [user, setUser] = useState([])
+  const [actualizar, setActualizar] = useState(false)
   const showUser = async () => {
     const data = await getOneDonante()
     console.log(data)
     setUser(data)
   }
+  function handleUpdate(){
+    setActualizar(!actualizar)
+  }
   useEffect(() => {
     showUser()
-  }, [])
+  }, [actualizar])
   if(user.length !== 0) {
   return (
     <>
@@ -74,6 +82,7 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>Direccion: {user.direccion}</Typography>
         </ListItem>
+        <ModalModificaDonante user={user} handleUpdate={handleUpdate} />
       </Card>
       <Card>
         <Typography
