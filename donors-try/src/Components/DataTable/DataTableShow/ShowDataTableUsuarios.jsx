@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Button, Card } from '@mui/material';
+import { Box, Button, Card, Typography } from '@mui/material';
 
 import { getAllUsers } from '../../../services/user.service';
 import { useEffect, useState } from 'react';
 import TableSearch from '../../Search/TableSearch';
+import '../DataTableShow/ShowDataTableUsuarios.css';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -62,22 +63,53 @@ export default function ShowDataTableUsuarios() {
   }, [])
   
   return (
-    <Card sx= {{marginTop:'20px'}}>
-      
-      <TableSearch/>
-      <div style={{ height: 400, width: '100%' }}>
-        <DataGrid
-          rows={users}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
+    <Card sx={{ marginTop: '20px' }}>
+      <Box className="title">
+        <TableSearch />
+        <Typography
+          variant="h7"
+          component="div"
+          sx={{
+            flexGrow: 1,
+            fontWeight: 'bold',
+            display: { xs: 'none', sm: 'block' },
+            margin: 0,
+            marginLeft: '50px',
+            marginTop: '30px',
           }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-        />
-      </div>
+        >
+          Fecha: 14/07/2023
+        </Typography>
+
+        <Typography
+          variant="h7"
+          component="div"
+          sx={{
+            flexGrow: 1,
+            fontWeight: 'bold',
+            display: { xs: 'none', sm: 'block' },
+            margin: 0,
+            marginTop: '30px',
+          }}
+        >
+          Punto: Hospital Negrin
+        </Typography>
+      </Box>
+      <Card sx={{ marginTop: '20px' }}>
+        <div style={{ height: 400, width: '100%' }}>
+          <DataGrid
+            rows={users}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 5 },
+              },
+            }}
+            pageSizeOptions={[5, 10]}
+            checkboxSelection
+          />
+        </div>
+      </Card>
     </Card>
   )
 }

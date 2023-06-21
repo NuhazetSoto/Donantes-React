@@ -7,12 +7,10 @@ import './index.css'
 function Root() {
 
   return (
-    
-    <div className='layout'>
-    <Header />
-    <Outlet />
-    <Footer />
-    
+    <div className="layout">
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   )
 }

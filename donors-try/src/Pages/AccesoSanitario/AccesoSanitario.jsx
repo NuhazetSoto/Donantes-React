@@ -15,8 +15,12 @@ function AccesoSanitario() {
   }))
 
   return (
-      <Box className="cont">
-        <div className="botones">
+    <Box className="cont">
+      <div className="botones">
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to="/login/sanitario"
+        >
           <Button
             sx={{
               alignContent: 'end',
@@ -25,77 +29,45 @@ function AccesoSanitario() {
             }}
             variant="contained"
             color="error"
-        >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario'}
           >
             Listado de pacientes
-          </Link>
-        </Button>
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+          </Button>
+        </Link>
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to="/login/sanitario/ubicacion"
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario/ubicacion'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
-            
-
             Ubicación
-          </Link>
-        </Button>
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+          </Button>
+        </Link>
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to="/login/sanitario/misdatos"
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'login/sanitario/misdatos'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
             Mis datos
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
+
       <ShowDataTableUsuarios />
-
-      <Box>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            display: { xs: 'none', sm: 'block' },
-            margin: 0,
-          }}
-        >
-          Fecha 14/07/2023
-          <TextField></TextField>
-        </Typography>
-
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            flexGrow: 1,
-            display: { xs: 'none', sm: 'block' },
-            margin: 0,
-          }}
-        >
-          Hospital Negrin
-        </Typography>
-      </Box>
     </Box>
   )
 }

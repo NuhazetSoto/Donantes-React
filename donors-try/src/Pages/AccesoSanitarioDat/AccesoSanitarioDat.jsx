@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../Components/Header/Header'
 import {
   Box,
   Button,
@@ -19,48 +18,54 @@ function AccesoSanitarioDat() {
   return (
     <>
       <div className="botones">
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to='/login/sanitario'
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario'}
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
           >
             Listado de pacientes
-          </Link>
-        </Button>
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+          </Button>
+        </Link>
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to='/login/sanitario/ubicacion'
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
+          >
             Ubicación
-          </Link>
-        </Button>
-        <Button
-          sx={{
-            alignContent: 'end',
-            backgroundColor: '#BF0021',
-            marginLeft: '8px',
-          }}
-          variant="contained"
-          color="error"
+          </Button>
+        </Link>
+        <Link
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          to='/login/sanitario/misdatos'
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '8px',
+            }}
+            variant="contained"
+            color="error"
+          >
             Mis datos
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
 
       <div className="card">
@@ -75,6 +80,7 @@ function AccesoSanitarioDat() {
             flexDirection: 'column',
             alignItems: 'center',
             backgroundColor: blue[100],
+            marginRight: '50px',
           }}
         >
           <Typography
@@ -88,19 +94,15 @@ function AccesoSanitarioDat() {
             }}
           >
             Información Personal
-            
           </Typography>
           <CardContent
             sx={{
-
               display: 'flex',
               justifyContent: 'center',
               flexDirection: 'column',
-              alignItems:'center',
-              height:'350vh',
-
-              
-
+              alignItems: 'center',
+              height: '350vh',
+              marginRight: '300px',
             }}
           >
             <List>
@@ -120,25 +122,29 @@ function AccesoSanitarioDat() {
             display: 'flex',
             flexDirection: 'column-reverse',
             justifyContent: 'space-between',
+            marginLeft: '100px',
           }}
         >
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            variant="contained"
-            color="error"
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/sanitario/misdatos/actualizar'}
           >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
-              Actualizar Datos
-            </Link>
-          </Button>
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              variant="contained"
+              color="error"
+            >
+              Actualizar datos
+            </Button>
+          </Link>
 
           <Button
             sx={{

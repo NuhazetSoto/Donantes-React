@@ -42,7 +42,10 @@ function AccesoSanitarioDatAct() {
           variant="contained"
           color="error"
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/sanitario/ubicacion'}
+          >
             Ubicación
           </Link>
         </Button>
@@ -55,7 +58,10 @@ function AccesoSanitarioDatAct() {
           variant="contained"
           color="error"
         >
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/sanitario/misdatos'}
+          >
             Mis datos
           </Link>
         </Button>
@@ -83,6 +89,7 @@ function AccesoSanitarioDatAct() {
               display: { xs: 'none', sm: 'block' },
               margin: 2,
               height: '100px',
+              marginRight: '50px',
             }}
           >
             Información Personal
@@ -94,24 +101,59 @@ function AccesoSanitarioDatAct() {
               flexDirection: 'column',
               alignItems: 'center',
               height: '350vh',
+              width: '100%',
             }}
           >
-            <List>
+            <List
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+              }}
+            >
               <ListItem>DNI: </ListItem>
               <ListItem>Email: </ListItem>
-              <ListItem>Fecha Nacimiento: </ListItem>
-              <ListItem>Dirección: </ListItem>
-              <ListItem>Localidad: </ListItem>
+              <ListItem>Fecha de nacimiento: </ListItem>
+              <ListItem
+                fullWidth
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                Dirección:
+                <TextField
+                  sx={{}}
+                  label="Dirección"
+                  variant="outlined"
+                  margin="dense"
+                />
+              </ListItem>
+
+              <ListItem
+                fullWidth
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                Localidad:
+                <TextField
+                  sx={{}}
+                  label="Localidad"
+                  variant="outlined"
+                  margin="dense"
+                />
+              </ListItem>
               <ListItem>Ubicación actual: </ListItem>
               <ListItem>Próxima ubicación: </ListItem>
             </List>
-
-            <TextField
-              label="Email"
-              variant="outlined"
-              margin="dense"
-              fullWidth={true}
-            ></TextField>
           </CardContent>
         </Card>
 
@@ -121,6 +163,7 @@ function AccesoSanitarioDatAct() {
             display: 'flex',
             flexDirection: 'column-reverse',
             justifyContent: 'space-between',
+            marginLeft: '100px',
           }}
         >
           <Button
@@ -136,11 +179,13 @@ function AccesoSanitarioDatAct() {
             variant="contained"
             color="error"
           >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+            <Link style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/sanitario/misdatos/actualizar/guardado'}>
               Guardar
             </Link>
           </Button>
 
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login'}>
           <Button
             sx={{
               alignContent: 'end',
@@ -154,10 +199,9 @@ function AccesoSanitarioDatAct() {
             variant="contained"
             color="error"
           >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
               Cerrar sesión
-            </Link>
           </Button>
+            </Link>
         </Box>
       </div>
     </>

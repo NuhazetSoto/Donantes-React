@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { Button, Card, CardActions, CardContent, CardHeader, Divider, IconButton, TextField} from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardHeader, Divider, IconButton, TextField} from "@mui/material";
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { login } from "../../services/auth.service";
@@ -47,16 +47,7 @@ function Login() {
     setIsPassVisible(!isPassVisible);
   }
 
-/* 
-  function checkEmail(email) {
-    console.log(email);
-    if (email === "nuha@mail") {
-      alert("Todo OK");
-    } else {
-      alert("Email incorect");
-    }
-  }
- */
+
   return (
     <>
       <div
@@ -68,7 +59,7 @@ function Login() {
           height: '75vh',
         }}
       >
-        <Card
+        <Box
           className="login"
           sx={{ maxWidth: '900px' }}
           raised={true}
@@ -115,7 +106,7 @@ function Login() {
               Acceder
             </Button>
           </CardActions>
-        </Card>
+        </Box>
         
       </div>
     </>
