@@ -65,7 +65,7 @@ const style = {
 }
 
 export default function ModalModificaDonante({user, handleUpdate}) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const [editedData, setEditedData] = useState({})
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)

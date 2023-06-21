@@ -23,8 +23,8 @@ function Login() {
   }
 
   const logIn = async () => {   
+    console.log(password)
     const data = await login(email, password)    
-    console.log(email)
 
    if(!localStorage.getItem('token'))
       alert('Error: Usuario o contraseña invalidos')

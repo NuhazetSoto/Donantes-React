@@ -4,6 +4,12 @@ import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import InputBase from '@material-ui/core/InputBase'
+import { useState, useEffect } from 'react'
+import { getAllPuntos } from '../../services/puntos.service'
+import { LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
+import BasicDatePicker from './Calendar'
 
 const BootstrapInput = withStyles((theme) => ({
   root: {
@@ -48,78 +54,163 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CustomizedSelects() {
   const classes = useStyles()
-  const [age, setAge] = React.useState('')
-  const handleChange = (event) => {
-    setAge(event.target.value)
+  const [actualizar, setActualizar] = useState(false)
+  const [puntos, setPuntos] = useState('')
+  let [isla, setIsla] = useState('')
+  let [hora, setHora] = useState('')
+  const [fechas, setFechas] = useState('')
+  
+  const showPunto = async () => {
+    const data = await getAllPuntos()
+    console.log(data)
+    setPuntos(data)
   }
-  return (
-    <div>
-      <FormControl className={classes.margin}>
+     const islas = [
+      'Gran Canaria',
+      'Fuerteventura',
+      'Lanzarote',
+      'Tenerife',
+      'La Palma',
+      'La Gomera',
+      'El Hierro',
+    ]
+
+   const horas = [
+     {id:'1', hora:'8:00'},
+     {id:'2', hora:'9:00'},
+     {id:'3', hora:'10:00'},
+     {id:'4', hora:'11:00'},
+     {id:'5', hora:'12:00'},
+     {id:'6', hora:'13:00'},
+     {id:'7', hora:'14:00'},
+     {id:'8', hora:'15:00'},
+     {id:'9', hora:'16:00'},
+     {id:'0', hora:'17:00'},
+     {id:'11', hora:'18:00'},
+     {id:'12', hora:'19:00'},
+     {id:'13', hora:'20:00'}
+   ] 
+
+  const handleChange = (event) => {
+    setPuntos(event.target.value)
+  }
+
+  function handleUpdate() {
+    setActualizar(!actualizar)
+  }
+
+  function handleFecha(event) {
+  setFechas(event.target.value)
+  }
+
+  function handleIsla(event) {
+    setIsla(event.target.value)
+  }
+
+  const selectIsla = () => {
+    return islas.map((isla) => {
+      return (
+        <option key={isla} value={isla}>
+          {isla}
+        </option>
+      )
+    })
+  }
+
+  const selectPunto = () => {
+    return puntos
+    .filter((punto) => punto.pextraccion_isla === isla )
+    .map((punto) =>{
+      return (
+        <option key={punto.id} value={punto.id}>
+          {punto.pextraccion} -- {punto.pextraccion_direccion}
+        </option>
+      )
+    })
+  }
+ 
+ function handleHora(event) {
+   setHora(event.target.value)
+ }
+
+  const selectHora = () => {
+   return horas.map((hora) => {
+     return (
+       <option key={hora.id} value={hora.hora}>
+         {hora.hora}
+       </option>
+     )
+   })
+ }
+
+
+  useEffect(() => {
+    showPunto()
+  }, [actualizar])
+  if (puntos.length !== 0) {
+    return (
+      <div>
         <InputLabel htmlFor="demo-customized-select-native">
-          ¿En qué Isla estas?
+          ¿En que isla se encuentra?
         </InputLabel>
-        <NativeSelect
+        <FormControl className={classes.margin}>
+          <NativeSelect
+            id="demo-customized-select-native"
+            value={isla}
+            onChange={handleIsla}
+            input={<BootstrapInput />}
+          >
+            <option value="" selected disabled hidden>
+              Seleccione Isla
+            </option>
+            {selectIsla()}
+          </NativeSelect>
+        </FormControl>
+        <FormControl className={classes.margin}>
+          <InputLabel htmlFor="demo-customized-select-native">
+            Puntos de Extraccion Fijo / Itinerante
+          </InputLabel>
+          <NativeSelect
+            id="demo-customized-select-native"
+            value={puntos}
+            onChange={handleChange}
+            input={<BootstrapInput />}            
+          >
+            <option value="uhuh" selected disabled hidden>
+              Seleccione Punto de extracción
+            </option>
+            {selectPunto()}
+          </NativeSelect>
+        </FormControl>
+        <FormControl className={classes.margin}>
+          <InputLabel htmlFor="demo-customized-select-native">
+            Seleccione Hora
+          </InputLabel>
+          <NativeSelect
+            id="demo-customized-select-native"
+            value={horas.hora}
+            onChange={handleHora}
+            input={<BootstrapInput />}
+          >
+            <option value="uhuh" selected disabled hidden></option>
+            {selectHora()}
+          </NativeSelect>
+        </FormControl>
+          <InputLabel htmlFor="demo-customized-select-native" 
           id="demo-customized-select-native"
-          value={age}
-          onChange={handleChange}
-          input={<BootstrapInput />}
-        >
-          <option aria-label="None" value="" />
-          <option value={0}>Lanzarote</option>
-          <option value={1}>Fuerteventura</option>
-          <option value={2}>Gran Canaria</option>
-          <option value={3}>El Hierro</option>
-          <option value={4}>La Gomera</option>
-          <option value={5}>Tenerife </option>
-          <option value={6}>La Palma </option>
-          <option value={7}>La Graciosa </option>
-        </NativeSelect>
-      </FormControl>
-      <FormControl className={classes.margin}>
-        <InputLabel htmlFor="demo-customized-select-native">
-          Puntos de Extraccion Fijo / Itinerante
-        </InputLabel>
-        <NativeSelect
-          id="demo-customized-select-native"
-          value={age}
-          onChange={handleChange}
-          input={<BootstrapInput />}
-        >
-          <option aria-label="None" value="" />
-          <option value={0}>
-            LZA -Fijo - HOSPITAL UNIVERSITARIO INSULAR DE GRAN CANARIA Planta 0 –
-            Hall Principal Avda. Marítima del Sur s/n
-          </option>
-          <option value={1}>
-            FTV - Fijo - HOSPITAL UNIVERSITARIO DE GRAN CANARIA DOCTOR NEGRÍN Planta 4
-            – Consultas Externas Barranco de La Ballena
-          </option>
-          <option value={2}>
-            GC - Fijo - CHH | BANCO PROVINCIAL DE LAS PALMAS C/ Alfonso XIII, 4 –
-            Entrada para donantes
-          </option>
-          <option value={3}>
-            HIE - Fijo - HOSPITAL UNIVERSITARIO INSULAR DE GRAN CANARIA Planta 0 –
-            Hall Principal Avda. Marítima del Sur s/n
-          </option>
-          <option value={4}>
-            GOM -Fijo - HOSPITAL UNIVERSITARIO DE GRAN CANARIA DOCTOR NEGRÍN Planta 4
-            – Consultas Externas Barranco de La Ballena
-          </option>
-          <option value={5}>
-            TFE - Fijo - CHH | BANCO PROVINCIAL DE LAS PALMAS C/ Alfonso XIII, 4 –
-            Entrada para donantes
-          </option>
-          <option value={6}>
-            PAL - Fijo - HOSPITAL UNIVERSITARIO INSULAR DE GRAN CANARIA Planta 0 –
-            Hall Principal Avda. Marítima del Sur s/n
-          </option>
-          <option value={7}>
-            GRA - Fijo - HOSPITAL UNIVERSITARIO DE GRAN CANARIA DOCTOR NEGRÍN Planta 4
-            – Consultas Externas Barranco de La Ballena
-          </option>
-        </NativeSelect>
-      </FormControl>
-    </div>
-  )
+          value={fechas}
+          onChange={handleFecha}
+          input={<BootstrapInput />}>
+            Seleccione Fecha
+          </InputLabel>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['DatePicker']}>
+              <BasicDatePicker />
+            </DemoContainer>
+          </LocalizationProvider>
+        
+      </div>
+    )
+  }
 }
+

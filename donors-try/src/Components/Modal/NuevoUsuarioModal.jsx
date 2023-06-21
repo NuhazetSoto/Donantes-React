@@ -7,6 +7,8 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
+import { useState } from 'react'
+import { createUser } from '../../services/user.service'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -61,11 +63,30 @@ const style = {
   p: 4,
 }
 
-export default function ModalCrearUsuario() {
+export default function ModalCrearUsuario({handleCreate}) {
   const [open, setOpen] = React.useState(false)
+  const [newUser, setNewUser] = useState({})
+
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
+   
+  const handleInputChange = (event) => {
+    const { name, value } = event.target
+    setNewUser((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  } 
+
+  const handleResponse = async () => {    
+    const res = await createUser(newUser)
+    console.log(res.statusText)
+    handleClose()
+    handleCreate()
+    console.log('Usuario creado')
+    }
+  
   return (
     <div>
       <Button
@@ -101,36 +122,68 @@ export default function ModalCrearUsuario() {
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               DNI
             </Typography>
-            <TextField />
+            <TextField
+              name="dni"
+              value={newUser.dni || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Nombre
             </Typography>
-            <TextField />
+            <TextField
+              name="name"
+              value={newUser.name || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Apellidos
             </Typography>
-            <TextField />
+            <TextField
+              name="lastname"
+              value={newUser.lastname || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Telefono
             </Typography>
-            <TextField />
+            <TextField
+              name="phone"
+              value={newUser.phone || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Fecha de nacimiento
             </Typography>
-            <TextField />
+            <TextField
+              name="fecha_nacimiento"
+              value={newUser.fecha_nacimiento || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Email
             </Typography>
-            <TextField />
+            <TextField
+              name="email"
+              value={newUser.email || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Password
             </Typography>
-            <TextField />
+            <TextField
+              name="password"
+              value={newUser.password || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Role
             </Typography>
-            <TextField />
-            <Button>Crear</Button>
+            <TextField
+              name="role"
+              value={newUser.role || ''}
+              onChange={handleInputChange}
+            />
+            <Button onClick={handleResponse}>Crear</Button>
           </Box>
         </Fade>
       </Modal>
