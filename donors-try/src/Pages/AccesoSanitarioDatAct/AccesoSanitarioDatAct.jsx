@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -10,10 +10,45 @@ import {
   Typography,
 } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { blue } from '@mui/material/colors'
 import './AccesoSanitarioDatAct.css'
+import { getOneSanitario, updateOneSanitario } from '../../services/sanitario.service'
 
 function AccesoSanitarioDatAct() {
+
+  let [email, setEmail] = useState('')
+  let [telefono, setTelefono] = useState('')
+  let [direccion, setDireccion] = useState('')
+  let [localidad, setLocalidad] = useState('')
+  let [userData, setUserData] = useState([])
+
+  
+
+  const updateData = async () => {    
+    console.log(email. telefono, direccion, localidad)
+    const result = await updateOneSanitario(localStorage.getItem('id'), email,telefono,direccion,localidad, userData)
+    
+  }
+  useEffect(() => {
+    const getUserData = async () => {
+      const data = await getOneSanitario(localStorage.getItem('id'))
+      setUserData(data)
+    }
+    getUserData()
+  }, [])
+
+const handleEmail = (e) => {
+  setEmail(e.target.value)
+}
+const handleTelefono = (e) => {
+  setTelefono(e.target.value)
+}
+const handleDireccion = (e) => {
+  setDireccion(e.target.value)
+}
+const handleLocalidad = (e) => {
+  setLocalidad(e.target.value)
+}
+
   return (
     <>
       <div className="botones">
@@ -68,17 +103,16 @@ function AccesoSanitarioDatAct() {
       </div>
 
       <div className="card">
+        {/**pop up a partir de aqui y que englobe todo el card */}
         <Card
           sx={{
             minWidth: '500px',
-            minHeight: '500px',
             width: '400px',
-            height: '400px',
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: blue[100],
+            backgroundColor: 'white',
           }}
         >
           <Typography
@@ -90,6 +124,7 @@ function AccesoSanitarioDatAct() {
               margin: 2,
               height: '100px',
               marginRight: '50px',
+              marginTop: '50px',
             }}
           >
             Información Personal
@@ -100,7 +135,6 @@ function AccesoSanitarioDatAct() {
               justifyContent: 'center',
               flexDirection: 'column',
               alignItems: 'center',
-              height: '350vh',
               width: '100%',
             }}
           >
@@ -111,11 +145,30 @@ function AccesoSanitarioDatAct() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 width: '100%',
+                fontWeight: 'bold',
               }}
             >
-              <ListItem>DNI: </ListItem>
-              <ListItem>Email: </ListItem>
-              <ListItem>Fecha de nacimiento: </ListItem>
+              <ListItem>-nombre:</ListItem>
+              <ListItem>-apellidos:</ListItem>
+              <ListItem>-DNI </ListItem>
+              <ListItem>
+                -Email
+                <TextField
+                  onChange={handleEmail}
+                  sx={{}}
+                  variant="outlined"
+                  margin="dense"
+                />
+              </ListItem>
+              <ListItem>
+                -TLF
+                <TextField
+                  onChange={handleTelefono}
+                  sx={{}}
+                  variant="outlined"
+                  margin="dense"
+                />
+              </ListItem>
               <ListItem
                 fullWidth
                 sx={{
@@ -124,15 +177,7 @@ function AccesoSanitarioDatAct() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                 }}
-              >
-                Dirección:
-                <TextField
-                  sx={{}}
-                  label="Dirección"
-                  variant="outlined"
-                  margin="dense"
-                />
-              </ListItem>
+              ></ListItem>
 
               <ListItem
                 fullWidth
@@ -143,16 +188,26 @@ function AccesoSanitarioDatAct() {
                   alignItems: 'center',
                 }}
               >
-                Localidad:
+                -Fecha de nacimiento
+              </ListItem>
+              <ListItem>
+                -Dirección
                 <TextField
+                  onChange={handleDireccion}
                   sx={{}}
-                  label="Localidad"
                   variant="outlined"
                   margin="dense"
                 />
               </ListItem>
-              <ListItem>Ubicación actual: </ListItem>
-              <ListItem>Próxima ubicación: </ListItem>
+              <ListItem>
+                -Localidad
+                <TextField
+                  onChange={handleLocalidad}
+                  sx={{}}
+                  variant="outlined"
+                  margin="dense"
+                />
+              </ListItem>
             </List>
           </CardContent>
         </Card>
@@ -166,6 +221,10 @@ function AccesoSanitarioDatAct() {
             marginLeft: '100px',
           }}
         >
+          <Link
+              style={{ color: 'inherit', textDecoration: 'none' }}
+              to={'/login/sanitario/misdatos/actualizar/guardado'}
+            >
           <Button
             sx={{
               alignContent: 'end',
@@ -178,30 +237,33 @@ function AccesoSanitarioDatAct() {
             }}
             variant="contained"
             color="error"
+            onClick={updateData}
           >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario/misdatos/actualizar/guardado'}>
+            
               Guardar
-            </Link>
+           
           </Button>
-
-          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login'}>
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            variant="contained"
-            color="error"
+           </Link>
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login'}
           >
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              variant="contained"
+              color="error"
+            >
               Cerrar sesión
-          </Button>
-            </Link>
+            </Button>
+          </Link>
         </Box>
       </div>
     </>
@@ -209,3 +271,7 @@ function AccesoSanitarioDatAct() {
 }
 
 export default AccesoSanitarioDatAct
+ 
+ 
+
+  
