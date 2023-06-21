@@ -8,8 +8,6 @@ import Typography from '@mui/material/Typography'
 import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
 import { useState } from 'react'
-import { getAllUsers } from '../../services/user.service'
-import { useEffect } from 'react'
 import { createUser } from '../../services/user.service'
 
 const Fade = React.forwardRef(function Fade(props, ref) {

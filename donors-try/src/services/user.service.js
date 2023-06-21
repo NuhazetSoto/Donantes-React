@@ -30,3 +30,15 @@ export const createUser = async (newUser) => {
         
     }
 }
+
+export const deleteUser = async () => {
+    try {
+        const user = await api.delete(
+            `ùser/${localStorage.id}`,
+            {headers: { token: localStorage.getItem('token')}}
+        )
+        console.log('Usuario eliminado')
+    } catch (error) {
+        console.error('Error eliminando usuario')
+    }
+}

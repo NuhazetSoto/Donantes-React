@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { DataGrid } from '@mui/x-data-grid'
 import {
   Button,
   Paper,
@@ -28,7 +27,6 @@ export default function DataTableUsuarios({ data }) {
 
     setUsers(data)
   }
-
   useEffect(() => {
     showUsers()
   }, [actualizar])

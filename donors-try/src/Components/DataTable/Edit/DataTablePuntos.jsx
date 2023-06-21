@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { DataGrid } from '@mui/x-data-grid'
 import {
   Button,
   Paper,
@@ -16,6 +15,7 @@ import TableSearch from '../../Search/TableSearch'
 import { getAllPuntos } from '../../../services/puntos.service'
 import SpringModalPuntos from '../../Modal/ModalPuntos'
 import ModalCrearPunto from '../../Modal/NuevoPuntoModal'
+import DeleteModal from '../../Modal/DeleteModalUser'
 
 export default function DataTableUsuarios({ data }) {
   const [searchQuery, setSearchQuery] = useState('')
@@ -34,7 +34,7 @@ export default function DataTableUsuarios({ data }) {
   const handleUpdate = () => {
     setActualizar(!actualizar)
   }
-  
+
   const handleCreate = () => {
     setActualizar(!actualizar)
   }
@@ -70,6 +70,7 @@ export default function DataTableUsuarios({ data }) {
             <TableCell align="right">{ele.pextraccion_direccion}</TableCell>
             <TableCell>
               <SpringModalPuntos puntos={ele} hadleUpdate={handleUpdate} />
+              <DeleteModal />
             </TableCell>
           </TableRow>
         )
