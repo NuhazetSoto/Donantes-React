@@ -10,11 +10,7 @@ import {
 import { useState, useEffect } from 'react'
 import { getOneDonante } from '../../../services/donante.service'
 import { Link } from 'react-router-dom'
-<<<<<<< HEAD
 import ModalModificaDonante from '../../Modal/ModelModificaDonante'
-=======
-import ModalModificaDonante from '../../Modal/ModalModificaDonante'
->>>>>>> 432ac2eb023e177c5f6c1735917392482f3b8607
 
 const columns = [
   { field: 'dni', headerName: 'DNI', width: 70 },

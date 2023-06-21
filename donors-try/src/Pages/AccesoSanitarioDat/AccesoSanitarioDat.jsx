@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -9,18 +9,30 @@ import {
   Typography,
 } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { blue } from '@mui/material/colors'
 import './AccesoSanitarioDat.css'
+import { getOneSanitario } from '../../services/sanitario.service'
 
 function AccesoSanitarioDat() {
   let currentDate = new Date().toLocaleString('es-ES')
+  const [data , setData] = useState([])
+  const getData = async () => {
+    const result = await getOneSanitario(localStorage.getItem('id'))
+    setData(result)
+
+  }
+  useEffect(() => {
+
+    getData()
+
+  },[])
+
 
   return (
     <>
       <div className="botones">
         <Link
           style={{ color: 'inherit', textDecoration: 'none' }}
-          to='/login/sanitario'
+          to="/login/sanitario"
         >
           <Button
             sx={{
@@ -36,7 +48,7 @@ function AccesoSanitarioDat() {
         </Link>
         <Link
           style={{ color: 'inherit', textDecoration: 'none' }}
-          to='/login/sanitario/ubicacion'
+          to="/login/sanitario/ubicacion"
         >
           <Button
             sx={{
@@ -52,7 +64,7 @@ function AccesoSanitarioDat() {
         </Link>
         <Link
           style={{ color: 'inherit', textDecoration: 'none' }}
-          to='/login/sanitario/misdatos'
+          to="/login/sanitario/misdatos"
         >
           <Button
             sx={{
@@ -79,7 +91,7 @@ function AccesoSanitarioDat() {
             justifyContent: 'center',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: blue[100],
+            backgroundColor: 'white',
             marginRight: '50px',
           }}
         >
@@ -105,14 +117,26 @@ function AccesoSanitarioDat() {
               marginRight: '300px',
             }}
           >
-            <List>
-              <ListItem>DNI: </ListItem>
-              <ListItem>Email: </ListItem>
-              <ListItem>Fecha Nacimiento: </ListItem>
-              <ListItem>Dirección: </ListItem>
-              <ListItem>Localidad: </ListItem>
-              <ListItem>Ubicación actual: </ListItem>
-              <ListItem>Próxima ubicación: </ListItem>
+            <List
+            sx={{
+
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+               
+            }}
+            >
+              <ListItem>-nombre:{data.name}</ListItem>
+              <ListItem>-apellidos:{data.lastname}</ListItem>
+              <ListItem sx={{fontWeight:'bold'}}>-DNI:{data.dni}</ListItem>
+              <ListItem>-email:{data.email}</ListItem>
+              <ListItem>-TLF:{data.phone}</ListItem>
+              <ListItem>-Fecha de nacimiento:{data.fecha_nacimiento}</ListItem>
+              <ListItem>-Localidad:{data.localidad}</ListItem>
+              <ListItem>-Dirección:{data.direccion}</ListItem>
+              
             </List>
           </CardContent>
         </Card>
@@ -159,7 +183,7 @@ function AccesoSanitarioDat() {
             variant="contained"
             color="error"
           >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={''}>
+            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login'}>
               Cerrar sesión
             </Link>
           </Button>
