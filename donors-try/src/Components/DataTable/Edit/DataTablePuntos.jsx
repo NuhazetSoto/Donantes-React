@@ -34,6 +34,10 @@ export default function DataTableUsuarios({ data }) {
   const handleUpdate = () => {
     setActualizar(!actualizar)
   }
+  
+  const handleCreate = () => {
+    setActualizar(!actualizar)
+  }
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value)
@@ -132,7 +136,7 @@ export default function DataTableUsuarios({ data }) {
           </Button>
         </Link>
 
-        <ModalCrearPunto />
+        <ModalCrearPunto handleCreate={handleCreate} />
       </div>
     </>
   )
