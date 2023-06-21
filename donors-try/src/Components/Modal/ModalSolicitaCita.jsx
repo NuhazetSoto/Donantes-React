@@ -6,11 +6,7 @@ import Modal from '@mui/material/Modal'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useSpring, animated } from '@react-spring/web'
-import { CardActions, CardContent, TextField } from '@mui/material'
-import SpringModal from './ModalConfirmarCita'
-import { Link } from 'react-router-dom'
-import CommonlyUsedComponents from '../FechaCita/FechaHoraCita'
-import PuntosDonacion from '../../Pages/PuntosDonacion/PuntosDonacion'
+import { CardContent } from '@mui/material'
 import { Card } from '@material-ui/core'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -69,6 +65,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 }
+
 
 export default function ModalSolicitaCita({ cita, handleUpdate }) {
   const [open, setOpen] = React.useState(false)
@@ -141,43 +138,28 @@ export default function ModalSolicitaCita({ cita, handleUpdate }) {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Card
-              className="card"
-              sx={{
-                display: 'grid',
-                grid: 'auto',
-                alignContent: 'center',
-                alignItems: 'center',
-                justifyContent: 'center',
-                justifyItems: 'center',
-              }}
-            >
+            <CardContent>
               <CardContent>
-                <CardContent>
-                  <Typography>
-                    Seleccione Isla y Punto de donacion:
-                    <CustomizedSelects />
-                  </Typography>
-                  <Typography>
-                    Seleccione Fecha y Hora: 
-                    
-                    
-                   </Typography>
-                </CardContent>
+                <Typography>
+                  <CustomizedSelects />
+                </Typography>
+                <Typography>
+                
+                </Typography>
               </CardContent>
-                <Button
-                  onClick={handleModify}
-                  sx={{
-                    alignContent: 'end',
-                    backgroundColor: '#BF0021',
-                    marginLeft: '8px',
-                  }}
-                  variant="contained"
-                  color="error"
-                >
-                  Confirmar
-                </Button>
-            </Card>
+            </CardContent>
+            <Button
+              onClick={handleModify}
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+              }}
+              variant="contained"
+              color="error"
+            >
+              Confirmar
+            </Button>
           </Box>
         </Fade>
       </Modal>

@@ -7,6 +7,8 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
+import { useState } from 'react'
+import { createPunto } from '../../services/puntos.service'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -61,11 +63,28 @@ const style = {
   p: 4,
 }
 
-export default function ModalCrearPunto() {
+export default function ModalCrearUsuario( {handleCreate} ) {
   const [open, setOpen] = React.useState(false)
-  
+  const [newPunto, setNewPunto] = useState({})
+
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target
+    setNewPunto((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  }
+
+  const handleResponse = async () => {
+    const res = await createPunto(newPunto)
+    console.log(res.statusText)
+    handleClose()
+    handleCreate()
+    console.log('Punto creado')
+  }
 
   return (
     <div>
@@ -100,30 +119,62 @@ export default function ModalCrearPunto() {
               Nuevo Punto:
             </Typography>
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Loc
+              Nombre
             </Typography>
-            <TextField />
+            <TextField
+              name="pextraccion_name"
+              value={newPunto.pextraccion_name || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Tipo
             </Typography>
-            <TextField />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Nombre
-            </Typography>
-            <TextField />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Isla
-            </Typography>
-            <TextField />
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Direccion
-            </Typography>
-            <TextField />
+            <TextField
+              name="pextraccion"
+              value={newPunto.pextraccion || ''}
+              onChange={handleInputChange}
+            />
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               Horario
             </Typography>
-            <TextField />
-            <Button>Crear</Button>
+            <TextField
+              name="pextraccion_horario"
+              value={newPunto.pextraccion_horario || ''}
+              onChange={handleInputChange}
+            />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Telefono
+            </Typography>
+            <TextField
+              name="pextraccion_tlf"
+              value={newPunto.pextraccion_tlf || ''}
+              onChange={handleInputChange}
+            />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Loc
+            </Typography>
+            <TextField
+              name="loc_gps"
+              value={newPunto.loc_gps || ''}
+              onChange={handleInputChange}
+            />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Email
+            </Typography>
+            <TextField
+              name="pextraccion_isla"
+              value={newPunto.pextraccion_isla || ''}
+              onChange={handleInputChange}
+            />
+            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
+              Direccion
+            </Typography>
+            <TextField
+              name="pextraccion_direccion"
+              value={newPunto.pextraccion_direccion || ''}
+              onChange={handleInputChange}
+            />
+            <Button onClick={handleResponse}>Crear</Button>
           </Box>
         </Fade>
       </Modal>

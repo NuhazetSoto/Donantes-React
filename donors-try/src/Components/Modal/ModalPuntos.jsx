@@ -9,6 +9,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
+import DeleteModalPunto from './DeleteModalPunto'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -112,6 +113,23 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
     setEditedData(puntos)
   }, [])
 
+  const handleDelete = async () => {
+    try {
+      const respuesta = await api.delete(`/puntoextraccion/${editedData.id}`, {
+        headers: { token: localStorage.getItem('token') },
+      })
+      if (respuesta) {
+        console.log('Punto eliminado')
+        hadleUpdate()
+        handleClose()
+      } else {
+        console.error(' No se pudo elimnar al punto')
+      }
+    } catch (error) {
+      console.error('Error al eliminar el Punto', error)
+    }
+  }
+
   return (
     <div>
       <Button onClick={handleOpen}>Editar</Button>
@@ -190,6 +208,7 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
               onChange={handleInputChange}
             />
             <Button onClick={handleModify}>Modificar</Button>
+            <DeleteModalPunto handleDelete={handleDelete} />
           </Box>
         </Fade>
       </Modal>

@@ -9,6 +9,8 @@ import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
+import DeleteModal from './DeleteModalUser'
+import DeleteModalUser from './DeleteModalUser'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -114,6 +116,25 @@ export default function SpringModal({ user, hadleUpdate }) {
     setEditedData(user)
   }, [])
 
+  const handleDelete = async () => {
+    try {
+      const respuesta = await api.delete(`/user/${editedData.id}`, {
+        headers: { token: localStorage.getItem('token') },
+      })
+      if(respuesta) {
+        console.log('Usuario eliminado')
+        hadleUpdate()
+        handleClose()
+      } else {
+        console.error(' No se pudo elimnar al usuario')
+      }
+    } catch (error) {
+      console.error('Error al eliminar el usuario', error)
+      
+    }
+    
+  }
+
   return (
     <div>
       <Button onClick={handleOpen}>Editar</Button>
@@ -200,6 +221,7 @@ export default function SpringModal({ user, hadleUpdate }) {
               onChange={handleInputChange}
             />
             <Button onClick={handleModify}>Modificar</Button>
+            <DeleteModalUser handleDelete={handleDelete} />
           </Box>
         </Fade>
       </Modal>

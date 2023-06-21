@@ -7,6 +7,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
+import { useState } from 'react'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -61,10 +62,29 @@ const style = {
   p: 4,
 }
 
-export default function SpringModal() {
-  const [open, setOpen] = React.useState(false)
+export default function ModalConfirmarCita({user, handleUpdate}) {
+  const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
+  const [cita, setCita] = useState ([])
+
+  const handleCita = () => {
+    setCita(fecha_cita: )
+  }
+
+
+const handleModify = async () => {
+    console.log(editedData)
+    console.log(localStorage.getItem('token'))
+    try {
+      const respuesta = await api.put(
+        `/cita/${editedData.id}`,
+        {
+
+
+
+
+
 
   return (
     <div>

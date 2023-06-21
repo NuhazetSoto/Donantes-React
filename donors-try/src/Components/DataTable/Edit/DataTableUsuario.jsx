@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { DataGrid } from '@mui/x-data-grid'
 import {
   Button,
   Paper,
@@ -28,12 +27,14 @@ export default function DataTableUsuarios({ data }) {
 
     setUsers(data)
   }
-
   useEffect(() => {
     showUsers()
   }, [actualizar])
 
   const handleUpdate = () => {
+    setActualizar(!actualizar)
+  }
+  const handleCreate = () => {
     setActualizar(!actualizar)
   }
 
@@ -137,7 +138,7 @@ export default function DataTableUsuarios({ data }) {
           </Button>
         </Link>
 
-        <ModalCrearUsuario />
+        <ModalCrearUsuario handleCreate={handleCreate} />
       </div>
     </>
   )
