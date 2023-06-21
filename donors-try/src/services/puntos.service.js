@@ -4,6 +4,7 @@ export const getAllPuntos = async () => {
     const { data } = await api.get('/puntoextraccion', {headers: {token: localStorage.getItem( 'token' ) } } )
     return data
 }
+
 export const createPunto = async (newPunto) => {
     console.log(newPunto)
     try {
@@ -30,3 +31,4 @@ export const createPunto = async (newPunto) => {
         
     }
 }
+

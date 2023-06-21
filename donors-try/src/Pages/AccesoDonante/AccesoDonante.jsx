@@ -7,7 +7,7 @@ import DataTableDonante from '../../Components/DataTable/DataTableDonante/ShowDa
 import SpringModal from '../../Components/Modal/Modal'
 
 function AccesoDonante() {
-  let currentDate = new Date().toLocaleString('es-ES')
+  //let currentDate = new Date().toLocaleString('es-ES')
   
   return (
     <>
