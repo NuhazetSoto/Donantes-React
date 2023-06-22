@@ -83,9 +83,10 @@ function SanitarioDatGuardado() {
               justifyContent: 'center',
               flexDirection: 'column',
               alignItems: 'center',
-              backgroundColor: blue[100],
+              backgroundColor: 'white',
               marginBottom: '100px',
               marginLeft: '120px',
+              border:'1px solid black'
             }}
           >
             <Typography
@@ -130,7 +131,7 @@ function SanitarioDatGuardado() {
             >
               <Link
                 style={{ color: 'inherit', textDecoration: 'none' }}
-                to={'/login'}
+                to={'/'}
               >
                 Cerrar sesión
               </Link>

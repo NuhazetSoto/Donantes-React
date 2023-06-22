@@ -65,6 +65,27 @@ function AccesoSanitario() {
             Mis datos
           </Button>
         </Link>
+        <Button
+          sx={{
+            alignContent: 'end',
+            backgroundColor: '#BF0021',
+            marginLeft: '10px',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            flexDirection: 'row',
+          }}
+          variant="contained"
+          color="error"
+          onClick={() => {
+            localStorage.removeItem('token')
+            localStorage.removeItem('id')
+            localStorage.removeItem('role')
+          }}
+        >
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/'}>
+            Cerrar sesión
+          </Link>
+        </Button>
       </div>
 
       <ShowDataTableUsuarios />

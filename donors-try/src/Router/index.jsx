@@ -108,11 +108,6 @@ export const router = createBrowserRouter([
         loader: checkSanitario,
       },
       {
-        path: '/login/sanitario/misdatos/actualizar',
-        element: <AccesoSanitarioDatAct />,
-        loader: checkSanitario,
-      },
-      {
         path: '/login/sanitario/misdatos/actualizar/guardado',
         element: <SanitarioDatGuardado />,
         loader: checkSanitario,

@@ -67,6 +67,7 @@ export default function DataTableUsuarios({ data }) {
             <TableCell align="right">{ele.hemogrupoId}</TableCell>
             <TableCell align="right">{ele.hemorhId}</TableCell>
             <TableCell align="right">{ele.password}</TableCell>
+          
             <TableCell>
               <SpringModal user={ele} hadleUpdate={handleUpdate} />
             </TableCell>
@@ -107,6 +108,7 @@ export default function DataTableUsuarios({ data }) {
           searchQuery={searchQuery}
           handleSearchChange={handleSearchChange}
         />
+      
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -137,6 +139,7 @@ export default function DataTableUsuarios({ data }) {
             Volver
           </Button>
         </Link>
+        
 
         <ModalCrearUsuario handleCreate={handleCreate} />
       </div>

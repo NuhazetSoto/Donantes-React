@@ -129,7 +129,11 @@ export default function DataTableUsuarios({ data }) {
           style={{ color: 'inherit', textDecoration: 'none' }}
         >
           <Button
-            sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
+            sx={{
+              backgroundColor: '#B31410',
+              marginLeft: '10px',
+              margin: '5px',
+            }}
             variant="contained"
             color="error"
           >

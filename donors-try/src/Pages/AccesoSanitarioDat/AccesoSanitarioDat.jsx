@@ -11,6 +11,8 @@ import {
 import { Link } from 'react-router-dom'
 import './AccesoSanitarioDat.css'
 import { getOneSanitario } from '../../services/sanitario.service'
+import EditSanDat from '../AccesoSanitarioDatAct/AccesoSanitarioDatAct'
+import BasicModal from '../AccesoSanitarioDatAct/AccesoSanitarioDatAct'
 
 function AccesoSanitarioDat() {
   let currentDate = new Date().toLocaleString('es-ES')
@@ -78,9 +80,32 @@ function AccesoSanitarioDat() {
             Mis datos
           </Button>
         </Link>
+        <Button
+          sx={{
+            alignContent: 'end',
+            backgroundColor: '#BF0021',
+            marginLeft: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          variant="contained"
+          color="error"
+          onClick={() => {
+            localStorage.removeItem('token')
+            localStorage.removeItem('id')
+            localStorage.removeItem('role')
+          }}
+        >
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/'}>
+            Cerrar sesión
+          </Link>
+        </Button>
       </div>
 
       <div className="card">
+        
         <Card
           sx={{
             minWidth: '500px',
@@ -93,6 +118,7 @@ function AccesoSanitarioDat() {
             alignItems: 'center',
             backgroundColor: 'white',
             marginRight: '50px',
+            border: '1px solid black',
           }}
         >
           <Typography
@@ -115,28 +141,66 @@ function AccesoSanitarioDat() {
               alignItems: 'center',
               height: '350vh',
               marginRight: '300px',
+              marginLeft: '150px',
             }}
           >
             <List
-            sx={{
-
+              sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 width: '100%',
-               
-            }}
+                marginLeft: '80px',
+              }}
             >
-              <ListItem>-nombre:{data.name}</ListItem>
-              <ListItem>-apellidos:{data.lastname}</ListItem>
-              <ListItem sx={{fontWeight:'bold'}}>-DNI:{data.dni}</ListItem>
-              <ListItem>-email:{data.email}</ListItem>
-              <ListItem>-TLF:{data.phone}</ListItem>
-              <ListItem>-Fecha de nacimiento:{data.fecha_nacimiento}</ListItem>
-              <ListItem>-Localidad:{data.localidad}</ListItem>
-              <ListItem>-Dirección:{data.direccion}</ListItem>
-              
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -Nombre:
+                <Typography sx={{ marginLeft: '5px' }}>{data.name}</Typography>
+              </ListItem>
+
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -Apellidos:
+                <Typography sx={{ marginLeft: '5px' }}>
+                  {data.lastname}
+                </Typography>
+              </ListItem>
+
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -DNI:
+                <Typography sx={{ marginLeft: '5px' }}>{data.dni}</Typography>
+              </ListItem>
+
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -Email:
+                <Typography sx={{ marginLeft: '5px' }}>{data.email}</Typography>
+              </ListItem>
+
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -TLF:
+                <Typography sx={{ marginLeft: '5px' }}>{data.phone}</Typography>
+              </ListItem>
+
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -Fecha de nacimiento:
+                <Typography sx={{ marginLeft: '5px' }}>
+                  {data.fecha_nacimiento}
+                </Typography>
+              </ListItem>
+
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -Localidad:
+                <Typography sx={{ marginLeft: '5px' }}>
+                  {data.location}
+                </Typography>
+              </ListItem>
+
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                -Dirección:
+                <Typography sx={{ marginLeft: '5px' }}>
+                  {data.direction}
+                </Typography>
+              </ListItem>
             </List>
           </CardContent>
         </Card>
@@ -146,47 +210,10 @@ function AccesoSanitarioDat() {
             display: 'flex',
             flexDirection: 'column-reverse',
             justifyContent: 'space-between',
-            marginLeft: '100px',
+            marginLeft: '100px'
           }}
         >
-          <Link
-            style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/sanitario/misdatos/actualizar'}
-          >
-            <Button
-              sx={{
-                alignContent: 'end',
-                backgroundColor: '#BF0021',
-                marginLeft: '8px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              variant="contained"
-              color="error"
-            >
-              Actualizar datos
-            </Button>
-          </Link>
-
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            variant="contained"
-            color="error"
-          >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login'}>
-              Cerrar sesión
-            </Link>
-          </Button>
+          <BasicModal getData={ getData } />
         </Box>
       </div>
     </>

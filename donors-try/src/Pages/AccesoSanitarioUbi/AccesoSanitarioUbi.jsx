@@ -83,6 +83,27 @@ function AccesoSanitarioUbi() {
             Mis datos
           </Button>
         </Link>
+        <Button
+          sx={{
+            alignContent: 'end',
+            backgroundColor: '#BF0021',
+            marginLeft: '10px',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            flexDirection: 'row',
+          }}
+          variant="contained"
+          color="error"
+          onClick={() => {
+            localStorage.removeItem('token')
+            localStorage.removeItem('id')
+            localStorage.removeItem('role')
+          }}
+        >
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/'}>
+            Cerrar sesión
+          </Link>
+        </Button>
       </Box>
       <Box
         sx={{
@@ -103,7 +124,8 @@ function AccesoSanitarioUbi() {
             justifyContent: 'center',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: blue[100],
+            backgroundColor: 'white',
+            border: '1px solid black',
           }}
         >
           <CardHeader title="Ubicación actual" />
@@ -135,7 +157,8 @@ function AccesoSanitarioUbi() {
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
-            backgroundColor: blue[100],
+            backgroundColor: 'white',
+            border: '1px solid black',
           }}
         >
           <CardHeader title="Ubicación próxima semana" />

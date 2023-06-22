@@ -28,8 +28,8 @@ export const updateOneSanitario = async (id,email,telefono,direccion,localidad, 
         {   
             "email": email,
             "phone": telefono,
-            "direccion": direccion,
-            "localidad": localidad
+            "direction": direccion,
+            "location": localidad
         }, 
         {
         headers: { token: localStorage.getItem('token') }  

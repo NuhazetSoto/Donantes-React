@@ -1,4 +1,4 @@
-import {Button,Card,CardActions,CardContent,Typography,} from '@mui/material'
+import {Box, Button,Card,CardActions,CardContent,Typography,} from '@mui/material'
 import { Link } from 'react-router-dom'
 import './CitaDonante.css'
 import ModalSolicitaCita from '../../../Components/Modal/ModalSolicitaCita'
@@ -66,9 +66,32 @@ function CitaDonante() {
             Historico
           </Link>
         </Button>
+        <Box sx={{ paddingLeft: '50px' }}>
+          <Button
+            sx={{
+              alignContent: 'end',
+              backgroundColor: '#BF0021',
+              marginLeft: '10px',
+              display: 'flex',
+              justifyContent: 'flex-end',
+              flexDirection: 'row',
+            }}
+            variant="contained"
+            color="error"
+            onClick={() => {
+              localStorage.removeItem('token')
+              localStorage.removeItem('id')
+              localStorage.removeItem('role')
+            }}
+          >
+            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/'}>
+              Cerrar sesión
+            </Link>
+          </Button>
+        </Box>
       </div>
       <div>
-        <ModalSolicitaCita cita={data}/>
+        <ModalSolicitaCita cita={data} />
       </div>
     </>
   )

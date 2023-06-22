@@ -9,6 +9,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { TextField } from '@mui/material'
 import { useState } from 'react'
 import { createPunto } from '../../services/puntos.service'
+import { Link } from 'react-router-dom'
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -93,6 +94,7 @@ export default function ModalCrearUsuario( {handleCreate} ) {
           alignContent: 'end',
           backgroundColor: '#BF0021',
           marginLeft: '8px',
+          margin: '5px',
         }}
         variant="contained"
         color="error"
@@ -100,6 +102,30 @@ export default function ModalCrearUsuario( {handleCreate} ) {
       >
         Crear Nuevo Punto
       </Button>
+      <Box>
+        <Button
+          sx={{
+            alignContent: 'end',
+            backgroundColor: '#BF0021',
+            marginLeft: '10px',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            flexDirection: 'row',
+            margin: '5px',
+          }}
+          variant="contained"
+          color="error"
+          onClick={() => {
+            localStorage.removeItem('token')
+            localStorage.removeItem('id')
+            localStorage.removeItem('role')
+          }}
+        >
+          <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/'}>
+            Cerrar sesión
+          </Link>
+        </Button>
+      </Box>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"

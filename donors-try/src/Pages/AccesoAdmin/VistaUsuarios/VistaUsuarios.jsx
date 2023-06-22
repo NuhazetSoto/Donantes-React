@@ -1,7 +1,8 @@
 import DataTableUsuarios from '../../../Components/DataTable/Edit/DataTableUsuario'
-import { Card, CardContent, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, Typography } from '@mui/material'
 import { useState,useEffect } from 'react'
 import { getAllUsers } from '../../../services/user.service'
+import { Link } from 'react-router-dom'
 function VistaUsuarios() {
   const [data,setData] = useState([])
   
@@ -36,6 +37,7 @@ function VistaUsuarios() {
           </Typography>
         </CardContent>
       </Card>
+      
       <div>VistaUsuarios</div>
     </div>
   )

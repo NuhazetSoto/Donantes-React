@@ -37,6 +37,8 @@ export default function DataTableDonante() {
   useEffect(() => {
     showUser()
   }, [actualizar])
+
+
   if(user.length !== 0) {
   return (
     <>
@@ -92,17 +94,17 @@ export default function DataTableDonante() {
         >
           Proxima Cita
         </Typography>
-        <ListItem>
-          <Typography>Fecha: {user.cita[3].fecha_cita}</Typography>
+        {/*<ListItem>
+          <Typography>Fecha: {user.cita[0].fecha_cita}</Typography>
         </ListItem>
         <ListItem>
-          <Typography>Hora: {user.cita[3].hora_cita}</Typography>
+          <Typography>Hora: {user.cita[0].hora_cita}</Typography>
         </ListItem>
         <ListItem>
           <Typography>
             Direccion: {user.puntoextraccions[0].pextraccion_name}
           </Typography>
-        </ListItem>
+        </ListItem>*/}
       </Card>
       <Card>
         <Typography
@@ -125,9 +127,9 @@ export default function DataTableDonante() {
             loading="lazy"
           ></iframe>
         </CardContent>
-        <ListItem>
+        {/*<ListItem>
           <Typography>LOC GPS: {user.puntoextraccions[0].loc_gps}</Typography>
-        </ListItem>
+        </ListItem>*/}
       </Card>
     </>
   )}

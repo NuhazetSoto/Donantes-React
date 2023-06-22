@@ -1,18 +1,29 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Box, Button, Card, Typography } from '@mui/material';
-
+import { Box, Button, Card, TextField, Typography } from '@mui/material';
 import { getAllUsers } from '../../../services/user.service';
 import { useEffect, useState } from 'react';
-import TableSearch from '../../Search/TableSearch';
 import '../DataTableShow/ShowDataTableUsuarios.css';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'dni', headerName: 'DNI', width: 70 },
+  { field: 'hora_cita', headerName: 'Hora', width: 130 },
+  /*{ field: 'id', headerName: 'ID', width: 70 },*/
   { field: 'name', headerName: 'Name', width: 130 },
-  { field: 'lastname', headerName: 'Last name', width: 130 },
+  { field: 'dni', headerName: 'DNI', width: 130 },
+  { field: 'phone', headerName: 'Phone', width: 130 },
   {
+    field: 'extraccion',
+    headerName: 'Successful extraccion',
+    width: 160,
+  },
+
+  {
+    field: 'comentario',
+    headerName: 'Comments',
+    width: 130,
+  },
+
+  /*{
     field: 'phone',
     headerName: 'phone',
     type: 'number',
@@ -29,24 +40,14 @@ const columns = [
     headerName: 'Email',
     width: 160,
   },
-  {
-    field: 'role',
-    headerName: 'role',
-    type: 'string',
-    width: 90,
-  },
-  {
-    field: 'hemorhId',
-    headerName: 'hemorhId',
-    type: 'string',
-    width: 90,
-  },
+
+  
   {
     field: 'hemogrupoId',
     headerName: 'hemogrupoId',
     type: 'string',
     width: 90,
-  },
+  },*/
 ]
 
 export default function ShowDataTableUsuarios() {
@@ -54,9 +55,11 @@ export default function ShowDataTableUsuarios() {
 
   const showData = async () => {
     const data= await getAllUsers()
+    
     console.log(data)
     setUsers(data)
   }
+
   
   useEffect(() => {
     showData()
@@ -65,7 +68,7 @@ export default function ShowDataTableUsuarios() {
   return (
     <Card sx={{ marginTop: '20px' }}>
       <Box className="title">
-        <TableSearch />
+       
         <Typography
           variant="h7"
           component="div"
@@ -74,11 +77,23 @@ export default function ShowDataTableUsuarios() {
             fontWeight: 'bold',
             display: { xs: 'none', sm: 'block' },
             margin: 0,
-            marginLeft: '50px',
+            marginLeft: '130px',
             marginTop: '30px',
+            marginBottom: '10px',
           }}
         >
-          Fecha: 14/07/2023
+          Fecha:
+        </Typography>
+        <Typography
+          sx={{
+            marginRight: '980px',
+            marginTop: '30px',
+            marginLeft: '5px',
+            marginBottom: '10px',
+          }}
+        >
+          {' '}
+          14/07/2023
         </Typography>
 
         <Typography
@@ -89,16 +104,29 @@ export default function ShowDataTableUsuarios() {
             fontWeight: 'bold',
             display: { xs: 'none', sm: 'block' },
             margin: 0,
+            marginLeft: '75px',
             marginTop: '30px',
+            marginBottom: '10px',
+            marginRight:'5px'
           }}
         >
-          Punto: Hospital Negrin
+          Punto:{' '}
+        </Typography>
+
+        <Typography
+          sx={{
+            marginRight: '990px',
+            marginLeft: '5px',
+          }}
+        >Hospital Negrin
         </Typography>
       </Box>
       <Card sx={{ marginTop: '20px' }}>
         <div style={{ height: 400, width: '100%' }}>
-          <DataGrid
+          {<DataGrid
+
             rows={users}
+
             columns={columns}
             initialState={{
               pagination: {
@@ -107,7 +135,7 @@ export default function ShowDataTableUsuarios() {
             }}
             pageSizeOptions={[5, 10]}
             checkboxSelection
-          />
+          />}
         </div>
       </Card>
     </Card>
