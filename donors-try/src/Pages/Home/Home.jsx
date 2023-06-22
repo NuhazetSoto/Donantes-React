@@ -17,8 +17,8 @@ function Home() {
           alignContent: 'center',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '35vw',
-          height: '35vw',
+          width: '34vw',
+          height: '33vw',
         }}
       >
         <CardMedia

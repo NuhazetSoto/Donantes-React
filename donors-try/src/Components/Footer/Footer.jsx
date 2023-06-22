@@ -55,7 +55,7 @@ function Footer() {
       bgcolor="#BF0021"
       color={'white'}>
           <Typography>© DonApp - All Rights Reserved</Typography>
-          <img src="../../../public/SCS_logo.jpg" />
+          <img src="../../../public/SCS_logo.png" />
 
       </Box>
     </footer>
