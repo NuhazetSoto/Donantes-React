@@ -4,6 +4,12 @@ export const getAllUsers = async () => {
     const { data } = await api.get('/user', {headers: {token: localStorage.getItem( 'token' ) } } )
     return data
 }
+export const getOneUser = async () => {
+    const { data } = await api.get(`/user/${localStorage.id}`,{headers: {token: localStorage.getItem( 'token' ) }})
+    console.log(data)
+    return data
+}
+
 export const createUser = async (newUser) => {
     console.log(newUser)
     try {

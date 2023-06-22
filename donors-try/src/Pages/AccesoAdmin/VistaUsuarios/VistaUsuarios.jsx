@@ -36,7 +36,6 @@ function VistaUsuarios() {
           </Typography>
         </CardContent>
       </Card>
-      <div>VistaUsuarios</div>
     </div>
   )
 }

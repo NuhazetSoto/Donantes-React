@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  List,
   ListItem,
   Typography,
 } from '@mui/material'
@@ -62,6 +63,7 @@ export default function DataTableDonante() {
   return (
     <>
       <Card sx={{ minWidth: '400px' }}>
+       
         <Typography
           variant="h5"
           component="div"
@@ -88,11 +90,11 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>email: {user.email}</Typography>
         </ListItem>
-        <ListItem>
+         <ListItem>
           <Typography>
-            Grupo Sanguineo: {user.hemogrupo.hemogrupo} {user.hemorh.hemorh}
+            Grupo Sanguineo: {user.hemogrupo.hemogrupo}   {user.hemorh.hemorh}
           </Typography>
-        </ListItem>
+        </ListItem> 
         <ListItem>
           <Typography>Localidad: {user.localidad}</Typography>
         </ListItem>
@@ -122,7 +124,6 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>Direccion: {dire.pextraccion_name}</Typography>
         </ListItem>
-        <Button onClick={viewCita}>HALA</Button>
       </Card>
       <Card>
         <Typography
@@ -148,6 +149,7 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>LOC GPS: {dire.loc_gps}</Typography>
         </ListItem>
+        
       </Card>
     </>
   )}

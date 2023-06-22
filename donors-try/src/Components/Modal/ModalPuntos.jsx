@@ -132,7 +132,18 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Editar</Button>
+      <Button
+        sx={{
+          alignContent: 'end',
+          backgroundColor: '#BF0021',
+          marginLeft: '8px',
+        }}
+        variant="contained"
+        color="error"
+        onClick={handleOpen}
+      >
+        Editar
+      </Button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
@@ -207,7 +218,18 @@ export default function SpringModalPuntos({ puntos, hadleUpdate }) {
               value={editedData.pextraccion_horario || ''}
               onChange={handleInputChange}
             />
-            <Button onClick={handleModify}>Modificar</Button>
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+              }}
+              variant="contained"
+              color="error"
+              onClick={handleModify}
+            >
+              Modificar
+            </Button>
             <DeleteModalPunto handleDelete={handleDelete} />
           </Box>
         </Fade>

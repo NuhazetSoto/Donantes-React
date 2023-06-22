@@ -26,7 +26,16 @@ export default function DeleteModalPunto({ handleDelete }) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        sx={{
+          alignContent: 'end',
+          backgroundColor: '#BF0021',
+          marginLeft: '8px',
+        }}
+        variant="contained"
+        color="error"
+        onClick={handleClickOpen}
+      >
         Eliminar Punto
       </Button>
       <Dialog

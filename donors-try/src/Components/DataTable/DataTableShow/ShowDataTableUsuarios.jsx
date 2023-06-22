@@ -57,7 +57,12 @@ export default function ShowDataTableUsuarios() {
     console.log(data)
     setUsers(data)
   }
-  
+
+  const currentDate = () => {
+  const date = new Date().toLocaleDateString('es-ES')
+  return date
+  }
+      
   useEffect(() => {
     showData()
   }, [])
@@ -78,7 +83,7 @@ export default function ShowDataTableUsuarios() {
             marginTop: '30px',
           }}
         >
-          Fecha: 14/07/2023
+          Fecha: {currentDate()}
         </Typography>
 
         <Typography
@@ -92,7 +97,7 @@ export default function ShowDataTableUsuarios() {
             marginTop: '30px',
           }}
         >
-          Punto: Hospital Negrin
+          Punto: Hospital Universitario Dr. Negrin
         </Typography>
       </Box>
       <Card sx={{ marginTop: '20px' }}>

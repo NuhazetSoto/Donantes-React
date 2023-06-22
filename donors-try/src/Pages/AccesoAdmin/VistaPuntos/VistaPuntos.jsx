@@ -41,7 +41,7 @@ function VistaPuntos() {
           <DataTablePuntos data={data} />
         </CardContent>
       </Card>
-      <div>VistaPuntos</div>
+
     </>
   )
 }

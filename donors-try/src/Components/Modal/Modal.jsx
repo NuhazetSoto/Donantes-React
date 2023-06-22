@@ -137,7 +137,18 @@ export default function SpringModal({ user, hadleUpdate }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Editar</Button>
+      <Button
+        sx={{
+          alignContent: 'end',
+          backgroundColor: '#BF0021',
+          marginLeft: '8px',
+        }}
+        variant="contained"
+        color="error"
+        onClick={handleOpen}
+      >
+        Editar
+      </Button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
@@ -220,7 +231,18 @@ export default function SpringModal({ user, hadleUpdate }) {
               value={editedData.role || ''}
               onChange={handleInputChange}
             />
-            <Button onClick={handleModify}>Modificar</Button>
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+              }}
+              variant="contained"
+              color="error"
+              onClick={handleModify}
+            >
+              Modificar
+            </Button>
             <DeleteModalUser handleDelete={handleDelete} />
           </Box>
         </Fade>

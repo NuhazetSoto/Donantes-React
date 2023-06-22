@@ -78,6 +78,26 @@ function AccesoSanitarioDat() {
             Mis datos
           </Button>
         </Link>
+        <Button
+          sx={{
+            alignContent: 'end',
+            backgroundColor: '#BF0021',
+            marginLeft: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          variant="contained"
+          color="error"
+        >
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/'}
+          >
+            Cerrar sesión
+          </Link>
+        </Button>
       </div>
 
       <div className="card">
@@ -118,31 +138,27 @@ function AccesoSanitarioDat() {
             }}
           >
             <List
-            sx={{
-
+              sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 width: '100%',
-               
-            }}
+              }}
             >
               <ListItem>-nombre:{data.name}</ListItem>
               <ListItem>-apellidos:{data.lastname}</ListItem>
-              <ListItem sx={{fontWeight:'bold'}}>-DNI:{data.dni}</ListItem>
+              <ListItem sx={{ fontWeight: 'bold' }}>-DNI:{data.dni}</ListItem>
               <ListItem>-email:{data.email}</ListItem>
               <ListItem>-TLF:{data.phone}</ListItem>
               <ListItem>-Fecha de nacimiento:{data.fecha_nacimiento}</ListItem>
               <ListItem>-Localidad:{data.localidad}</ListItem>
               <ListItem>-Dirección:{data.direccion}</ListItem>
-              
             </List>
           </CardContent>
         </Card>
         <Box
           sx={{
-            height: '100vh',
             display: 'flex',
             flexDirection: 'column-reverse',
             justifyContent: 'space-between',
@@ -169,24 +185,6 @@ function AccesoSanitarioDat() {
               Actualizar datos
             </Button>
           </Link>
-
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            variant="contained"
-            color="error"
-          >
-            <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/login'}>
-              Cerrar sesión
-            </Link>
-          </Button>
         </Box>
       </div>
     </>
