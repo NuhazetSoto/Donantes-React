@@ -23,7 +23,7 @@ function AccesoDonante() {
         >
           <Link
             style={{ color: 'inherit', textDecoration: 'none' }}
-            to={'/login/donante'}
+            to={'/login/donante/misdatos'}
           >
             Mis Datos
           </Link>

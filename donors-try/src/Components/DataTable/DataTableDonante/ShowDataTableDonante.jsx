@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  List,
   ListItem,
   Typography,
 } from '@mui/material'
@@ -41,6 +42,7 @@ export default function DataTableDonante() {
   return (
     <>
       <Card sx={{ minWidth: '400px' }}>
+       
         <Typography
           variant="h5"
           component="div"
@@ -67,11 +69,11 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>email: {user.email}</Typography>
         </ListItem>
-        <ListItem>
+         <ListItem>
           <Typography>
-            Grupo Sanguineo: {user.hemogrupo.hemogrupo} {user.hemorh.hemorh}
+            Grupo Sanguineo: {user.hemogrupo.hemogrupo}   {user.hemorh.hemorh}
           </Typography>
-        </ListItem>
+        </ListItem> 
         <ListItem>
           <Typography>Localidad: {user.localidad}</Typography>
         </ListItem>
@@ -80,7 +82,7 @@ export default function DataTableDonante() {
         </ListItem>
         <ModalModificaDonante user={user} handleUpdate={handleUpdate} />
       </Card>
-      <Card>
+      {<Card>
         <Typography
           variant="h5"
           component="div"
@@ -93,17 +95,17 @@ export default function DataTableDonante() {
           Proxima Cita
         </Typography>
         <ListItem>
-          <Typography>Fecha: {user.cita[3].fecha_cita}</Typography>
+          <Typography>Fecha: {user.cita.fecha_cita}</Typography>
         </ListItem>
         <ListItem>
-          <Typography>Hora: {user.cita[3].hora_cita}</Typography>
+          <Typography>Hora: {user.cita.hora_cita}</Typography>
         </ListItem>
         <ListItem>
           <Typography>
-            Direccion: {user.puntoextraccions[0].pextraccion_name}
+            Direccion: {user.puntoextraccions.pextraccion_name}
           </Typography>
         </ListItem>
-      </Card>
+      </Card> }
       <Card>
         <Typography
           variant="h5"
@@ -126,8 +128,9 @@ export default function DataTableDonante() {
           ></iframe>
         </CardContent>
         <ListItem>
-          <Typography>LOC GPS: {user.puntoextraccions[0].loc_gps}</Typography>
+          <Typography>LOC GPS: {user.puntoextraccions.loc_gps}</Typography>
         </ListItem>
+        
       </Card>
     </>
   )}

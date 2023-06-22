@@ -38,7 +38,6 @@ function PuntosDonacion() {
             justifyContent: 'space-around',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: blue[100],
             marginBottom: '100px',
           }}
         >
@@ -96,7 +95,6 @@ function PuntosDonacion() {
             justifyContent: 'center',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: blue[100],
             marginBottom: '100px',
           }}
         >
