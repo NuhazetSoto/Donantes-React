@@ -66,7 +66,6 @@ function AccesoSanitario() {
           </Button>
         </Link>
       </div>
-
       <ShowDataTableUsuarios />
     </Box>
   )

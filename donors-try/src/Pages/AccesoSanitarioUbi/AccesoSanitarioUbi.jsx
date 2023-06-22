@@ -103,25 +103,24 @@ function AccesoSanitarioUbi() {
             justifyContent: 'center',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: blue[100],
           }}
         >
           <CardHeader title="Ubicación actual" />
 
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              Desde al semana del 03/07/2023 al 09/07/2023 su puesto de trabajo
-              será en: Puesto itinerante en Lomo Magullo (fiesta del agua) loc
-              gps: +35.21456-52.36589
+              Desde al semana del 19/06/2023 al 23/06/2023 su puesto de trabajo
+              será en: Puesto fijo Hospital Universitario Dr. Negrin. Loc gps:
+              4HC4+66 Las Palmas de Gran Canaria
             </Typography>
           </CardContent>
-
-          <CardMedia
-            component="img"
-            height="194"
-            image="../../../public/download (1).jpeg"
-            alt="Paella dish"
-          />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3518.963163907046!2d-15.447666123646682!3d28.117153175950204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4095a9ee5560bb%3A0xe179496aac2b7aad!2sHospital%20Universitario%20de%20Gran%20Canaria%20Doctor%20Negr%C3%ADn!5e0!3m2!1ses!2ses!4v1687444124268!5m2!1ses!2ses"
+            width="400"
+            height="300"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </Card>
 
         <CardHeader />
@@ -135,25 +134,24 @@ function AccesoSanitarioUbi() {
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
-            backgroundColor: blue[100],
           }}
         >
           <CardHeader title="Ubicación próxima semana" />
 
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              Desde al semana del 12/07/2023 al 16/07/2023 su puesto de trabajo
-              será en: Puesto itinerante en Lomo Magullo (fiesta del agua) loc
-              gps: +35.21456-52.36589
+              Desde al semana del 26/06/2023 al 30/06/2023 su puesto de trabajo
+              será en: Puesto itinerante en Lomo Magullo. 
+              Loc-gps: XGMR+G8 Balcon de Telde
             </Typography>
           </CardContent>
-
-          <CardMedia
-            component="img"
-            height="194"
-            image="../../../public/download (1).jpeg"
-            alt="Paella dish"
-          />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14093.260817510301!2d-15.469378530568216!3d27.984251266396825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc409779795f8ca9%3A0xc81b6738ae6eaeed!2s35211%20Lomo-Magullo%2C%20Las%20Palmas!5e0!3m2!1ses!2ses!4v1687443289515!5m2!1ses!2ses"
+            width="400"
+            height="300"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </Card>
       </Box>
     </Box>

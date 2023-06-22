@@ -53,10 +53,10 @@ function Login() {
       <div
         className="container"
         style={{
+          margin:'auto',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '75vh',
         }}
       >
         <Box
@@ -99,15 +99,14 @@ function Login() {
           <CardActions>
             <Button
               onClick={logIn}
-              size="small"
-              color="secondary"
+              sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
               variant="contained"
+              color="error"
             >
               Acceder
             </Button>
           </CardActions>
         </Box>
-        
       </div>
     </>
   )

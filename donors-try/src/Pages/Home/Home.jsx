@@ -8,27 +8,26 @@ import Card from '@mui/material/Card'
 function Home() {
   
   return (
-    <>
-      <Box
+    
+      <Card
         sx={{
           display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          minHeight: '100vh',
+          margin:'15px auto',
+          justifyItems: 'center',
+          alignContent: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '35vw',
+          height: '35vw',
         }}
       >
-        <Card>
-          <CardMedia
-
-            component="img"
-            height="850"
-            image="../../../public/sangre .png"
-            alt="sangre"
-
-          />
-        </Card>
-      </Box>
-    </>
+        <CardMedia
+          component="img"
+          image="../../../public/sangre .png"
+          alt="sangre"
+        />
+      </Card>
+    
   )
 }
 

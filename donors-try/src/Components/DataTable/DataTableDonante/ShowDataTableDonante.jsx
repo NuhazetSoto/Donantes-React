@@ -103,7 +103,7 @@ export default function DataTableDonante() {
         </ListItem>
         <ModalModificaDonante user={user} handleUpdate={handleUpdate} />
       </Card>
-      {<Card>
+      <Card>
         <Typography
           variant="h5"
           component="div"
@@ -124,7 +124,6 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>Direccion: {dire.pextraccion_name}</Typography>
         </ListItem>
-        <Button onClick={viewCita}>HALA</Button>
       </Card>
       <Card>
         <Typography

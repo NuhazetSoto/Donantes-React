@@ -18,6 +18,7 @@ function PuntosDonacion() {
       <Box
         sx={{
           display: 'flex',
+          margin: '60px auto',
           flexDirection: 'row',
           justifyContent: 'space-evenly',
           minHeight: '500px',
@@ -81,9 +82,6 @@ function PuntosDonacion() {
               </Typography>
               <ListItem>-Hospital José Molina Orosa </ListItem>
             </List>
-
-          
-          
         </Card>
         <Card
           sx={{
