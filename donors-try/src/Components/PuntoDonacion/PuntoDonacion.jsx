@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import InputBase from '@material-ui/core/InputBase'
-import { useState, useEffect } from 'react'
 import { getAllPuntos } from '../../services/puntos.service'
-import { LocalizationProvider } from '@mui/x-date-pickers'
+import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
-import BasicDatePicker from './Calendar'
 
 const BootstrapInput = withStyles((theme) => ({
   root: {
@@ -25,7 +22,6 @@ const BootstrapInput = withStyles((theme) => ({
     fontSize: 16,
     padding: '10px 26px 10px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
@@ -52,165 +48,174 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function CustomizedSelects() {
+export default function CustomizedSelects({ onDataSelected }) {
+   const [selectedValue, setSelectedValue] = useState(null)
   const classes = useStyles()
   const [actualizar, setActualizar] = useState(false)
-  const [puntos, setPuntos] = useState('')
-  let [isla, setIsla] = useState('')
-  let [hora, setHora] = useState('')
-  const [fechas, setFechas] = useState('')
-  
-  const showPunto = async () => {
+  const [puntos, setPuntos] = useState([])
+  const [selectedIsla, setSelectedIsla] = useState('')
+  const [selectedPunto, setSelectedPunto] = useState('')
+  const [selectedHora, setSelectedHora] = useState('')
+  const [selectedFecha, setSelectedFecha] = useState('')
+
+  const showPuntos = async () => {
     const data = await getAllPuntos()
     console.log(data)
     setPuntos(data)
   }
-     const islas = [
-      'Gran Canaria',
-      'Fuerteventura',
-      'Lanzarote',
-      'Tenerife',
-      'La Palma',
-      'La Gomera',
-      'El Hierro',
-    ]
 
-   const horas = [
-     {id:'1', hora:'8:00'},
-     {id:'2', hora:'9:00'},
-     {id:'3', hora:'10:00'},
-     {id:'4', hora:'11:00'},
-     {id:'5', hora:'12:00'},
-     {id:'6', hora:'13:00'},
-     {id:'7', hora:'14:00'},
-     {id:'8', hora:'15:00'},
-     {id:'9', hora:'16:00'},
-     {id:'0', hora:'17:00'},
-     {id:'11', hora:'18:00'},
-     {id:'12', hora:'19:00'},
-     {id:'13', hora:'20:00'}
-   ] 
+  const islas = [
+    'Gran Canaria',
+    'Fuerteventura',
+    'Lanzarote',
+    'Tenerife',
+    'La Palma',
+    'La Gomera',
+    'El Hierro',
+  ]
 
-  const handleChange = (event) => {
-    setPuntos(event.target.value)
+  const horas = [
+    { id: '1', hora: '8:00' },
+    { id: '2', hora: '9:00' },
+    { id: '3', hora: '10:00' },
+    { id: '4', hora: '11:00' },
+    { id: '5', hora: '12:00' },
+    { id: '6', hora: '13:00' },
+    { id: '7', hora: '14:00' },
+    { id: '8', hora: '15:00' },
+    { id: '9', hora: '16:00' },
+    { id: '0', hora: '17:00' },
+    { id: '11', hora: '18:00' },
+    { id: '12', hora: '19:00' },
+    { id: '13', hora: '20:00' },
+  ]
+
+  const handleChangeIsla = (event) => {
+    setSelectedIsla(event.target.value)
+    setSelectedPunto('') // Reset the selected punto when isla changes
+    console.log(selectedIsla)
   }
 
-  function handleUpdate() {
-    setActualizar(!actualizar)
+  const handleChangePunto = (event) => {
+    setSelectedPunto(event.target.value)
+    console.log(selectedPunto)
   }
 
-  function handleFecha(event) {
-  setFechas(event.target.value)
+  const handleChangeHora = (event) => {
+    setSelectedHora(event.target.value)
+    console.log(selectedHora)
   }
 
-  function handleIsla(event) {
-    setIsla(event.target.value)
+  const handleChangeFecha = (event) => {
+    setSelectedFecha(event.target.value)
+    console.log(selectedFecha)
   }
 
-  const selectIsla = () => {
-    return islas.map((isla) => {
-      return (
-        <option key={isla} value={isla}>
-          {isla}
-        </option>
-      )
-    })
+  useEffect(() => {
+    showPuntos()
+    console.log(selectedIsla)
+  }, [actualizar, selectedIsla])
+
+  const selectIslaOptions = () => {
+    return islas.map((isla) => (
+      <option key={isla} value={isla}>
+        {isla}
+      </option>
+    ))
   }
 
-  const selectPunto = () => {
+  const selectPuntoOptions = () => {
     return puntos
-    .filter((punto) => punto.pextraccion_isla === isla )
-    .map((punto) =>{
-      return (
+      .filter((punto) => punto.pextraccion_isla === selectedIsla)
+      .map((punto) => (
         <option key={punto.id} value={punto.id}>
           {punto.pextraccion} -- {punto.pextraccion_direccion}
         </option>
-      )
-    })
+      ))
   }
- 
- function handleHora(event) {
-   setHora(event.target.value)
- }
 
-  const selectHora = () => {
-   return horas.map((hora) => {
-     return (
-       <option key={hora.id} value={hora.hora}>
-         {hora.hora}
-       </option>
-     )
-   })
- }
+  const selectHoraOptions = () => {
+    return horas.map((hora) => (
+      <option key={hora.id} value={hora.hora}>
+        {hora.hora}
+      </option>
+    ))
+  }
+    const handleDateChange = (date) => {
+      setSelectedFecha(date)
+      console.log(selectedFecha)
+    }
+    const handleSelection = () => {
+      const selectedData = {
+        Isla: selectedIsla,
+        Punto: selectedPunto,
+        Fecha: selectedFecha,
+        Hora: selectedHora
+      }
+      onDataSelected(selectedData)
+    }
 
-
-  useEffect(() => {
-    showPunto()
-  }, [actualizar])
-  if (puntos.length !== 0) {
-    return (
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
-        <InputLabel htmlFor="demo-customized-select-native">
-          ¿En que isla se encuentra?
+        <InputLabel htmlFor="isla-select">
+          ¿En qué isla se encuentra?
         </InputLabel>
         <FormControl className={classes.margin}>
           <NativeSelect
-            id="demo-customized-select-native"
-            value={isla}
-            onChange={handleIsla}
+            id="isla-select"
+            value={selectedIsla}
+            onChange={handleChangeIsla}
             input={<BootstrapInput />}
           >
-            <option value="" selected disabled hidden>
+            <option value="" disabled hidden>
               Seleccione Isla
             </option>
-            {selectIsla()}
+            {selectIslaOptions()}
           </NativeSelect>
         </FormControl>
+
         <FormControl className={classes.margin}>
-          <InputLabel htmlFor="demo-customized-select-native">
-            Puntos de Extraccion Fijo / Itinerante
+          <InputLabel htmlFor="punto-select">
+            Puntos de Extracción Fijo / Itinerante
           </InputLabel>
           <NativeSelect
-            id="demo-customized-select-native"
-            value={puntos}
-            onChange={handleChange}
-            input={<BootstrapInput />}            
-          >
-            <option value="uhuh" selected disabled hidden>
-              Seleccione Punto de extracción
-            </option>
-            {selectPunto()}
-          </NativeSelect>
-        </FormControl>
-        <FormControl className={classes.margin}>
-          <InputLabel htmlFor="demo-customized-select-native">
-            Seleccione Hora
-          </InputLabel>
-          <NativeSelect
-            id="demo-customized-select-native"
-            value={horas.hora}
-            onChange={handleHora}
+            id="punto-select"
+            value={selectedPunto}
+            onChange={handleChangePunto}
             input={<BootstrapInput />}
           >
-            <option value="uhuh" selected disabled hidden></option>
-            {selectHora()}
+            <option value="" disabled hidden>
+              Seleccione Punto de extracción
+            </option>
+            {selectPuntoOptions()}
           </NativeSelect>
         </FormControl>
-          <InputLabel htmlFor="demo-customized-select-native" 
-          id="demo-customized-select-native"
-          value={fechas}
-          onChange={handleFecha}
-          input={<BootstrapInput />}>
-            Seleccione Fecha
-          </InputLabel>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker']}>
-              <BasicDatePicker />
-            </DemoContainer>
-          </LocalizationProvider>
-        
-      </div>
-    )
-  }
-}
 
+        <FormControl className={classes.margin}>
+          <InputLabel htmlFor="hora-select">Seleccione Hora</InputLabel>
+          <NativeSelect
+            id="hora-select"
+            value={selectedHora}
+            onChange={handleChangeHora}
+            input={<BootstrapInput />}
+          >
+            <option value="" disabled hidden></option>
+            {selectHoraOptions()}
+          </NativeSelect>
+        </FormControl>
+
+        <InputLabel htmlFor="fecha-select">Seleccione Fecha</InputLabel>
+        <FormControl className={classes.margin}>
+          <DatePicker
+            value={selectedFecha}
+            onChange={handleDateChange}
+            renderInput={(params) => (
+              <BootstrapInput {...params} id="fecha-select" />
+            )}
+          />
+        </FormControl>
+      </div>
+    </LocalizationProvider>
+  )
+}
