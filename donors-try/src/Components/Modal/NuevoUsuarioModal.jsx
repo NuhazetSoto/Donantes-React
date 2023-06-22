@@ -183,7 +183,18 @@ export default function ModalCrearUsuario({handleCreate}) {
               value={newUser.role || ''}
               onChange={handleInputChange}
             />
-            <Button onClick={handleResponse}>Crear</Button>
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+              }}
+              variant="contained"
+              color="error"
+              onClick={handleResponse}
+            >
+              Crear
+            </Button>
           </Box>
         </Fade>
       </Modal>
