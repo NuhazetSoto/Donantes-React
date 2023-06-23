@@ -9,7 +9,6 @@ function VistaFormulario() {
       <Card>
        <TestPrevio/>
       </Card>
-      <div>VistaFormulario</div>
     </>
   )
 }

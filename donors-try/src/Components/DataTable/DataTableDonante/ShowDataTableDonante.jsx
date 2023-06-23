@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  List,
   ListItem,
   Typography,
 } from '@mui/material'
@@ -25,24 +26,46 @@ const columns = [
 
 export default function DataTableDonante() {
   const [user, setUser] = useState([])
+  const [cita, setCita] = useState('')
   const [actualizar, setActualizar] = useState(false)
   const showUser = async () => {
     const data = await getOneDonante()
-    console.log(data)
     setUser(data)
+    
   }
+
   function handleUpdate(){
     setActualizar(!actualizar)
   }
+
+    //  const selectCita = (data) => {
+    //    const index = data.cita.length - 1
+
+    //    return cit
+    //  }
+    //  selectCita()
+
+     const viewCita = () => {
+      console.log(user)
+     
+     }
+
+
   useEffect(() => {
     showUser()
   }, [actualizar])
 
 
   if(user.length !== 0) {
+    const dire = user.puntoextraccions[user.puntoextraccions.length -1]
+
+    const fechaHora = user.cita[user.cita.length - 1]
+  // console.log(algo)
+
   return (
     <>
       <Card sx={{ minWidth: '400px' }}>
+       
         <Typography
           variant="h5"
           component="div"
@@ -69,11 +92,11 @@ export default function DataTableDonante() {
         <ListItem>
           <Typography>email: {user.email}</Typography>
         </ListItem>
-        <ListItem>
+         <ListItem>
           <Typography>
-            Grupo Sanguineo: {user.hemogrupo.hemogrupo} {user.hemorh.hemorh}
+            Grupo Sanguineo: {user.hemogrupo.hemogrupo}   {user.hemorh.hemorh}
           </Typography>
-        </ListItem>
+        </ListItem> 
         <ListItem>
           <Typography>Localidad: {user.localidad}</Typography>
         </ListItem>
@@ -94,17 +117,15 @@ export default function DataTableDonante() {
         >
           Proxima Cita
         </Typography>
-        {/*<ListItem>
-          <Typography>Fecha: {user.cita[0].fecha_cita}</Typography>
+        <ListItem>
+          <Typography>Fecha: {fechaHora.fecha_cita}</Typography>
         </ListItem>
         <ListItem>
-          <Typography>Hora: {user.cita[0].hora_cita}</Typography>
+          <Typography>Hora: {fechaHora.hora_cita}</Typography>
         </ListItem>
         <ListItem>
-          <Typography>
-            Direccion: {user.puntoextraccions[0].pextraccion_name}
-          </Typography>
-        </ListItem>*/}
+          <Typography>Direccion: {dire.pextraccion_name}</Typography>
+        </ListItem>
       </Card>
       <Card>
         <Typography
@@ -120,16 +141,17 @@ export default function DataTableDonante() {
         </Typography>
         <CardContent>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.097400780325!2d-15.422312499999999!3d28.113062499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4094518b44a92f%3A0x93e6c93dfe9219fb!2s4H7H%2B63%2C%20Las%20Palmas!5e0!3m2!1ses!2ses!4v1687251784343!5m2!1ses!2ses"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3518.8677358711534!2d-15.447065723751939!3d28.120060875948337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4095a9ee5560bb%3A0xe179496aac2b7aad!2sHospital%20Universitario%20de%20Gran%20Canaria%20Doctor%20Negr%C3%ADn!5e0!3m2!1ses!2ses!4v1687427911606!5m2!1ses!2ses"
             width="400"
             height="300"
             allowfullscreen=""
             loading="lazy"
           ></iframe>
         </CardContent>
-        {/*<ListItem>
-          <Typography>LOC GPS: {user.puntoextraccions[0].loc_gps}</Typography>
-        </ListItem>*/}
+        <ListItem>
+          <Typography>LOC GPS: {dire.loc_gps}</Typography>
+        </ListItem>
+        
       </Card>
     </>
   )}

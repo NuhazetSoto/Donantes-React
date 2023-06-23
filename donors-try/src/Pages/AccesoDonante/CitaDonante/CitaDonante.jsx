@@ -1,20 +1,22 @@
-import {Box, Button,Card,CardActions,CardContent,Typography,} from '@mui/material'
+import {Button} from '@mui/material'
 import { Link } from 'react-router-dom'
 import './CitaDonante.css'
 import ModalSolicitaCita from '../../../Components/Modal/ModalSolicitaCita'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { getAllUsers } from '../../../services/user.service'
 
 function CitaDonante() {
   const[data, setData] = useState([])
 
   const handleData = async () => {
     const algo = await getAllUsers()
-    setData(algo)
+ 
   }
   useEffect(() => {
     handleData()
   }, [])
+  
   return (
     <>
       <div className="botones">

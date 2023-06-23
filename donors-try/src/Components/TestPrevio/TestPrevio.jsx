@@ -77,12 +77,16 @@ export default function TestPrevio() {
     <div className="container">
       <FormGroup className="each-one">{renderQuestions(questions)}</FormGroup>
       <div>
-        <Button variant="outlined" onClick={handleValidDonor}>
+        <Button
+          sx={{ backgroundColor: '#B31410', marginLeft: '10px' }}
+          variant="contained"
+          color="error"
+          onClick={handleValidDonor}> 
           Hacer el test
         </Button>
       </div>
     </div>
-  );
+  )
 }
 
 

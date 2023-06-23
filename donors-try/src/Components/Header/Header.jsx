@@ -38,15 +38,6 @@ function Header(props) {
           }}
         >
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: 'none' } }}
-            >
-              <MenuIcon />
-            </IconButton>
             <Typography
               variant="h6"
               component="div"
@@ -56,8 +47,23 @@ function Header(props) {
                 margin: 0,
               }}
             >
-              #DonApp
+              <Link
+                to={'/'}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                #DonApp
+              </Link>
             </Typography>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Link
                 to={'/'}
@@ -113,12 +119,18 @@ function Header(props) {
         <CssBaseline />
       </Box>
       <Toolbar
-        style={{ background: '#BF0021', position: 'relative', top: '0px' }}
+        style={{
+          background: '#BF0021',
+          position: 'relative',
+          top: '0px',
+          alignContent: 'space-between',
+        }}
       >
         <Typography style={{ color: 'whitesmoke' }}>
           Teléfono gratuito de atención al donante: 900 234 061 | De lunes a
           viernes de 8:00 a 22:00 horas
         </Typography>
+        
       </Toolbar>
     </>
   )

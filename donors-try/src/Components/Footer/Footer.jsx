@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid, Container, Typography, Button } from '@mui/material'
+import { Box, Grid, Container, Typography, Button, Card } from '@mui/material'
 
 function Footer() {
   const elements = [
@@ -38,7 +38,7 @@ function Footer() {
 
   return (
     <footer>
-      <Box bgcolor= '#BF0021' color="white" padding={2}>
+      <Box bgcolor="#BF0021" color="white" padding={2}>
         <Container>
           <Grid container columnSpacing={2}>
             {generateFooterElements()}
@@ -46,9 +46,17 @@ function Footer() {
         </Container>
       </Box>
 
-      <Box textAlign={'center'} py={2} m={0} bgcolor="#BF0021" color={'white'}>
-        
-        <Typography>© DonApp - All Rights Reserved</Typography>
+      <Box 
+      textAlign={'center'}
+      alignContent={'space-between'}
+      justifyContent={'center'}
+      py={2}
+      m={0}
+      bgcolor="#BF0021"
+      color={'white'}>
+          <Typography>© DonApp - All Rights Reserved</Typography>
+          <img src="../../../public/SCS_logo.png" />
+
       </Box>
     </footer>
   )

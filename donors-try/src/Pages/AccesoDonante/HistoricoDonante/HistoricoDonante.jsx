@@ -5,6 +5,7 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import './HistoricoDonante.css'
 import { useState, useEffect } from 'react'
 import { getOneDonante } from '../../../services/donante.service'
+import { Divider } from '@material-ui/core';
 
 const columns = [
   { field: 'fecha_donacion', headerName: 'Fecha Donacion', width: 70 },
@@ -16,14 +17,55 @@ export default function HistoricoDonante() {
   const [user, setUser] = useState([])
   const showUser = async () => {
     const data = await getOneDonante()
-    console.log(data)
     setUser(data)
+    
   }
   useEffect(() => {
     showUser()
   }, [])
 
+
+  
+  const mapCita = () => {
+    console.log(user)
+    const citum = user.cita
+    console.log(citum)
+    return citum.map((c) => {
+      console.log(c.fecha_cita)
+      return (
+        <>
+            <ListItem>
+              <Divider/>
+              <Typography>Cita : {c.fecha_cita}</Typography>
+            </ListItem>
+            <ListItem>
+              <Typography>Hora : {c.hora_cita}</Typography>
+            </ListItem>
+            
+
+        </>
+      )})}
+
+   const mapAnalitica = () => {
+    const inform = [user.informeextraccion]
+
+     return inform.map((i) => {
+       return (
+         <>
+           <ListItem>
+             <Typography>Analitica : {i.analitica}</Typography>
+           </ListItem>
+           
+         </>
+       )})
+   }
+
   if (user.length !== 0) {
+
+
+
+    
+  // console.log(algo)
     return (
       <>
         <div className="botones">
@@ -102,7 +144,7 @@ export default function HistoricoDonante() {
             </Button>
           </Box>
         </div>
-
+        <div></div>
         <div className="card">
           <Card sx={{ minWidth: '400px' }}>
             <Typography
@@ -114,25 +156,19 @@ export default function HistoricoDonante() {
                 margin: 2,
               }}
             >
-              Mis Datos
+              Historico de extracciones
             </Typography>
-            <List>
-              <ListItem>
-                <Typography>
-                  Fecha Donacion: {user.cita[0].fecha_cita}
-                </Typography>
-              </ListItem>
-              <ListItem>
-                <Typography>
-                  Estado Donacion: {user.cita[0].hora_cita}
-                </Typography>
-              </ListItem>
-              <ListItem>
-                <Typography>
-                  Informe: {user.informeextraccion.analitica}
-                </Typography>
-              </ListItem>
-            </List>
+
+            <Card>
+              <List>
+                  <ListItem>
+                    <Typography>
+                      <Divider variant="inset" component="Li" />
+                      {mapCita()} {mapAnalitica()}
+                    </Typography>
+                  </ListItem>
+              </List>
+            </Card>
           </Card>
         </div>
       </>

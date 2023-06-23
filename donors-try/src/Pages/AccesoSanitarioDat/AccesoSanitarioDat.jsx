@@ -92,6 +92,7 @@ function AccesoSanitarioDat() {
           }}
           variant="contained"
           color="error"
+<<<<<<< HEAD
           onClick={() => {
             localStorage.removeItem('token')
             localStorage.removeItem('id')
@@ -99,6 +100,13 @@ function AccesoSanitarioDat() {
           }}
         >
           <Link style={{ color: 'inherit', textDecoration: 'none' }} to={'/'}>
+=======
+        >
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/'}
+          >
+>>>>>>> 8d9bb2363e60a4ed6d337984feadfb41440bfb0b
             Cerrar sesión
           </Link>
         </Button>
@@ -151,6 +159,7 @@ function AccesoSanitarioDat() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 width: '100%',
+<<<<<<< HEAD
                 marginLeft: '80px',
               }}
             >
@@ -201,19 +210,53 @@ function AccesoSanitarioDat() {
                   {data.direction}
                 </Typography>
               </ListItem>
+=======
+              }}
+            >
+              <ListItem>-nombre:{data.name}</ListItem>
+              <ListItem>-apellidos:{data.lastname}</ListItem>
+              <ListItem sx={{ fontWeight: 'bold' }}>-DNI:{data.dni}</ListItem>
+              <ListItem>-email:{data.email}</ListItem>
+              <ListItem>-TLF:{data.phone}</ListItem>
+              <ListItem>-Fecha de nacimiento:{data.fecha_nacimiento}</ListItem>
+              <ListItem>-Localidad:{data.localidad}</ListItem>
+              <ListItem>-Dirección:{data.direccion}</ListItem>
+>>>>>>> 8d9bb2363e60a4ed6d337984feadfb41440bfb0b
             </List>
           </CardContent>
         </Card>
         <Box
           sx={{
-            height: '100vh',
             display: 'flex',
             flexDirection: 'column-reverse',
             justifyContent: 'space-between',
             marginLeft: '100px'
           }}
         >
+<<<<<<< HEAD
           <BasicModal getData={ getData } />
+=======
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/sanitario/misdatos/actualizar'}
+          >
+            <Button
+              sx={{
+                alignContent: 'end',
+                backgroundColor: '#BF0021',
+                marginLeft: '8px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              variant="contained"
+              color="error"
+            >
+              Actualizar datos
+            </Button>
+          </Link>
+>>>>>>> 8d9bb2363e60a4ed6d337984feadfb41440bfb0b
         </Box>
       </div>
     </>

@@ -82,18 +82,7 @@ export default function ShowDataTableUsuarios() {
             marginBottom: '10px',
           }}
         >
-          Fecha:
-        </Typography>
-        <Typography
-          sx={{
-            marginRight: '980px',
-            marginTop: '30px',
-            marginLeft: '5px',
-            marginBottom: '10px',
-          }}
-        >
-          {' '}
-          14/07/2023
+          Fecha: {currentDate()}
         </Typography>
 
         <Typography
@@ -110,15 +99,7 @@ export default function ShowDataTableUsuarios() {
             marginRight:'5px'
           }}
         >
-          Punto:{' '}
-        </Typography>
-
-        <Typography
-          sx={{
-            marginRight: '990px',
-            marginLeft: '5px',
-          }}
-        >Hospital Negrin
+          Punto: Hospital Universitario Dr. Negrin
         </Typography>
       </Box>
       <Card sx={{ marginTop: '20px' }}>

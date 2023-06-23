@@ -12,15 +12,18 @@ function AccesoDonante() {
   return (
     <>
       <div className="botones">
-        <Box>
-          <Button
-            sx={{
-              alignContent: 'end',
-              backgroundColor: '#BF0021',
-              marginLeft: '8px',
-            }}
-            variant="contained"
-            color="error"
+        <Button
+          sx={{
+            alignContent: 'end',
+            backgroundColor: '#BF0021',
+            marginLeft: '8px',
+          }}
+          variant="contained"
+          color="error"
+        >
+          <Link
+            style={{ color: 'inherit', textDecoration: 'none' }}
+            to={'/login/donante/misdatos'}
           >
             <Link
               style={{ color: 'inherit', textDecoration: 'none' }}
